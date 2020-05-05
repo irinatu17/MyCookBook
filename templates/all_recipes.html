@@ -1,8 +1,5 @@
-<html>
-    <head>
-
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block content %}
         {% for recipe in recipes %}
             {{recipe.recipe_name}}
             {{recipe.description}}
@@ -17,5 +14,4 @@
             {{recipe.image}}
 
         {% endfor %}
-    </body>
-</html>
+{% endblock %}
