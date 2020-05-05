@@ -30,7 +30,8 @@ def home():
 # All recipes display
 @app.route('/all_recipes')
 def all_recipes():
-    return render_template("all_recipes.html", recipes=recipes_coll.find())
+    return render_template("all_recipes.html", recipes=recipes_coll.find(),
+                           title='Recipes')
 
 # Login
 @app.route("/login")
