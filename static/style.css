@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu&display=swap');
+
+/* Colour Variables and Fonts*/
+:root {
+--white: #ffffff;
+--midiumwhite:#fffafa;
+--darkwhite: #f5f5f5f3;
+--black:#070707;
+--lightblack: #2E2E2E;
+--darkgrey: #515151;
+--lightgrey: #A3A3A3;
+--coral: #ff4242;
+--lightcoral: #ff5249e6;
+--yellow: #FAB700;
+--darkyellow: #c89200;
+--red:#ee0909;
+--lightred:#ff2b24;
+--green:#0f860f;
+--lighgreen: #16bd16;
+--primaryfont: 'Open Sans', sans-serif;
+--secondaryfont: 'Ubuntu', sans-serif;
+}
