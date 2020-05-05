@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, url_for, flash, redirect
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
+from forms import RegistrationForm
+
 if os.path.exists("env.py"):
    import env
 
@@ -39,9 +41,13 @@ def login():
     return render_template('login.html', title='Login')
 
 # Register
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
-    return render_template('register.html', title='Register')
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!')
+        return redirect(url_for('home'))
+    return render_template('register.html', form=form,title='Register')
 
 
 if __name__ == '__main__':

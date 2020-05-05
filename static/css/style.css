@@ -88,3 +88,20 @@ transition-timing-function: ease-in-out;
 -moz-transform: scale(1.3);
 -o-transform: scale(1.3);
 }
+/* Register-Login */
+.login-reg-section{
+max-width: 30rem;
+min-width: 250px;
+margin: auto;
+margin-top: 4rem;
+}
+
+.error-message{
+color: var(--red);
+}
+
+/*Home*/
+.home-container{
+display:flex;
+margin-top:5rem;
+}
