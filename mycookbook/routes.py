@@ -29,6 +29,18 @@ def all_recipes():
     return render_template("all_recipes.html", recipes=recipes_coll.find(),
                            title='Recipes')
 
+# My recipes
+@app.route('/my_recipes')
+def my_recipes():
+    return render_template("my_recipes.html",
+                           title='My Recipes')
+
+# Add recipe
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("add_recipe.html",
+                           title='Add New Recipe')
+
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
@@ -85,8 +97,14 @@ def register():
             return redirect(url_for('home'))
     return render_template('register.html', form=form,  title='Register')
 
-
+#Logout
 @app.route("/logout")
 def logout():
     session.pop("username",  None)
     return redirect(url_for("home"))
+
+#Account Settings
+@app.route("/account_settings")
+def account_settings():
+
+    return render_template('account_settings.html', title='Account Settings')
