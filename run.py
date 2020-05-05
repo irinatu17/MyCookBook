@@ -21,9 +21,10 @@ cuisines_coll = mongo.db.cuisines
 diets_coll = mongo.db.diets
 meals_coll = mongo.db.meals
 
-@app.route("/")
-def test():
-    return "Hello world"
+@app.route('/')
+@app.route('/all_recipes')
+def all_recipes():
+    return render_template("all_recipes.html", recipes=recipes_coll.find())
 
 if __name__ == '__main__':
     app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True) 
