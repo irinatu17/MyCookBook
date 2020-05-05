@@ -1,3 +1,10 @@
+<!--Account Dropdown Structure -->
+<ul id="Account" class="dropdown-content center-align">
+  <li><a href="{{ url_for('my_recipes', username = session.username) }}">My Recipes</a></li>
+  <li><a href="{{ url_for('add_recipe') }}">Add New Recipe</a></li>
+  <li class="divider"></li>
+  <li><a href="{{url_for('account_settings', username = session.username)}}">Settings</a></li>
+</ul>
 <nav>
     <div class="nav-wrapper">
          <a href="{{ url_for('home') }}">
@@ -7,8 +14,13 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="{{url_for('home')}}" class="uppercase"><i class="fas fa-home navbar-icon"></i> Home</a></li>
             <li><a href="{{url_for('all_recipes')}}" class="uppercase"><i class="fas fa-utensils navbar-icon"></i> Recipes</a></li>
+            {% if session.user %}
+            <li><a class="dropdown-trigger uppercase" href="{{ url_for('account_settings', username = session.username) }}" data-target="Account"><i class="fas fa-user-circle navbar-icon"></i> Account<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="{{ url_for('logout') }}" class="uppercase"><i class="fas fa-sign-out-alt navbar-icon" ></i> Logout</a></li>
+            {% else %}
             <li><a href="{{url_for('login')}}" class="uppercase"><i class="fas fa-sign-in-alt navbar-icon"></i> Login</a></li>
             <li><a href="{{url_for('register')}}" class="uppercase"><i class="fas fa-user-plus navbar-icon"></i> Register</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
@@ -17,6 +29,14 @@
     <li><h1 class ="center-align mobile-navbar-heading">My CookBook</h1></li>
     <li><a href="{{url_for('home')}}" class="uppercase"><i class="fas fa-home"></i>Home</a></li>
     <li><a href="{{url_for('all_recipes')}}" class="uppercase"><i class="fas fa-utensils"></i>Browse Recipes</a></li>
+    {% if session.user %}
+    <li><a href="{{ url_for('my_recipes',username = session.username) }}" class="uppercase"><i class="fas fa-user"></i> My Recipes</a></li>
+    <li><a href="{{ url_for('add_recipe') }}" class="uppercase"><i class="fas fa-plus-circle"></i>Add New Recipe</a></li>
+    <li class="divider"></li>
+    <li><a href="{{url_for('account_settings', username = session.username)}}" class="uppercase"><i class="fas fa-cog"></i>Settings</a></li>
+    <li><a href="{{ url_for('logout') }}" class="uppercase"><i class="fas fa-sign-out-alt" ></i> Logout</a></li>
+    {% else %}
     <li><a href="{{url_for('login')}}" class="uppercase"><i class="fas fa-sign-in-alt"></i>Login</a></li>
     <li><a href="{{url_for('register')}}" class="uppercase"><i class="fas fa-user-plus"></i>Register</a></li>
+    {% endif %}
 </ul>
