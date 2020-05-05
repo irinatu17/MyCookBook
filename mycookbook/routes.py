@@ -84,3 +84,9 @@ def register():
             flash(f'Your account have been successfully created.')
             return redirect(url_for('home'))
     return render_template('register.html', form=form,  title='Register')
+
+
+@app.route("/logout")
+def logout():
+    session.pop("username",  None)
+    return redirect(url_for("home"))
