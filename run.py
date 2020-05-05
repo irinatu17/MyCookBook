@@ -27,11 +27,15 @@ meals_coll = mongo.db.meals
 @app.route('/')
 @app.route("/home")
 def home():
+    # Variable for recipes collection
+    recipes = recipes_coll
     return render_template('home.html', title='Home')
 
 # All recipes display
 @app.route('/all_recipes')
 def all_recipes():
+    # Variable for recipes collection
+    recipes = recipes_coll
     return render_template("all_recipes.html", recipes=recipes_coll.find(),
                            title='Recipes')
 
@@ -40,6 +44,8 @@ def all_recipes():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
+        # Variable for users collection
+        users = users_coll
         if form.username.data == 'admin' and form.password.data == 'password':
             flash('You have been successfully logged in!')
             return redirect(url_for('home'))
@@ -52,9 +58,13 @@ def login():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        # Variable for users collection
+        users = users_coll
+
+
         flash(f'Account created for {form.username.data}!')
         return redirect(url_for('home'))
-    return render_template('register.html', form=form, title='Register')
+    return render_template('register.html', form=form,  title='Register')
 
 
 if __name__ == '__main__':
