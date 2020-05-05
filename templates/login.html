@@ -1,6 +1,35 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
-
+<section class="login-reg-section">
+<h1>Login</h1>
+<form method="POST" action="">
+{{ form.hidden_tag() }}
+<div>
+    {{ form.username.label }}
+    {{ form.username }}
+    {% for error in form.username.errors %}
+    <span class = "error-message">[{{ error }}]</span>
+    {% endfor %}
+</div>
+<div>
+    {{ form.password.label }}
+    {{ form.password }}
+    {% for error in form.password.errors %}
+    <span class = "error-message">[{{ error }}]</span>
+    {% endfor %}
+</div>
+<div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="error-message">
+    {{ message }}
+</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+</div>
+<div>{{ form.submit() }}</div>
+</form>
+</section>
 {% endblock %}
