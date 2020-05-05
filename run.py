@@ -21,10 +21,27 @@ cuisines_coll = mongo.db.cuisines
 diets_coll = mongo.db.diets
 meals_coll = mongo.db.meals
 
+# Landing page
 @app.route('/')
+@app.route("/home")
+def home():
+    return render_template('home.html', title='Home')
+
+# All recipes display
 @app.route('/all_recipes')
 def all_recipes():
     return render_template("all_recipes.html", recipes=recipes_coll.find())
 
+# Login
+@app.route("/login")
+def login():
+    return render_template('login.html', title='Login')
+
+# Register
+@app.route("/register")
+def register():
+    return render_template('register.html', title='Register')
+
+
 if __name__ == '__main__':
-    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True) 
+    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)
