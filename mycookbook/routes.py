@@ -52,13 +52,14 @@ def login():
     if form.validate_on_submit():
         # Variable for users collection
         users = users_coll
-        registered_user = users_coll.find_one({'username': request.form['username']})
+        registered_user = users.find_one({'username':
+                                          request.form['username']})
 
         if registered_user:
-            # Check if password entered by user in the form is equal to password in the DB
+            # Check if password entered by user is equal to the password in the DB
             if check_password_hash(registered_user['password'],
                                    request.form['password']):
-                #Add user to session if passwords match
+                # Add user to session if passwords match
                 session['username'] = request.form['username']
                 flash('You have been successfully logged in!')
                 return redirect(url_for('home'))
@@ -80,7 +81,8 @@ def register():
     if form.validate_on_submit():
         # Variable for users collection
         users = users_coll
-        registered_user = users_coll.find_one({'username': request.form['username']})
+        registered_user = users_coll.find_one({'username':
+                                               request.form['username']})
         if registered_user:
             flash("Sorry, this username is already taken!")
             return redirect(url_for('register'))
@@ -97,14 +99,16 @@ def register():
             return redirect(url_for('home'))
     return render_template('register.html', form=form,  title='Register')
 
-#Logout
+# Logout
 @app.route("/logout")
 def logout():
     session.pop("username",  None)
     return redirect(url_for("home"))
 
-#Account Settings
-@app.route("/account_settings")
-def account_settings():
-
-    return render_template('account_settings.html', title='Account Settings')
+# Account Settings
+@app.route("/account_settings/<username>")
+def account_settings(username):
+    username = users_coll.find_one({'username':
+                                    session['username']})['username']
+    return render_template('account_settings.html',
+                           username=username, title='Account Settings')
