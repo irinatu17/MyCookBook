@@ -32,15 +32,30 @@ def all_recipes():
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
+    # Check if the user is already logged in
+    if 'username' in session:
+        flash('You are already logged in')
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         # Variable for users collection
         users = users_coll
-        if form.username.data == 'admin' and form.password.data == 'password':
-            flash('You have been successfully logged in!')
-            return redirect(url_for('home'))
+        registered_user = users_coll.find_one({'username': request.form['username']})
+
+        if registered_user:
+            # Check if password entered by user in the form is equal to password in the DB
+            if check_password_hash(registered_user['password'],
+                                   request.form['password']):
+                #Add user to session if passwords match
+                session['username'] = request.form['username']
+                flash('You have been successfully logged in!')
+                return redirect(url_for('home'))
+            else:
+                flash("Incorrect username or password. Please try again")
+                return redirect(url_for('login'))
         else:
-            flash('Username or password is incorrect. Please try again')
+            flash("Username does not exist! Please try again")
+            return redirect(url_for('login'))
     return render_template('login.html',  form=form, title='Login')
 
 # Register
