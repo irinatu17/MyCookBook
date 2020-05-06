@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, session
 from mycookbook import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
-from mycookbook.forms import RegistrationForm, LoginForm
+from mycookbook.forms import RegisterForm, LoginForm
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
@@ -77,7 +77,7 @@ def register():
     if 'username' in session:
         return redirect(url_for('home'))
 
-    form = RegistrationForm()
+    form = RegisterForm()
     if form.validate_on_submit():
         # Variable for users collection
         users = users_coll

@@ -3,11 +3,12 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, EqualTo
 
 
-class RegistrationForm(FlaskForm):
+class RegisterForm(FlaskForm):
     username = StringField('Username',
                            validators=[DataRequired(), Length(min=3, max=15)])
     password = PasswordField('Password',
-                             validators=[DataRequired(), Length(min=3, max=15)])
+                             validators=[DataRequired(),
+                                         Length(min=3, max=15)])
     confirm_password = PasswordField('Confirm Password',
                                      validators=[DataRequired(),
                                                  EqualTo('password')])
@@ -16,6 +17,29 @@ class RegistrationForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     username = StringField('Username',
-                        validators=[DataRequired(), Length(min=3, max=15)])
+                           validators=[DataRequired(), Length(min=3, max=15)])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Login')
+
+
+class ChangeUsernameorm(FlaskForm):
+    old_username = StringField('Current Username',
+                               validators=[DataRequired(),
+                                           Length(min=3, max=15)])
+    new_username = StringField('New Username',
+                               validators=[DataRequired(),
+                                           Length(min=3, max=15)])
+
+    submit = SubmitField('Change Username')
+
+
+class ChangePasswordForm(FlaskForm):
+    old_password = PasswordField('Current Password',
+                                 validators=[DataRequired()])
+    new_password = PasswordField('New Password', validators=[DataRequired()])
+    confirm_new_password = PasswordField('Confirm New Password',
+                                         validators=[DataRequired(),
+                                                     EqualTo('password')])
+    submit = SubmitField('Change Password')
+
+
