@@ -1,3 +1,109 @@
 {% extends 'base.html' %}
 {% block content %}
+<section class="container margin-top-large">
+<h1>New Recipe</h1>
+<form method="POST" action="">
+{{ form.hidden_tag() }}
+<div class="row">
+<!--Recipe Name-->
+<div class="col s12">
+    {{ form.recipe_name.label }}
+    {{ form.recipe_name }}
+    {% for error in form.recipe_name.errors %}
+    <span class = "error-message">{{ error }}</span>
+    {% endfor %}
+</div>
+<!--Recipe Description-->
+<div class="col s12">
+    {{ form.recipe_description.label }}
+    {{ form.recipe_description }}
+    {% for error in form.recipe_description.errors %}
+    <span class = "error-message">{{ error }}</span>
+    {% endfor %}
+</div>
+<!-- Cuisine_type-->
+<div class="input-field col s12 m4">
+<select id="cuisine_type" name="cuisine_type">
+    <option value="" disabled selected>Choose an option</option>
+    {% for cuisine in cuisine_types %}
+        <option value="{{cuisine.cuisine_type}}">{{cuisine.cuisine_type}}</option>
+    {% endfor %}
+</select>
+    <label>Cuisine Type</label>
+</div>
+<!-- Meal_type-->
+<div class="input-field col s12 m4">
+    <select id="meal_type" name="meal_type">
+    <option value="" disabled selected>Choose an option</option>
+    {% for meal in meal_types %}
+        <option value="{{meal.meal_type}}">{{meal.meal_type}}</option>
+    {% endfor %}
+    </select>
+    <label>Meal Type</label>
+</div>
+<!-- Diet_type-->
+<div class="input-field col s12 m4">
+    <select id="diet_type" name="diet_type">
+    <option value="" disabled selected>Choose an option</option>
+    {% for diet in diet_types %}
+        <option value="{{diet.diet_type}}">{{diet.diet_type}}</option>
+    {% endfor %}
+</select>
+    <label>Diet Type</label>
+</div>
+<!--Cooking Time-->
+<div class="col s12 m6">
+    {{ form.cooking_time.label }}
+    {{ form.cooking_time(type="number")  }}
+    {% for error in form.cooking_time.errors %}
+    <span class = "error-message">{{ error }}</span>
+    {% endfor %}
+</div>
+<!-- Servings-->
+<div class="col s12 m6">
+    {{ form.servings.label }}
+    {{ form. servings(type="number") }}
+    {% for error in form.servings.errors %}
+    <span class = "error-message">{{ error }}</span>
+    {% endfor %}
+</div>
+<!-- Ingredients-->
+<div class="col s12">
+    {{ form.ingredients.label }}
+    {{ form.ingredients }}
+    {% for error in form.ingredients.errors %}
+    <span class = "error-message">{{ error }}</span>
+    {% endfor %}
+</div>
+<!-- Directions-->
+<div class="col s12">
+    {{ form.recipe_directions.label }}
+    {{ form.recipe_directions }}
+    {% for error in form.recipe_directions.errors %}
+    <span class = "error-message">{{ error }}</span>
+    {% endfor %}
+</div>
+<!-- Image Recipe-->
+<div class="col s12">
+    {{ form.image.label }}
+    {{ form.image }}
+    {% for error in form.image.errors %}
+    <span class = "error-message">{{ error }}</span>
+    {% endfor %}
+</div>
+<div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="error-message">
+    {{ message }}
+</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+</div>
+<div>{{ form.submit() }}</div>
+</div>
+</form>
+</section>
 {% endblock %}

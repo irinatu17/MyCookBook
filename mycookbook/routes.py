@@ -2,7 +2,7 @@ from flask import render_template, url_for, flash, redirect, request, session
 from mycookbook import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from mycookbook.forms import RegisterForm, LoginForm, \
-    ChangeUsernameForm, ChangePasswordForm
+    ChangeUsernameForm, ChangePasswordForm, Add_Edit_RecipeForm
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
@@ -39,8 +39,15 @@ def my_recipes():
 # Add recipe
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("add_recipe.html",
-                           title='Add New Recipe')
+    form = Add_Edit_RecipeForm(request.form)
+    diet_types = diets_coll.find()
+    meal_types = meals_coll.find()
+    cuisine_types = cuisines_coll.find()
+    return render_template("add_recipe.html", diet_types=diet_types,
+                           cuisine_types=cuisine_types, meal_types=meal_types,
+                           form=form, title='New Recipe')
+
+
 
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
@@ -147,15 +154,14 @@ def change_password(username):
     form = ChangePasswordForm()
     username = users.find_one({'username': session['username']})['username']
     old_password = request.form.get('old_password')
-    new_password = request.form.get("new_password")
+    new_password = request.form.get('new_password')
     confirm_password = request.form.get("confirm_new_password")
-    hashed_password = generate_password_hash(new_password)
+    
     if form.validate_on_submit():
         if check_password_hash(users.find_one({'username': username})
                                ['password'], old_password):
             if new_password == confirm_password:
-                users.update_one({'username': username},
-                                 {'$set': {'password': hashed_password}})
+                users.update_one({'username': username}, {'$set': {'password': generate_password_hash(request.form['new_password'])}})
                 flash("Success! Your password was updated.")
                 return redirect(url_for('account_settings', username=username))
             else:

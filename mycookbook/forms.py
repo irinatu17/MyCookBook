@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField, SelectField
-from wtforms.validators import DataRequired, Length, EqualTo
+from wtforms.validators import DataRequired, Length, EqualTo, Optional
 
 
 class RegisterForm(FlaskForm):
@@ -43,21 +43,18 @@ class ChangePasswordForm(FlaskForm):
     submit = SubmitField('Change Password')
 
 
-class AddRecipe(FlaskForm):
+class Add_Edit_RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name',
                               validators=[DataRequired(),
                                           Length(min=3, max=25)])
     recipe_description = TextAreaField('Recipe Description',
                                        validators=[DataRequired(),
                                                    Length(min=20, max=300)])
-    cooking_time = IntegerField('Cooking Time', validators=[DataRequired()])
+    cooking_time = IntegerField('Cooking Time (min)', validators=[DataRequired()])
     servings = IntegerField('Number of Servings', validators=[DataRequired()])
-    image = StringField('Recipe Image')
+    image = StringField('Recipe Image', validators=[Optional()])
     ingredients = TextAreaField('Ingredients',
                                 validators=[DataRequired()])
-    directions = TextAreaField('Directions',
+    recipe_directions = TextAreaField('Directions',
                                validators=[DataRequired()])
-    cuisine_type = SelectField('Cuisine Type')
-    meal_type = SelectField('Meal Type')
-    diet_type = SelectField('Diet Type')
     submit = SubmitField('Add Recipe')
