@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, session
 from mycookbook import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
-from mycookbook.forms import RegisterForm, LoginForm
+from mycookbook.forms import RegisterForm, LoginForm, ChangeUsernameForm, ChangePasswordForm
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
@@ -112,3 +112,28 @@ def account_settings(username):
                                     session['username']})['username']
     return render_template('account_settings.html',
                            username=username, title='Account Settings')
+
+
+@app.route("/change_username/<username>", methods=['GET', 'POST'])
+def change_username(username):
+
+    users = users_coll
+
+    form = ChangeUsernameForm()
+    if form.validate_on_submit():
+        registered_user = users_coll.find_one({'username':
+                                               request.form['newusername']})
+        if registered_user:
+            flash('Sorry, username is already taken. Try another one')
+            return redirect(url_for('change_username'))
+        else:
+            users.update_one(
+                {"username": username},
+                {"$set": {"username": request.form["new_username"]}})
+        flash("Your username was successfully updated.\
+                    Please, login with your new username")
+        session.pop("username",  None)
+        return redirect(url_for("login"))
+
+    return render_template('change_username.html',
+                           username=username, title='Change Username')
