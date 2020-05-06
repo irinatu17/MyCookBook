@@ -118,14 +118,14 @@ def account_settings(username):
 def change_username(username):
 
     users = users_coll
-
     form = ChangeUsernameForm()
     if form.validate_on_submit():
         registered_user = users_coll.find_one({'username':
-                                               request.form['newusername']})
+                                               request.form['new_username']})
         if registered_user:
             flash('Sorry, username is already taken. Try another one')
-            return redirect(url_for('change_username'))
+            return redirect(url_for('change_username',
+                                    username=session["username"]))
         else:
             users.update_one(
                 {"username": username},
@@ -136,4 +136,5 @@ def change_username(username):
         return redirect(url_for("login"))
 
     return render_template('change_username.html',
-                           username=username, title='Change Username')
+                           username=session["username"],
+                           form=form, title='Change Username')

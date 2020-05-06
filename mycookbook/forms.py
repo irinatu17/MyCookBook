@@ -23,9 +23,9 @@ class LoginForm(FlaskForm):
 
 
 class ChangeUsernameForm(FlaskForm):
-    old_username = StringField('Current Username',
-                               validators=[DataRequired(),
-                                           Length(min=3, max=15)])
+   # old_username = StringField('Current Username',
+                               #validators=[DataRequired(),
+                                           #Length(min=3, max=15)])
     new_username = StringField('New Username',
                                validators=[DataRequired(),
                                            Length(min=3, max=15)])

@@ -6,7 +6,7 @@
 
 <div class= "row center-align">
 <div class="col s12 m4">
-<a href="">Change username</a>
+<a href="{{ url_for('change_username', username = session.username) }}">Change username</a>
 </div>
 <div class="col s12 m4">
 <a href="">Change password</a>
