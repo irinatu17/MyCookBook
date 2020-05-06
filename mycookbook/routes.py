@@ -47,6 +47,35 @@ def add_recipe():
                            cuisine_types=cuisine_types, meal_types=meal_types,
                            form=form, title='New Recipe')
 
+# Insert recipe
+@app.route("/insert_recipe", methods=['GET', 'POST'])
+def insert_recipe():
+    ingredients = request.form.get("ingredients").splitlines()
+    directions = request.form.get("recipe_directions").splitlines()
+    author = users_coll.find_one({"username": session["username"]})["_id"]
+
+    if request.method == 'POST':
+
+        new_recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("recipe_description"),
+            "cuisine_type": request.form.get("cuisine_type"),
+            "meal_type": request.form.get("meal_type"),
+            "diet_type": request.form.get("diet_type"),
+            "cooking_time": request.form.get("cooking_time"),
+            "servings": request.form.get("servings"),
+            "ingredients": ingredients,
+            "directions": directions,
+            'author': author,
+            "image": request.form.get("recipe_image")
+        }
+        insert_recipe_intoDB = recipes_coll.insert_one(new_recipe)
+        users_coll.update_one(
+            {"_id": ObjectId(author)},
+            {"$push": {"user_recipes": insert_recipe_intoDB.inserted_id}})
+        return redirect(url_for(
+            "home",
+            recipe_id=insert_recipe_intoDB.inserted_id))
 
 
 # Login

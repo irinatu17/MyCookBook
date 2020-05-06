@@ -2,7 +2,7 @@
 {% block content %}
 <section class="container margin-top-large">
 <h1>New Recipe</h1>
-<form method="POST" action="">
+<form method="POST" action="{{ url_for('insert_recipe') }}">
 {{ form.hidden_tag() }}
 <div class="row">
 <!--Recipe Name-->
