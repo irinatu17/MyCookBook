@@ -3,7 +3,17 @@
 <section class="margin-top-large">
 <div class = "container center-align">
 <h1>{{ username }}'s account</h1>
-
+<div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="error-message">
+    {{ message }}
+</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+</div>
 <div class= "row center-align">
 <div class="col s12 m4">
 <a href="{{ url_for('change_username', username = session.username) }}">Change username</a>

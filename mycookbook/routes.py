@@ -1,7 +1,8 @@
 from flask import render_template, url_for, flash, redirect, request, session
 from mycookbook import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
-from mycookbook.forms import RegisterForm, LoginForm, ChangeUsernameForm, ChangePasswordForm
+from mycookbook.forms import RegisterForm, LoginForm, \
+    ChangeUsernameForm, ChangePasswordForm
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 
@@ -120,8 +121,8 @@ def change_username(username):
     users = users_coll
     form = ChangeUsernameForm()
     if form.validate_on_submit():
-        registered_user = users_coll.find_one({'username':
-                                               request.form['new_username']})
+        registered_user = users.find_one({'username':
+                                         request.form['new_username']})
         if registered_user:
             flash('Sorry, username is already taken. Try another one')
             return redirect(url_for('change_username',
@@ -130,7 +131,7 @@ def change_username(username):
             users.update_one(
                 {"username": username},
                 {"$set": {"username": request.form["new_username"]}})
-        flash("Your username was successfully updated.\
+        flash("Your username was updated successfully.\
                     Please, login with your new username")
         session.pop("username",  None)
         return redirect(url_for("login"))
@@ -138,3 +139,27 @@ def change_username(username):
     return render_template('change_username.html',
                            username=session["username"],
                            form=form, title='Change Username')
+
+
+@app.route("/change_password/<username>", methods=['GET', 'POST'])
+def change_password(username):
+    users = users_coll
+    form = ChangePasswordForm()
+    username = users.find_one({'username': session['username']})['username']
+
+    if form.validate_on_submit():
+        if check_password_hash(users.find_one({'username': username})
+                               ['password'], request.form.get('old_password')):
+            if request.form.get("new_password") == request.form.get("confirm_new_password"):
+                users.update_one({'username': username}, {'$set': {'password': generate_password_hash(request.form['new_password'])}})
+                flash("Success! Your password was updated.")
+                return redirect(url_for('account_settings', username=username))
+            else:
+                flash("New passwords do not match! Please try again")
+                return redirect(url_for("change_password", username=session["username"]))
+        else:
+            flash('Incorrect original password! Please try again')
+            return redirect(url_for('change_password',
+                            username=session["username"]))
+    return render_template('change_password.html', username=username,
+                           form=form, title='Change Password')

@@ -8,14 +8,14 @@
     {{ form.username.label }}
     {{ form.username }}
     {% for error in form.username.errors %}
-    <span class = "error-message">[{{ error }}]</span>
+    <span class = "error-message">{{ error }}</span>
     {% endfor %}
 </div>
 <div>
     {{ form.password.label }}
     {{ form.password }}
     {% for error in form.password.errors %}
-    <span class = "error-message">[{{ error }}]</span>
+    <span class = "error-message">{{ error }}</span>
     {% endfor %}
 </div>
 <div>
