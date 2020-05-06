@@ -22,7 +22,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 
-class ChangeUsernameorm(FlaskForm):
+class ChangeUsernameForm(FlaskForm):
     old_username = StringField('Current Username',
                                validators=[DataRequired(),
                                            Length(min=3, max=15)])
