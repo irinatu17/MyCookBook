@@ -9,7 +9,7 @@
 <a href="{{ url_for('change_username', username = session.username) }}">Change username</a>
 </div>
 <div class="col s12 m4">
-<a href="">Change password</a>
+<a href="{{ url_for('change_password', username = session.username) }}">Change password</a>
 </div>
 <div class="col s12 m4">
 <a href="">Delete account</a>
