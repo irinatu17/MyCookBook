@@ -41,5 +41,3 @@ class ChangePasswordForm(FlaskForm):
                                          validators=[DataRequired(),
                                                      Length(min=3, max=15)])
     submit = SubmitField('Change Password')
-
-
