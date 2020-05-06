@@ -1,0 +1,23 @@
+<div class="col s12 m6 l3">
+    <div class="card hoverable">
+        <div class="card-image">
+        <img
+        src="{{ recipe.image }}"
+        class="responsive-img"
+        alt="Recipe Image"
+      />
+          <h3 class="card-title">{{ recipe.recipe_name }}</h3>
+        </div>
+        <div class="row card-content">
+         <div class="col s4 uppercase">{{ recipe.meal_type }}</div>
+        <div class="col s8 right-align">
+          <span title="Cooking time"
+            ><i class="far fa-clock"></i> {{ recipe.cooking_time }} min|
+          </span>
+          <span title="Servings"
+            ><i class="fas fa-concierge-bell"></i> {{ recipe.servings }} |
+          </span>
+        </div>
+        </div>
+      </div>
+</div>

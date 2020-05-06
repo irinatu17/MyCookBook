@@ -62,7 +62,7 @@
 <!-- Servings-->
 <div class="col s12 m6">
     {{ form.servings.label }}
-    {{ form. servings(type="number") }}
+    {{ form.servings(type="number") }}
     {% for error in form.servings.errors %}
     <span class = "error-message">{{ error }}</span>
     {% endfor %}

@@ -108,3 +108,18 @@ color: var(--red);
 display:flex;
 margin-top:5rem;
 }
+.card .card-image img{
+position: relative;
+object-fit: cover;
+height: 40vh;
+}
+.card .card-content{
+padding-top: 0;
+}
+/*>600px Tablet and Desktop size Media queries*/
+@media (min-width: 600px) {
+.container-recipes{
+width: 95%;
+max-width: 1500px;
+}
+}

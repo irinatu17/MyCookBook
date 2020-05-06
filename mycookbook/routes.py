@@ -19,8 +19,8 @@ meals_coll = mongo.db.meals
 @app.route("/home")
 def home():
     # Variable for recipes collection
-    recipes = recipes_coll
-    return render_template('home.html', title='Home')
+    recipes = recipes_coll.find()
+    return render_template('home.html', recipes=recipes, title='Home')
 
 # All recipes display
 @app.route('/all_recipes')
@@ -67,7 +67,7 @@ def insert_recipe():
             "ingredients": ingredients,
             "directions": directions,
             'author': author,
-            "image": request.form.get("recipe_image")
+            "image": request.form.get("image")
         }
         insert_recipe_intoDB = recipes_coll.insert_one(new_recipe)
         users_coll.update_one(
