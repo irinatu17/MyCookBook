@@ -146,17 +146,22 @@ def change_password(username):
     users = users_coll
     form = ChangePasswordForm()
     username = users.find_one({'username': session['username']})['username']
-
+    old_password = request.form.get('old_password')
+    new_password = request.form.get("new_password")
+    confirm_password = request.form.get("confirm_new_password")
+    hashed_password = generate_password_hash(new_password)
     if form.validate_on_submit():
         if check_password_hash(users.find_one({'username': username})
-                               ['password'], request.form.get('old_password')):
-            if request.form.get("new_password") == request.form.get("confirm_new_password"):
-                users.update_one({'username': username}, {'$set': {'password': generate_password_hash(request.form['new_password'])}})
+                               ['password'], old_password):
+            if new_password == confirm_password:
+                users.update_one({'username': username},
+                                 {'$set': {'password': hashed_password}})
                 flash("Success! Your password was updated.")
                 return redirect(url_for('account_settings', username=username))
             else:
                 flash("New passwords do not match! Please try again")
-                return redirect(url_for("change_password", username=session["username"]))
+                return redirect(url_for("change_password",
+                                        username=session["username"]))
         else:
             flash('Incorrect original password! Please try again')
             return redirect(url_for('change_password',
