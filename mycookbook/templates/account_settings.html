@@ -22,9 +22,29 @@
 <a href="{{ url_for('change_password', username = session.username) }}">Change password</a>
 </div>
 <div class="col s12 m4">
-<a href="">Delete account</a>
+<a href="#delete-modal-account">Delete account</a>
 </div>
 </div>
 </div>
 </section>
+<!--Delete Account Modal -->
+<div id="delete-modal-account" class="modal">
+	<h5>Delete Account</h5>
+	<form action="" method="POST">
+
+		<!--Get flashed messages-->
+		<div class="row center-align">
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			{% for message in messages %}
+			<p class="flash-error margin-top-small">
+				{{ message }}
+			</p>
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+		</div>
+		<div>{{ form.submit() }}</div>
+	</form>
+</div>
 {% endblock %}
