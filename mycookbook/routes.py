@@ -163,3 +163,17 @@ def change_password(username):
                             username=session["username"]))
     return render_template('change_password.html', username=username,
                            form=form, title='Change Password')
+
+
+@app.route("/delete_account/<username>", methods=['GET', 'POST'])
+def delete_account(username):
+    user = users_coll.find_one({"username": username})
+    if check_password_hash(user["password"],
+                           request.form["confirm_password_to_delete"]):
+        flash("Your account has been deleted.")
+        session.pop("username", None)
+        users_coll.remove({"_id": user.get("_id")})
+        return redirect(url_for("home"))
+    else:
+        flash("Password is incorrect! Please try again")
+        return redirect(url_for("account_settings", username=username))

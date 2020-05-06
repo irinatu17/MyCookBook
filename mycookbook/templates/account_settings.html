@@ -1,30 +1,64 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <section class="margin-top-large">
-<div class = "container center-align">
-<h1>{{ username }}'s account</h1>
-<div>
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages %}
-<p class="error-message">
-    {{ message }}
-</p>
-{% endfor %}
-{% endif %}
-{% endwith %}
-</div>
-<div class= "row center-align">
-<div class="col s12 m4">
-<a href="{{ url_for('change_username', username = session.username) }}">Change username</a>
-</div>
-<div class="col s12 m4">
-<a href="{{ url_for('change_password', username = session.username) }}">Change password</a>
-</div>
-<div class="col s12 m4">
-<a href="">Delete account</a>
-</div>
-</div>
-</div>
+  <div class="container center-align">
+    <h1>{{ username }}'s account</h1>
+    <div>
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <p class="error-message">
+        {{ message }}
+      </p>
+      {% endfor %} {% endif %} {% endwith %}
+    </div>
+    <div class="row center-align">
+      <div class="col s12 m4">
+        <a href="{{ url_for('change_username', username = session.username) }}"
+          >Change username</a
+        >
+      </div>
+      <div class="col s12 m4">
+        <a href="{{ url_for('change_password', username = session.username) }}"
+          >Change password</a
+        >
+      </div>
+      <div class="col s12 m4">
+        <a href="#delete-modal-account" class="modal-trigger">Delete account</a>
+      </div>
+    </div>
+  </div>
 </section>
+<!--Delete Account Modal -->
+<div id="delete-modal-account" class="modal">
+  <div class="modal-content center-align">
+    <h5>Delete Account</h5>
+    <h6>Are you sure you want to delete your account?</h6>
+    <form
+      action="{{ url_for('delete_account', username = session.username) }}"
+      method="POST"
+    >
+      <div class="input-field">
+        <input
+          placeholder="Enter password to confirm deletion"
+          id="confirm_password_to_deleted"
+          name="confirm_password_to_delete"
+          type="password"
+          class="validate"
+          required
+        />
+        <label for="confirm_password_to_delete">Confirm password</label>
+      </div>
+      <!--Get flashed messages-->
+      <div>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <p class="error-message">
+          {{ message }}
+        </p>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
+      <a href="#" class="modal-close">Cancel</a>
+      <button href="#">Delete Account</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
