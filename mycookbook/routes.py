@@ -3,7 +3,7 @@ from mycookbook import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from mycookbook.forms import RegisterForm, LoginForm, \
     ChangeUsernameForm, ChangePasswordForm, Add_Edit_RecipeForm
-from flask_pymongo import PyMongo, pymongo
+from flask_pymongo import pymongo
 from bson.objectid import ObjectId
 
 
@@ -26,8 +26,8 @@ def home():
 @app.route('/all_recipes')
 def all_recipes():
     # Variable for recipes collection
-    recipes = recipes_coll
-    return render_template("all_recipes.html", recipes=recipes_coll.find(),
+    recipes = recipes_coll.find()
+    return render_template("all_recipes.html", recipes=recipes,
                            title='Recipes')
 
 # My recipes
@@ -185,12 +185,13 @@ def change_password(username):
     old_password = request.form.get('old_password')
     new_password = request.form.get('new_password')
     confirm_password = request.form.get("confirm_new_password")
-    
     if form.validate_on_submit():
         if check_password_hash(users.find_one({'username': username})
                                ['password'], old_password):
             if new_password == confirm_password:
-                users.update_one({'username': username}, {'$set': {'password': generate_password_hash(request.form['new_password'])}})
+                users.update_one({'username': username},
+                                 {'$set': {'password': generate_password_hash
+                                           (request.form['new_password'])}})
                 flash("Success! Your password was updated.")
                 return redirect(url_for('account_settings', username=username))
             else:

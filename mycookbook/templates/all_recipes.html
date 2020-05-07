@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-        {% for recipe in recipes %}
-            {{recipe.recipe_name}}
-            {{recipe.description}}
-            {{recipe.cuisine_type}}
-            {{recipe.meal_type}}
-            {{recipe.cooking_time}}
-            {{recipe.diet_type}}
-            {{recipe.servings}}
-            {{recipe.author}}
-            {{recipe.ingredients}}
-            {{recipe.directions}}
-            {{recipe.image}}
+<section class = "container margin-top-large">
+    <h1 class=" uppercase center-align">All Recipes</h1>
 
+
+
+    <div class="container container-recipes">
+        <div class="row">
+        {% for recipe in recipes %}
+        {% include "partials/_recipecards.html" %}
         {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

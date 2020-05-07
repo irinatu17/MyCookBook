@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField, SelectField
+from wtforms import StringField, PasswordField, SubmitField,\
+ TextAreaField, IntegerField
 from wtforms.validators import DataRequired, Length, EqualTo, Optional
 
 
@@ -50,11 +51,12 @@ class Add_Edit_RecipeForm(FlaskForm):
     recipe_description = TextAreaField('Recipe Description',
                                        validators=[DataRequired(),
                                                    Length(min=20, max=300)])
-    cooking_time = IntegerField('Cooking Time (min)', validators=[DataRequired()])
+    cooking_time = IntegerField('Cooking Time (min)',
+                                validators=[DataRequired()])
     servings = IntegerField('Number of Servings', validators=[DataRequired()])
     image = StringField('Recipe Image', validators=[Optional()])
     ingredients = TextAreaField('Ingredients',
                                 validators=[DataRequired()])
     recipe_directions = TextAreaField('Directions',
-                               validators=[DataRequired()])
+                                      validators=[DataRequired()])
     submit = SubmitField('Add Recipe')

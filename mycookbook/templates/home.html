@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class = "container home-container">
-<div>
+<div row>
+<div class="col s12">
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for message in messages %}
@@ -11,6 +12,7 @@
 {% endfor %}
 {% endif %}
 {% endwith %}
+</div>
 </div>
 <div class="container container-recipes">
   <div class="row">
