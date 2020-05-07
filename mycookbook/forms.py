@@ -44,7 +44,7 @@ class ChangePasswordForm(FlaskForm):
     submit = SubmitField('Change Password')
 
 
-class Add_Edit_RecipeForm(FlaskForm):
+class Add_RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name',
                               validators=[DataRequired()])
     recipe_description = TextAreaField('Recipe Description',

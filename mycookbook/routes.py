@@ -2,7 +2,7 @@ from flask import render_template, url_for, flash, redirect, request, session
 from mycookbook import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from mycookbook.forms import RegisterForm, LoginForm, \
-    ChangeUsernameForm, ChangePasswordForm, Add_Edit_RecipeForm
+    ChangeUsernameForm, ChangePasswordForm, Add_RecipeForm
 from flask_pymongo import pymongo
 from bson.objectid import ObjectId
 
@@ -53,7 +53,7 @@ def my_recipes(username):
 # Add recipe
 @app.route('/add_recipe')
 def add_recipe():
-    form = Add_Edit_RecipeForm()
+    form = Add_RecipeForm()
     diet_types = diets_coll.find()
     meal_types = meals_coll.find()
     cuisine_types = cuisines_coll.find()
