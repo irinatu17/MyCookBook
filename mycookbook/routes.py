@@ -29,6 +29,16 @@ def all_recipes():
     recipes = recipes_coll.find()
     return render_template("all_recipes.html", recipes=recipes,
                            title='Recipes')
+# Single Recipe details display
+@app.route('/recipe_details/<recipe_id>')
+def single_recipe_details(recipe_id):
+
+    selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
+    author = users_coll.find_one(
+    {"_id": ObjectId(selected_recipe.get("author"))})["username"]
+
+    return render_template("single_recipe_details.html", selected_recipe=selected_recipe, author=author, 
+                           title='Recipes')
 
 # My recipes
 @app.route('/my_recipes')

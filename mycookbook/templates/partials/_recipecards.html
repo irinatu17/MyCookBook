@@ -1,11 +1,12 @@
 <div class="col s12 m6 l3">
     <div class="card hoverable">
         <div class="card-image">
+        <a href="{{ url_for('single_recipe_details', recipe_id=recipe._id) }}">
         <img
         src="{{ recipe.image }}"
         class="responsive-img"
         alt="Recipe Image"
-      />
+      /></a>
           <h3 class="card-title">{{ recipe.recipe_name }}</h3>
         </div>
         <div class="row card-content">
