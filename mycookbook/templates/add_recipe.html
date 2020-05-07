@@ -14,7 +14,6 @@
 <!--Recipe Description-->
 <div class="input-field col s12">
 <i class="fas fa-pen prefix"></i>
-    {{ form.recipe_description.label }}
     {{ form.recipe_description(id="recipe_description", class="validate materialize-textarea", minlength="20", maxlength="300") }}
     <label for="recipe_description">Recipe Description  <i class="fas fa-asterisk asterisk"></i></label>
 </div>
@@ -22,12 +21,12 @@
 <div class="input-field col s12 m6 l4">
     <i class="fas fa-globe-europe prefix"></i>
 <select id="cuisine_type" name="cuisine_type">
-    <option value="" disabled selected>Choose an option</option>
+    <option value="" disabled selected>Select an option</option>
     {% for cuisine in cuisine_types %}
         <option value="{{cuisine.cuisine_type}}">{{cuisine.cuisine_type}}</option>
     {% endfor %}
 </select>
-    <label for="cuisine_type">Cousine (optional)</label>
+    <label for="cuisine_type">Cuisine (optional)</label>
 </div>
 <!-- Meal_type-->
 <div class="input-field col s12 m6 l4">
@@ -44,7 +43,7 @@
     <div class="input-field col s12 m6 l4">
     <i class="fas fa-leaf prefix"></i>
     <select id="diet_type" name="diet_type">
-        <option value="None" selected>Select an option</option>
+        <option value="" disabled selected>Select an option</option>
     {% for diet in diet_types %}
         <option value="{{diet.diet_type}}">{{diet.diet_type}}</option>
     {% endfor %}
@@ -80,7 +79,7 @@
 <!-- Image Recipe-->
 <div class="input-field col s12">
 <i class="far fa-images prefix"></i>
-    {{ form.image(id="recipe_image", placeholder="Provide URL to your recipe image", class="validate") }}
+    {{ form.image(id="recipe_image", placeholder="Provide URL for your recipe image", class="validate") }}
 <label for="recipe_image">Recipe Image (optional)</label>
 
 </div>
