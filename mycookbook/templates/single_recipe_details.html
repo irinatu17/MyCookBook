@@ -13,7 +13,7 @@
       {% if session.username == author %}
       <div class="row">
         <div class="col s6">
-          <a href="" class="btn" name="action">
+          <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}" class="btn" name="action">
             <i class="fas fa-edit right"></i>
             Edit
           </a>
