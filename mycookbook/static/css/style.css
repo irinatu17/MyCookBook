@@ -116,10 +116,68 @@ height: 40vh;
 .card .card-content{
 padding-top: 0;
 }
+/* Add-Edit recipe*/
+.container-addrecipe{
+padding:1px;
+border-radius: 20px;
+margin-bottom: 2rem;
+width:100%;
+}
+.add-edit-form{
+padding:0;
+}
+.asterisk{
+color: var(--red);
+font-size: 10px;
+}
+/* Buttons*/
+.btn-main{
+background-color: var(--coral);
+color: var(--white);
+border-radius: 1.5rem;
+margin-top: 20px;
+margin-bottom: -20px;
+font-family: var(--secondaryfont);
+}
+.btn-main:hover,
+.btn-main:active,
+.btn-main:focus{
+background-color: var(--lightcoral);
+}
+.btn-form{
+margin-top: 0;
+margin-bottom: 0;
+width: 90%;
+}
+.btn-secondary{
+color: var(--black);
+background-color: var(--darkwhite);
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active{
+background-color: var(--midiumwhite);
+}
 /*>600px Tablet and Desktop size Media queries*/
 @media (min-width: 600px) {
 .container-recipes{
 width: 95%;
 max-width: 1500px;
+}
+.add-edit-form{
+padding:0 2rem;
+}
+}
+/*  Tablet size only Media queries */
+@media (min-width: 600px) and (max-width: 992px){
+.container-addrecipe{
+width:85%;
+}
+}
+/* Desktop size only Media queries */
+@media (min-width: 992px) {
+
+.container-addrecipe{
+width:70%;
 }
 }
