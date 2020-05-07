@@ -1,3 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+<section class = "container margin-top-large">
+    <h1 class=" uppercase center-align">My Recipes</h1>
+    <div class="container container-recipes">
+        <div class="row">
+        {% for recipe in my_recipes %}
+        {% include "partials/_recipecards.html" %}
+        {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

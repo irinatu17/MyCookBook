@@ -41,10 +41,14 @@ def single_recipe_details(recipe_id):
                            title='Recipes')
 
 # My recipes
-@app.route('/my_recipes')
-def my_recipes():
-    return render_template("my_recipes.html",
-                           title='My Recipes')
+@app.route('/my_recipes/<username>')
+def my_recipes(username):
+    my_id = users_coll.find_one({'username': session['username']})['_id']
+    my_username = users_coll.find_one({'username': session
+                                      ['username']})['username']
+    my_recipes = recipes_coll.find({'author': my_id})
+    return render_template("my_recipes.html", my_recipes=my_recipes,
+                           username=my_username, title='My Recipes')
 
 # Add recipe
 @app.route('/add_recipe')
