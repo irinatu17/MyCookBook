@@ -10,7 +10,32 @@
         src="{{ selected_recipe.image }}"
         alt="Recipe Image"
       />
-<p>Author: {{ author }}</p>
+        <p>Author: {{ author }}</p>
+      
+      <div class="row">
+        <div class="col s6">
+          <a
+            href=""
+            class="btn"
+            name="action"
+          >
+            <i class="fas fa-edit right"></i>
+            Edit
+          </a>
+        </div>
+        <div class="col s6">
+          <a
+           href=""
+            class="btn"
+            name="action"
+          >
+            <i class="fas fa-trash-alt right"></i>
+            Delete
+          </a>
+        </div>
+      </div>
+     
+    </div>
 </div>
 <div class="col s12 m6">
 <div>
