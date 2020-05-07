@@ -46,12 +46,10 @@ class ChangePasswordForm(FlaskForm):
 
 class Add_Edit_RecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name',
-                              validators=[DataRequired(),
-                                          Length(min=3, max=25)])
+                              validators=[DataRequired()])
     recipe_description = TextAreaField('Recipe Description',
-                                       validators=[DataRequired(),
-                                                   Length(min=20, max=300)])
-    cooking_time = IntegerField('Cooking Time (min)',
+                                       validators=[DataRequired()])
+    cooking_time = IntegerField('Cooking Time (minutes)',
                                 validators=[DataRequired()])
     servings = IntegerField('Number of Servings', validators=[DataRequired()])
     image = StringField('Recipe Image', validators=[Optional()])

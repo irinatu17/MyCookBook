@@ -35,9 +35,9 @@ def single_recipe_details(recipe_id):
 
     selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
     author = users_coll.find_one(
-    {"_id": ObjectId(selected_recipe.get("author"))})["username"]
-
-    return render_template("single_recipe_details.html", selected_recipe=selected_recipe, author=author, 
+        {"_id": ObjectId(selected_recipe.get("author"))})["username"]
+    return render_template("single_recipe_details.html",
+                           selected_recipe=selected_recipe, author=author,
                            title='Recipes')
 
 # My recipes
@@ -69,7 +69,6 @@ def insert_recipe():
     author = users_coll.find_one({"username": session["username"]})["_id"]
 
     if request.method == 'POST':
-
         new_recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "description": request.form.get("recipe_description"),
@@ -91,18 +90,42 @@ def insert_recipe():
             "home",
             recipe_id=insert_recipe_intoDB.inserted_id))
 
-
+# Edit Recipe
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
-    form = Add_Edit_RecipeForm()
     diet_types = diets_coll.find()
     meal_types = meals_coll.find()
     cuisine_types = cuisines_coll.find()
     return render_template('edit_recipe.html', selected_recipe=selected_recipe,
                            cuisine_types=cuisine_types, diet_types=diet_types,
-                           meal_types=meal_types, form=form, title='Edit Recipe')
+                           meal_types=meal_types, title='Edit Recipe')
 
+
+# Update Recipe in Database
+@app.route("/update_recipe/<recipe_id>", methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = recipes_coll
+    selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
+    author = selected_recipe.get("author")
+    ingredients = request.form.get("ingredients").splitlines()
+    directions = request.form.get("directions").splitlines()
+    if request.method == "POST":
+        recipes.update({"_id": ObjectId(recipe_id)}, {
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("recipe_description"),
+            "cuisine_type": request.form.get("cuisine_type"),
+            "meal_type": request.form.get("meal_type"),
+            "cooking_time": request.form.get("cooking_time"),
+            "diet_type": request.form.get("diet_type"),
+            "servings": request.form.get("servings"),
+            "ingredients": ingredients,
+            "directions": directions,
+            'author': author,
+            "image": request.form.get("recipe_image")
+        })
+        return redirect(url_for("single_recipe_details",
+                                recipe_id=recipe_id))
 
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
@@ -176,7 +199,7 @@ def account_settings(username):
     return render_template('account_settings.html',
                            username=username, title='Account Settings')
 
-
+# Change username
 @app.route("/change_username/<username>", methods=['GET', 'POST'])
 def change_username(username):
 
@@ -202,7 +225,7 @@ def change_username(username):
                            username=session["username"],
                            form=form, title='Change Username')
 
-
+# Change password
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
     users = users_coll
@@ -231,7 +254,7 @@ def change_password(username):
     return render_template('change_password.html', username=username,
                            form=form, title='Change Password')
 
-
+# Delete Account
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
     user = users_coll.find_one({"username": username})
