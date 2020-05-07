@@ -19,7 +19,7 @@
           </a>
         </div>
         <div class="col s6">
-          <a href="" class="btn" name="action">
+          <a href="#delete-modal" class="btn modal-trigger " name="action">
             <i class="fas fa-trash-alt right"></i>
             Delete
           </a>
@@ -74,4 +74,25 @@
     </div>
   </div>
 </section>
+<!--Delete Recipe Modal -->
+<div id="delete-modal" class="modal">
+  <div class="modal-content center-align">
+    <h5>Delete Recipe</h5>
+    <div class="divider"></div>
+    <p class="text-red">
+      <i class="fas fa-exclamation-circle"></i>Attention! Deleting the recipe
+      will permanently remove it from the website! </p>
+     <h6> Are you sure you want to delete it?</h6>
+    <div>
+    <a href="#" class="modal-close btn btn-secondary waves-effect waves-light z-depth-2"
+      >Cancel</a
+    >
+    <a
+      class="btn btn-main z-depth-2"
+      href="{{ url_for('delete_recipe', recipe_id=selected_recipe._id) }}"
+      >Delete Recipe</a
+    >
+  </div>
+  </div>
+</div>
 {% endblock %}

@@ -127,6 +127,12 @@ def update_recipe(recipe_id):
         return redirect(url_for("single_recipe_details",
                                 recipe_id=recipe_id))
 
+# Delete Recipe
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    recipes_coll.remove({"_id": ObjectId(recipe_id)})
+    return redirect(url_for("all_recipes"))
+
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
