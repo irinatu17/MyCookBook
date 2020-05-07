@@ -92,6 +92,21 @@ def insert_recipe():
             recipe_id=insert_recipe_intoDB.inserted_id))
 
 
+@app.route("/edit_recipe/<recipe_id>")
+def edit_recipe(recipe_id):
+    selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
+    diet_types = diets_coll.find()
+    meal_types = meals_coll.find()
+    cuisine_types = cuisines_coll.find()
+    ingredients = selected_recipe.get("ingredients")
+    directions = selected_recipe.get("directions")
+    return render_template('edit_recipe.html', selected_recipe=selected_recipe,
+                           cuisine_types=cuisine_types, diet_types=diet_types,
+                           meal_types=meal_types, directions=directions,
+                           ingredients=ingredients, title='Edit Recipe')
+
+
+
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
