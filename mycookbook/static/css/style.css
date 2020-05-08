@@ -227,7 +227,7 @@ border-radius: 25px;
 border-radius: 25px;
 }
 .card{
-    background-color: var(--white);
+background-color: var(--white);
 }
 .card-bottom-info{
 font-size:13px;
@@ -316,6 +316,27 @@ background-color: var(--midiumwhite);
 #btn-home{
 text-shadow: 1px 1px 1px var(--lightblack);
 }
+.btn-edit-del {
+width:90%;
+}
+.btn-red{
+background-color: var(--red);
+margin: 5px;
+}
+.btn-red:hover,
+.btn-red:active,
+.btn-red:focus{
+background-color: var(--lightred);
+}
+.btn-green{
+background-color: var(--green);
+margin: 5px;
+}
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus{
+background-color: var(--lighgreen);
+}
 /* Tablet and Desktop size Media queries*/
 @media (min-width: 600px) {
 .container-recipes{
@@ -374,5 +395,8 @@ padding: 1rem;
 }
 .container-recipe-lists{
 width:90%;
+}
+.btn-edit-del {
+width:70%;
 }
 }

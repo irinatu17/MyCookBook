@@ -31,7 +31,7 @@
         <div class="col s6 center-align">
           <a
             href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}"
-            class="btn"
+            class="btn z-depth-2 btn-edit-del btn-green waves-effect waves-orange uppercase"
             name="action"
           >
             <i class="fas fa-edit right"></i>
@@ -39,7 +39,7 @@
           </a>
         </div>
         <div class="col s6 center-align">
-          <a href="#delete-modal" class="btn modal-trigger" name="action">
+          <a href="#delete-modal" class="modal-trigger btn z-depth-2 btn-edit-del btn-red waves-effect waves-orange uppercase" name="action">
             <i class="fas fa-trash-alt right"></i>
             Delete
           </a>
