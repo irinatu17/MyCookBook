@@ -62,6 +62,12 @@ letter-spacing: 0.3rem;
 font-family: var(--secondaryfont);
 text-shadow: 1px 1px 1px var(--lightgrey);
 }
+.secondary-heading{
+font-size: 2.1rem;
+letter-spacing: 0.2rem; 
+color: var(--coral);
+font-weight: 600;
+}
 .sub-heading{
 font-size: 1.7rem;
 }
