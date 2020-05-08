@@ -66,10 +66,10 @@ text-shadow: 1px 1px 1px var(--lightgrey);
 font-size: 1.7rem;
 }
 /* Navigation Bar*/
-nav {
+nav{
 position: fixed;
 top: 0px;
-z-index: 15;
+z-index: 10;
 background-color: var(--darkwhite);
 font-family: var(--primaryfont);
 }
@@ -84,14 +84,14 @@ font-family: var(--secondaryfont);
 margin-right: 5px;
 font-weight: 400;
 }
-.navbar-icon {
+.navbar-icon{
 margin-right: 0.8rem;
 font-size: 20px;
 color: var(--lightblack);
 }
-.mobile-navbar-heading {
+.mobile-navbar-heading{
 font-size: 2.6rem;
-text-shadow: 1px 1px 1px var(--lightgrey);
+text-shadow: 1px 1px 6px var(--darkwhite);
 color: var(--coral);
 }
 /* Footer */
@@ -166,12 +166,55 @@ padding: 9px;
 }
 /* Cards*/
 .card .card-image img{
+border-radius: 25px;
+}
+.recipe-image{
+border-radius: 25px;
+}
+.card{
+    background-color: var(--white);
+}
+.card-bottom-info{
+font-size:13px;
+margin-top: 5px;
+margin-bottom: 0;
+}
+.icon-recipe-card{
+ color: var(--yellow);   
+ font-size: 14px;
+ padding: 2px;
+}
+.card-recipe,
+.card-image{
+border-radius: 25px;
+}
+.card .card-image img{
 position: relative;
 object-fit: cover;
 height: 40vh;
 }
 .card .card-content{
 padding-top: 0;
+}
+.card .card-title{
+font-weight: 600;
+font-size: 1.2rem;
+color: var(--black);
+}
+.card .card-title:hover{
+text-shadow: 2px 2px 2px var(--lightgrey);
+}
+.text-block {
+position: absolute;
+top: 15px;
+right: 10px;
+background-color: var(--yellow);
+color: var(--black);
+font-family:var(--primaryfont);
+padding: 0 5px;
+line-height: 1px;
+opacity: 0.9;
+border-radius: 3px;
 }
 /* Add-Edit recipe*/
 .container-addrecipe{
@@ -245,6 +288,9 @@ width: 15rem;
 @media (min-width: 600px) and (max-width: 992px){
 .container-addrecipe{
 width:85%;
+}
+.card .card-image img{
+height: 30vh;
 }
 }
 /* Desktop size only Media queries */

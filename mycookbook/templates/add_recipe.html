@@ -21,7 +21,7 @@
 <div class="input-field col s12 m6 l4">
     <i class="fas fa-globe-europe prefix"></i>
 <select id="cuisine_type" name="cuisine_type">
-    <option value="" disabled selected>Select an option</option>
+    <option value="null" selected>Select an option</option>
     {% for cuisine in cuisine_types %}
         <option value="{{cuisine.cuisine_type}}">{{cuisine.cuisine_type}}</option>
     {% endfor %}
@@ -43,7 +43,7 @@
     <div class="input-field col s12 m6 l4">
     <i class="fas fa-leaf prefix"></i>
     <select id="diet_type" name="diet_type">
-        <option value="" disabled selected>Select an option</option>
+        <option value="null" selected>Select an option</option>
     {% for diet in diet_types %}
         <option value="{{diet.diet_type}}">{{diet.diet_type}}</option>
     {% endfor %}
