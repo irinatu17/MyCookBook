@@ -21,13 +21,22 @@
 --secondaryfont: "Ubuntu", sans-serif;
 }
 /**Materialize styly required for flexbox**/
-body {
+main {
+flex: 1 0 auto;
+margin-top:4em;
+}
+body{
 display: flex;
 min-height: 100vh;
 flex-direction: column;
-}
-main {
-flex: 1 0 auto;
+margin: 0;
+padding: 0; 
+color:var(--lightblack);
+background-color: var(--white);
+font-family: var(--primaryfont);
+font-weight: 400;
+line-height: 1.7rem;
+overflow-x: hidden;
 }
 /* General style settings*/
 .uppercase {
@@ -35,6 +44,17 @@ text-transform: uppercase;
 }
 .margin-top-large{
 margin-top: 5rem;
+}
+.container-95{
+width: 95%;
+}
+/* Headings*/
+.primary-heading{
+font-size: 2.3rem;
+font-weight: 500;
+letter-spacing: 0.3rem; 
+font-family: var(--secondaryfont);
+text-shadow: 1px 1px 1px var(--lightgrey);
 }
 /* Navigation Bar*/
 nav {
@@ -105,14 +125,14 @@ margin-top: 4rem;
 color: var(--red);
 }
 
-/*Home*/
+/* Home page*/
 .home-container{
 padding-left:10px;
 padding-right: 10px;
 border-radius: 15px;
 height: 350px;
-
-margin-top:5rem;
+display:flex;
+margin-top:2em;
 }
 .hero-image{
 background-image: radial-gradient(rgba(249, 238, 238, 0.91), rgba(152, 142, 142, 0.04)), url(../img/bg-home.jpg);
@@ -122,7 +142,19 @@ position: relative;
 border-radius: 15px;
 width: 100%;
 }
-
+.home-paragpaph{
+font-size: 1rem;
+}
+/* Home page: Place text in the middle of the image */
+.text-block-home{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: var(--black);
+width: inherit;
+padding: 9px;
+}
 /* Cards*/
 .card .card-image img{
 position: relative;
@@ -174,7 +206,10 @@ background-color: var(--darkwhite);
 .btn-secondary:active{
 background-color: var(--midiumwhite);
 }
-/*>600px Tablet and Desktop size Media queries*/
+#btn-home{
+text-shadow: 1px 1px 1px var(--lightblack);
+}
+/* Tablet and Desktop size Media queries*/
 @media (min-width: 600px) {
 .container-recipes{
 width: 95%;
@@ -182,6 +217,19 @@ max-width: 1500px;
 }
 .add-edit-form{
 padding:0 2rem;
+}
+.primary-heading{
+font-size: 4rem;
+}
+.home-container{
+width: 85%;
+height: 390px;
+}
+.btn-main{
+font-size: 1rem;
+}
+#btn-home{
+width: 15rem; 
 }
 }
 /*  Tablet size only Media queries */
@@ -192,8 +240,13 @@ width:85%;
 }
 /* Desktop size only Media queries */
 @media (min-width: 992px) {
-
 .container-addrecipe{
 width:70%;
+}
+.tablet-break {
+display: none; 
+}
+.home-paragpaph{
+font-size: 1.2rem;
 }
 }

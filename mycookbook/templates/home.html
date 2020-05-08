@@ -1,33 +1,46 @@
 {% extends 'base.html' %} {% block content %}
-<section class="container home-container">
-  <!--Flash messages-->
-  <div class="row center-align">
-    <div class="col s12">
-      {% with messages = get_flashed_messages() %} {% if messages %} {% for
-      message in messages %}
-      <p class="error-message">
-        {{ message }}
-      </p>
-      {% endfor %} {% endif %} {% endwith %}
-    </div>
-  </div>
-  <!--Main section, hero image and button-->
+<!--Flash messages-->
+<div class="row center-align">
+	<div class="col s12">
+		{% with messages = get_flashed_messages() %} {% if messages %}
+		{% for message in messages %}
+		<p class="error-message">
+			{{ message }}
+		</p>
+		{% endfor %} {% endif %} {% endwith %}
+	</div>
+</div>
+<!--Main section, hero image and button-->
+<div class="container home-container container-95">
   <div class="hero-image">
     <div class="row">
-      <div class="col s12 center-align">
-        <h1 class="uppercase">My Cookbook</h1>
-        <p>Simple way to find, create and store your recipies</p>
+      <div class="col s12">
+        <div class="text-block-home center-align">
+          <h1 class="uppercase primary-heading">My CookBook</h1>
+          <p class="home-paragpaph">
+            Simple way to find, create and store <br class="tablet-break" />
+            your recipies
+          </p>
+          <a
+            href="{{ url_for('all_recipes')}}"
+            class="waves-effect waves-light btn uppercase z-depth-3 btn-main"
+            id="btn-home"
+          >
+            Browse our recipes
+          </a>
+        </div>
       </div>
     </div>
   </div>
-
+</div>
   <!--Featured Recipes-->
   <div class="container container-recipes">
+  <h3>Featured recipes</h3>
     <div class="row">
       {% for recipe in recipes %} {% include "partials/_recipecards.html" %} {%
       endfor %}
     </div>
   </div>
-</section>
+
 
 {% endblock %}
