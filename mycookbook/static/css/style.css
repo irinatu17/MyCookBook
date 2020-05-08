@@ -91,6 +91,8 @@ transition-timing-function: ease-in-out;
 -moz-transform: scale(1.3);
 -o-transform: scale(1.3);
 }
+
+
 /* Register-Login */
 .login-reg-section{
 max-width: 30rem;
@@ -105,9 +107,23 @@ color: var(--red);
 
 /*Home*/
 .home-container{
-display:flex;
+padding-left:10px;
+padding-right: 10px;
+border-radius: 15px;
+height: 350px;
+
 margin-top:5rem;
 }
+.hero-image{
+background-image: radial-gradient(rgba(249, 238, 238, 0.91), rgba(152, 142, 142, 0.04)), url(../img/bg-home.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+border-radius: 15px;
+width: 100%;
+}
+
+/* Cards*/
 .card .card-image img{
 position: relative;
 object-fit: cover;

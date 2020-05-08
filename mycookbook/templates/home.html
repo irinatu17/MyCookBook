@@ -1,27 +1,33 @@
-{% extends 'base.html' %}
-{% block content %}
-<section class = "container home-container">
-<div row>
-<div class="col s12">
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages %}
-<p class="error-message">
-    {{ message }}
-</p>
-{% endfor %}
-{% endif %}
-{% endwith %}
-</div>
-</div>
-<div class="container container-recipes">
-  <div class="row">
-    {% for recipe in recipes %}
-        {% include "partials/_recipecards.html" %}
-    {% endfor %}
+{% extends 'base.html' %} {% block content %}
+<section class="container home-container">
+  <!--Flash messages-->
+  <div class="row center-align">
+    <div class="col s12">
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <p class="error-message">
+        {{ message }}
+      </p>
+      {% endfor %} {% endif %} {% endwith %}
     </div>
+  </div>
+  <!--Main section, hero image and button-->
+  <div class="hero-image">
+    <div class="row">
+      <div class="col s12 center-align">
+        <h1 class="uppercase">My Cookbook</h1>
+        <p>Simple way to find, create and store your recipies</p>
+      </div>
     </div>
-</section>
+  </div>
 
+  <!--Featured Recipes-->
+  <div class="container container-recipes">
+    <div class="row">
+      {% for recipe in recipes %} {% include "partials/_recipecards.html" %} {%
+      endfor %}
+    </div>
+  </div>
+</section>
 
 {% endblock %}
