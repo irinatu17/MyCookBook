@@ -57,6 +57,12 @@ width: 95%;
 .container-85{
 width: 85%;  
 }
+.text-red{
+color: var(--red);
+}
+.bold{
+font-weight: bold;
+}
 /* Headings*/
 .primary-heading{
 font-size: 2.3rem;
