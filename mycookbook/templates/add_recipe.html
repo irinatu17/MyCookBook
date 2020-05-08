@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="container margin-top-large container-addrecipe z-depth-2">
-<h1 class="uppercase center-align">New Recipe</h1>
+<h1 class="uppercase center-align secondary-heading">New Recipe</h1>
 <form class="add-edit-form" autocomplete="off" method="POST" action="{{ url_for('insert_recipe') }}">
 {{ form.hidden_tag() }}
 <div class="row">

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="container margin-top-large container-addrecipe z-depth-2">
-<h1 class="uppercase center-align">Edit Recipe</h1>
+<h1 class="uppercase center-align secondary-heading">Edit Recipe</h1>
 <form class="add-edit-form" autocomplete="off" method="POST" action="{{ url_for('update_recipe', recipe_id=selected_recipe._id) }}">
 <div class="row">
 <!--Recipe Name-->
