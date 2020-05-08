@@ -163,7 +163,10 @@ width: 10rem;
 .error-message{
 color: var(--red);
 }
-
+/* override Materialize label color */
+.input-field label {
+color: var(--black);
+}
 /* Home page*/
 .home-container{
 padding-left:10px;
