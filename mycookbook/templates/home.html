@@ -1,15 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 <!--Flash messages-->
 <div class="row center-align">
-	<div class="col s12">
-		{% with messages = get_flashed_messages() %} {% if messages %}
-		{% for message in messages %}
-		<p class="error-message">
-			{{ message }}
-		</p>
-		{% endfor %} {% endif %} {% endwith %}
-	</div>
-</div>
+    {% with messages = get_flashed_messages() %} 
+    {% if messages %} 
+    {% for message in messages %}
+    <p class="error-message margin-top-small">
+      {{ message }}
+    </p>
+    {% endfor %} {% endif %} {% endwith %}
+  </div>
 <!--Main section, hero image and button-->
 <div class="container home-container container-95">
   <div class="hero-image">
@@ -33,14 +32,15 @@
     </div>
   </div>
 </div>
-  <!--Featured Recipes-->
-  <div class="container container-recipes">
-  <h3>Featured recipes</h3>
-    <div class="row">
-      {% for recipe in recipes %} {% include "partials/_recipecards.html" %} {%
-      endfor %}
-    </div>
+<!--Featured recipes-->
+<div class="row container-85">
+  <h3 class="sub-heading center-align">Featured recipes</h3>
+  <div class="divider"></div>
+</div>
+<div class="container container-recipes">
+  <div class="row">
+    {% for recipe in recipes %} {% include "partials/_recipecards.html" %} {%
+    endfor %}
   </div>
-
-
+</div>
 {% endblock %}
