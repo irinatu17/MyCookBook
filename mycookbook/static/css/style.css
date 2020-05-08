@@ -157,7 +157,9 @@ min-width: 250px;
 margin: auto;
 margin-top: 4rem;
 }
-
+.logo-login-register{
+width: 10rem;
+}
 .error-message{
 color: var(--red);
 }
