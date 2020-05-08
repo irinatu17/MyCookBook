@@ -3,13 +3,24 @@
   <h1 class="secondary-heading uppercase center-align">
    <span class="text-black">{{ username }}</span>'s recipes
   </h1>
-  <p class="paragraph center-align">You have created <span class="red-text">{{ number_of_recipes }}</span> recipes</p>
+  <p class="paragraph-count center-align">You have created <span class="red-text">{{ number_of_recipes }}</span> recipes</p>
 </div>
 
-<div class="container container-recipes">
+<div class="container container-recipes center-align">
   <div class="row">
-    {% for recipe in my_recipes %} {% include "partials/_recipecards.html" %} {%
-    endfor %}
+    {% for recipe in my_recipes %} 
+    {% include "partials/_recipecards.html" %} 
+    {% else %}
+    <h5 class = "margin-top-small">
+    You haven't created any recipes yet. Click on the button below to get started!
+    </h5>
+    <a
+      href="{{ url_for('add_recipe')}}"
+      class="waves-effect waves-light btn uppercase margin-top-small z-depth-3 btn-main"
+    >
+      Add Recipe
+    </a>
+    {% endfor %}
   </div>
 </div>
 

@@ -228,6 +228,12 @@ line-height: 1.9rem;
 font-size:5px;
 margin-right:10px;
 }
+
+/*My recipes*/
+.paragraph-count{
+font-size: 1.5rem;
+font-family: var(--secondaryfont);
+}
 /* Cards*/
 .card .card-image img{
 border-radius: 25px;
