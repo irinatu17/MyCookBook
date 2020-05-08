@@ -85,6 +85,9 @@
 <div class="row">
 <div class="input-field col s12">
 <i class="fas fa-clipboard-list prefix"></i>
+<!--The solution to the problem of creating extra whitespaces around items in for loop
+is taken from the following source: StackOverflow,
+https://stackoverflow.com/questions/35775207/remove-unnecessary-whitespace-from-jinja-rendered-template/35777386#35777386-->
 <textarea
     id="ingredients"
     name="ingredients"
@@ -92,15 +95,18 @@
     class="validate materialize-textarea"
     required
 >
-{% for ingredient in selected_recipe.ingredients %}
+{% for ingredient in selected_recipe.ingredients -%}
 {{ ingredient }}
-{% endfor %}
+{% endfor -%}
 </textarea>
-<label for="ingredients">Ingredients  <i class="fas fa-asterisk asterisk"></i></label>
+<label for="ingredients">Ingredients (each on a new line) <i class="fas fa-asterisk asterisk"></i></label>
 </div>
 <!-- Directions-->
 <div class="input-field col s12">
 <i class="fas fa-list-ol prefix"></i>
+<!--The solution to the problem of creating extra whitespaces around items in for loop
+is taken from the following source: StackOverflow,
+https://stackoverflow.com/questions/35775207/remove-unnecessary-whitespace-from-jinja-rendered-template/35777386#35777386-->
 <textarea
     id="directions"
     name="directions"
@@ -108,11 +114,11 @@
     class="validate materialize-textarea"
     required
 >
-{% for direction in selected_recipe.directions %}
+{% for direction in selected_recipe.directions -%}
 {{ direction }}
-{% endfor %}
+{% endfor -%}
 </textarea>
-<label for="directions">Directions <i class="fas fa-asterisk asterisk"></i></label>
+<label for="directions">Directions (each on a new line) <i class="fas fa-asterisk asterisk"></i></label>
 </div>
 <!-- Image Recipe-->
 <div class="input-field col s12">
