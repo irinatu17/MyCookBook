@@ -1,25 +1,45 @@
 {% extends 'base.html' %} {% block content %}
-<section class="container margin-top-large center-align">
-  <h1>{{ selected_recipe.recipe_name }}</h1>
-  <p>{{ selected_recipe.description }}</p>
+<div class="container margin-top-large">
+  <!--Recipe name-->
+  <h1 class="secondary-heading heading-black uppercase center-align">
+    {{ selected_recipe.recipe_name }}
+  </h1>
+  <div class="hide-on-small-only">
+    <hr class="center-align divider-yellow" />
+  </div>
+  <!--Recipe image-->
   <div class="row">
     <div class="col s12 m6">
+      {% if selected_recipe.image %}
       <img
-        class="responsive-img z-depth-2"
+        class="recipe-image responsive-img z-depth-2"
         src="{{ selected_recipe.image }}"
         alt="Recipe Image"
       />
-      <p>Author: {{ author }}</p>
+      {% else %}
+      <img
+        src="{{ url_for('static', filename='img/recipe_placeholder.jpg') }}"
+        class="recipe-image responsive-img z-depth-2"
+        alt="Image placeholder"
+      />
+      {% endif %}
+      <p class="center-align">
+        <span class="recipe-lead-text">Author:</span>{{ author }}
+      </p>
       {% if session.username == author %}
       <div class="row">
-        <div class="col s6">
-          <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}" class="btn" name="action">
+        <div class="col s6 center-align">
+          <a
+            href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}"
+            class="btn"
+            name="action"
+          >
             <i class="fas fa-edit right"></i>
             Edit
           </a>
         </div>
-        <div class="col s6">
-          <a href="#delete-modal" class="btn modal-trigger " name="action">
+        <div class="col s6 center-align">
+          <a href="#delete-modal" class="btn modal-trigger" name="action">
             <i class="fas fa-trash-alt right"></i>
             Delete
           </a>
@@ -27,53 +47,83 @@
       </div>
       {% endif %}
     </div>
-  
-  <div class="col s12 m6">
-    <div>
-      <h6>Cuisine Type</h6>
-      {{ selected_recipe.cuisine_type }}
-    </div>
-    <div>
-      <h6>Meal Type</h6>
-      {{ selected_recipe.meal_type }}
-    </div>
-    <div>
-      <h6>Diet Type</h6>
-      {{ selected_recipe.diet_type }}
-    </div>
-    <div>
-      <h6>Cooking time</h6>
-      {{ selected_recipe.cooking_time }}
-    </div>
-    <div>
-      <h6>Serves</h6>
-      {{ selected_recipe.servings }}
+    <div class="col s12 m6 center-align">
+      <p class="recipe-description-paragraph">
+        {{ selected_recipe.description }}
+      </p>
+      <div class="row center-align">
+        <!--Cuisine-->
+        <div class="col s6">
+          <i class="fas fa-globe-europe recipe_icon"></i>
+          <h6>Cuisine Type</h6>
+          {% if selected_recipe.cuisine_type=="null" %}
+          <p class="paragraph-recipe">Not Specified</p>
+          {% else %}
+          <p class="paragraph-recipe">{{ selected_recipe.cuisine_type }}</p>
+          {% endif %}
+        </div>
+        <!--Meal type-->
+        <div class="col s6">
+          <i class="fas fa-utensils recipe_icon"></i>
+          <h6>Meal Type</h6>
+          <p class="paragraph-recipe">{{ selected_recipe.meal_type }}</p>
+        </div>
+        </div>
+        <div class="row center-align">
+        <!--Diet type-->
+        <div class="col s6">
+          <i class="fas fa-leaf recipe_icon"></i>
+          <h6>Diet Type</h6>
+          {% if selected_recipe.diet_type=="null" %}
+          <p class="paragraph-recipe">Not Specified</p>
+          {% else %}
+          <p class="paragraph-recipe">{{ selected_recipe.diet_type }}</p>
+          {% endif %}
+        </div>
+        <!--Cooking time-->
+        <div class="col s6">
+          <i class="far fa-clock recipe_icon"></i>
+          <h6>Cooking time</h6>
+          <p class="paragraph-recipe">{{ selected_recipe.cooking_time }} minutes</p>
+        </div>
+      </div>
+      <!--Servings-->
+      <div class="row center-align">
+        <div class="col s12">
+          <i class="fas fa-user recipe_icon"></i>
+          <h6>Serves</h6>
+          <p class="paragraph-recipe">{{ selected_recipe.servings }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-  <div class="row">
-    <div class="col s12 m6">
-      <h4>Ingredients:</h4>
-      <ul>
-        {% for ingredient in selected_recipe.ingredients %}
-        <li>
-          {{ ingredient }}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="col s12 m6">
-      <h4>Directions:</h4>
-      <ol>
-        {% for direction in selected_recipe.directions %}
-        <li>
-          {{ direction }}
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
+<!--Ingredients-->
+<div class="container container-recipe-lists">
+<div class="row">
+  <div class="col s12 m4">
+    <h3 class="tertiary-heading uppercase center-align">Ingredients</h3>
+    <ul class="unordered-list list-items">
+      {% for ingredient in selected_recipe.ingredients %}
+      <li>
+        {{ ingredient }}
+      </li>
+      {% endfor %}
+    </ul>
   </div>
-</section>
+  <!--Directions-->
+  <div class="col s12 m8">
+    <h3 class="tertiary-heading uppercase center-align">Directions:</h3>
+    <ol class="list-items">
+      {% for direction in selected_recipe.directions %}
+      <li class="margin-bottom-small">
+        {{ direction }}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>
+</div>
 <!--Delete Recipe Modal -->
 <div id="delete-modal" class="modal">
   <div class="modal-content center-align">
@@ -81,18 +131,21 @@
     <div class="divider"></div>
     <p class="text-red">
       <i class="fas fa-exclamation-circle"></i>Attention! Deleting the recipe
-      will permanently remove it from the website! </p>
-     <h6> Are you sure you want to delete it?</h6>
+      will permanently remove it from the website!
+    </p>
+    <h6>Are you sure you want to delete it?</h6>
     <div>
-    <a href="#" class="modal-close btn btn-secondary waves-effect waves-light z-depth-2"
-      >Cancel</a
-    >
-    <a
-      class="btn btn-main z-depth-2"
-      href="{{ url_for('delete_recipe', recipe_id=selected_recipe._id) }}"
-      >Delete Recipe</a
-    >
-  </div>
+      <a
+        href="#"
+        class="modal-close btn btn-secondary waves-effect waves-light z-depth-2"
+        >Cancel</a
+      >
+      <a
+        class="btn btn-main z-depth-2"
+        href="{{ url_for('delete_recipe', recipe_id=selected_recipe._id) }}"
+        >Delete Recipe</a
+      >
+    </div>
   </div>
 </div>
 {% endblock %}

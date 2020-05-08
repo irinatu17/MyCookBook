@@ -48,6 +48,9 @@ margin-top: 5rem;
 .margin-top-small{
 margin-top: 1rem;
 }
+.margin-bottom-small{
+margin-bottom: 1rem;  
+}
 .container-95{
 width: 95%;
 }
@@ -68,8 +71,18 @@ letter-spacing: 0.2rem;
 color: var(--coral);
 font-weight: 600;
 }
+.tertiary-heading{
+font-size: 1.7rem;
+color: var(--coral);
+}
 .sub-heading{
 font-size: 1.7rem;
+}
+.heading-black{
+color: var(--lightblack);
+margin: 2rem;
+padding-bottom: 1rem;
+text-shadow: 1px 1px 1px var(--lightgrey);
 }
 /* Navigation Bar*/
 nav{
@@ -169,6 +182,42 @@ transform: translate(-50%, -50%);
 color: var(--black);
 width: inherit;
 padding: 9px;
+}
+/*Recipe details*/
+.divider-yellow{
+background-color: var(--darkyellow);
+margin-top: -20px;
+margin-bottom: 20px;
+width: 150px;
+height: 2px;
+border-radius: 5px;
+border: 1px solid var(--darkyellow);
+}
+.recipe-lead-text{
+display: inline-block;
+font-weight: 600;
+width: 5.5rem;
+color: var(--black) !important;
+}
+.paragraph-recipe{
+margin: 0;
+}
+.recipe_icon {
+font-size: 2.5rem;
+color: var(--darkyellow);
+text-shadow: 2px 2px 2px var(--darkgrey);
+}
+.unordered-list{
+text-align: center;
+}
+.list-items{
+padding: 10px;
+font-size: 1.2rem;
+line-height: 1.9rem;
+}
+.icon-small{
+font-size:5px;
+margin-right:10px;
 }
 /* Cards*/
 .card .card-image img{
@@ -289,6 +338,9 @@ font-size: 1rem;
 #btn-home{
 width: 15rem; 
 }
+.unordered-list{
+text-align: left;
+}
 }
 /*  Tablet size only Media queries */
 @media (min-width: 600px) and (max-width: 992px){
@@ -313,5 +365,14 @@ font-size: 1.2rem;
 .sub-heading{
 font-size: 1.9rem;
 text-align: left;
+}
+.recipe-description-paragraph{
+padding-bottom: 3rem;
+}
+.recipe-image{
+padding: 1rem;
+}
+.container-recipe-lists{
+width:90%;
 }
 }
