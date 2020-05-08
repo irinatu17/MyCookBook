@@ -68,8 +68,8 @@
           <h6>Meal Type</h6>
           <p class="paragraph-recipe">{{ selected_recipe.meal_type }}</p>
         </div>
-        </div>
-        <div class="row center-align">
+      </div>
+      <div class="row center-align">
         <!--Diet type-->
         <div class="col s6">
           <i class="fas fa-leaf recipe_icon"></i>
@@ -84,7 +84,9 @@
         <div class="col s6">
           <i class="far fa-clock recipe_icon"></i>
           <h6>Cooking time</h6>
-          <p class="paragraph-recipe">{{ selected_recipe.cooking_time }} minutes</p>
+          <p class="paragraph-recipe">
+            {{ selected_recipe.cooking_time }} minutes
+          </p>
         </div>
       </div>
       <!--Servings-->
@@ -100,29 +102,30 @@
 </div>
 <!--Ingredients-->
 <div class="container container-recipe-lists">
-<div class="row">
-  <div class="col s12 m4">
-    <h3 class="tertiary-heading uppercase center-align">Ingredients</h3>
-    <ul class="unordered-list list-items">
-      {% for ingredient in selected_recipe.ingredients %}
-      <li>
-        {{ ingredient }}
-      </li>
-      {% endfor %}
-    </ul>
+  <div class="row">
+    <div class="col s12 m4">
+      <h3 class="tertiary-heading uppercase center-align">Ingredients</h3>
+      <ul class="unordered-list list-items">
+        {% for ingredient in selected_recipe.ingredients %}
+        <li>
+          <i class="fas fa-circle bullet-point-icon"></i>
+          {{ ingredient }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <!--Directions-->
+    <div class="col s12 m8">
+      <h3 class="tertiary-heading uppercase center-align">Directions:</h3>
+      <ol class="list-items">
+        {% for direction in selected_recipe.directions %}
+        <li class="margin-bottom-small">
+          {{ direction }}
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
   </div>
-  <!--Directions-->
-  <div class="col s12 m8">
-    <h3 class="tertiary-heading uppercase center-align">Directions:</h3>
-    <ol class="list-items">
-      {% for direction in selected_recipe.directions %}
-      <li class="margin-bottom-small">
-        {{ direction }}
-      </li>
-      {% endfor %}
-    </ol>
-  </div>
-</div>
 </div>
 <!--Delete Recipe Modal -->
 <div id="delete-modal" class="modal">
