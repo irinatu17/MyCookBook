@@ -55,7 +55,9 @@
   <div class="modal-content center-align container-95">
     <h5 class="text-red bold">Delete Account</h5>
     <div class="divider"></div>
-    <p class="text-red"></p>
+    <p class="text-red">
+    <i class="fas fa-exclamation-circle margin-top-small"></i> Deleting account
+will remove all your recipes from the website. </p>
     <h6 class="margin-top-small">
       Are you sure you want to delete your account?
     </h6>
@@ -68,13 +70,13 @@
           <i class="material-icons prefix">lock</i>
           <input
             placeholder="Enter password to confirm"
-            id="confirmed_password"
-            name="confirmed_password"
+            id="confirm_password_to_delete"
+            name="confirm_password_to_delete"
             type="password"
             class="validate"
             required
           />
-          <label for="confirmed_password">Confirm password</label>
+          <label for="confirm_password_to_delete">Confirm password</label>
         </div>
       </div>
       <!--Get flashed messages-->

@@ -275,7 +275,11 @@ def change_password(username):
 def delete_account(username):
     user = users_coll.find_one({"username": username})
     if check_password_hash(user["password"],
-                           request.form["confirm_password_to_delete"]):
+                           request.form.get("confirm_password_to_delete")):
+        # Removes all user's recipes from the Database
+        all_user_recipes = user.get("user_recipes")
+        for recipe in all_user_recipes:
+            recipes_coll.remove({"_id": recipe})
         flash("Your account has been deleted.")
         session.pop("username", None)
         users_coll.remove({"_id": user.get("_id")})
