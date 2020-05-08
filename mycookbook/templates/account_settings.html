@@ -30,14 +30,14 @@
 </section>
 <!--Delete Account Modal -->
 <div id="delete-modal-account" class="modal">
-  <div class="modal-content center-align">
+  <div class="modal-content center-align container-95">
     <h5 class="text-red bold">Delete Account</h5>
     <div class="divider"></div>
     <p class="text-red">
      <h6 class="margin-top-small"> Are you sure you want to delete your account?</h6>
      <form action="{{ url_for('delete_account', username = session.username) }}" method="POST">
      <div class="row center-align margin-top-small">
-     <div class="input-field col  s12 m6 offset-m3">
+     <div class="input-field col s12 m6 offset-m3">
           <i class="material-icons prefix">lock</i>
           <input
             placeholder="Enter password to confirm"
