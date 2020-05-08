@@ -60,6 +60,9 @@ width: 85%;
 .text-red{
 color: var(--red);
 }
+.text-black{
+color: var(--lightblack);
+}
 .bold{
 font-weight: bold;
 }

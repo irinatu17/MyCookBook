@@ -47,8 +47,11 @@ def my_recipes(username):
     my_username = users_coll.find_one({'username': session
                                       ['username']})['username']
     my_recipes = recipes_coll.find({'author': my_id})
+    number_of_recipes = recipes_coll.find({'author': my_id}).count()
     return render_template("my_recipes.html", my_recipes=my_recipes,
-                           username=my_username, title='My Recipes')
+                           username=my_username,
+                           number_of_recipes=number_of_recipes,
+                           title='My Recipes')
 
 # Add recipe
 @app.route('/add_recipe')

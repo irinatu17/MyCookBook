@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container margin-top-large">
-  <h1 class="secondary-heading uppercase center-align">My Recipes</h1>
+  <h1 class="secondary-heading uppercase center-align">
+   <span class="text-black">{{ username }}</span>'s recipes
+  </h1>
+  <p class="paragraph center-align">You have created <span class="red-text">{{ number_of_recipes }}</span> recipes</p>
 </div>
 
 <div class="container container-recipes">
