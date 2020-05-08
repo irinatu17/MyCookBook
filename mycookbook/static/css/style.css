@@ -357,6 +357,19 @@ margin: 5px;
 .btn-green:focus{
 background-color: var(--lighgreen);
 }
+.buttons-change{
+margin-bottom: 2rem;
+}
+.button-coral{
+background-color: var(--coral);
+text-shadow: 1px 1px 1px var(--lightblack);
+}
+.button-coral:hover,
+.button-coral:active,
+.button-coral:focus{
+background-color: var(--lightcoral);
+
+}
 /* Tablet and Desktop size Media queries*/
 @media (min-width: 600px) {
 .container-recipes{
