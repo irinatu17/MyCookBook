@@ -66,6 +66,9 @@ color: var(--lightblack);
 .bold{
 font-weight: bold;
 }
+.text-shadow-small{
+ text-shadow: 1px 1px 1px var(--black);   
+}
 /* Headings*/
 .primary-heading{
 font-size: 2.3rem;
@@ -305,6 +308,11 @@ padding:0;
 color: var(--red);
 font-size: 10px;
 }
+/* Account Settings*/
+.user-img{
+width:250px;
+height:250px;
+}
 /* Buttons*/
 .btn-main{
 background-color: var(--coral);
@@ -368,7 +376,15 @@ text-shadow: 1px 1px 1px var(--lightblack);
 .button-coral:active,
 .button-coral:focus{
 background-color: var(--lightcoral);
-
+}
+.btn-golden{
+background-color: var(--darkyellow);
+margin: 5px;
+}
+.btn-golden:hover,
+.btn-golden:active,
+.btn-golden:focus{
+background-color: var(--yellow);
 }
 /* Tablet and Desktop size Media queries*/
 @media (min-width: 600px) {
@@ -431,5 +447,8 @@ width:90%;
 }
 .btn-edit-del {
 width:70%;
+}
+.button-container{
+width:60%;    
 }
 }

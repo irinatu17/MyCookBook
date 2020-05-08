@@ -1,43 +1,70 @@
 {% extends 'base.html' %} {% block content %}
-<section class="margin-top-large">
-  <div class="container center-align">
-    <h1>{{ username }}'s account</h1>
-    <div>
-      {% with messages = get_flashed_messages() %} 
-      {% if messages %} 
-      {% for message in messages %}
-      <p class="error-message">
-        {{ message }}
-      </p>
-      {% endfor %} {% endif %} {% endwith %}
-    </div>
-    <div class="row center-align">
-      <div class="col s12 m4">
-        <a href="{{ url_for('change_username', username = session.username) }}"
-          >Change username</a
-        >
-      </div>
-      <div class="col s12 m4">
-        <a href="{{ url_for('change_password', username = session.username) }}"
-          >Change password</a
-        >
-      </div>
-      <div class="col s12 m4">
-        <a href="#delete-modal-account" class="modal-trigger">Delete account</a>
-      </div>
+<div class="container margin-top-large button-container">
+  <h1 class="secondary-heading uppercase center-align">
+    <span class="text-black"> {{ username }}</span>'s account
+  </h1>
+  <!--Flash messages-->
+  <div class="row center-align">
+    {% with messages = get_flashed_messages() %} 
+    {% if messages %} 
+    {% for message in messages %}
+    <p class="error-message">
+      {{ message }}
+    </p>
+    {% endfor %} {% endif %} {% endwith %}
+  </div>
+  <!--User profile image -->
+  <div class="row">
+    <div class="col s12 center-align">
+      <img
+        src="{{ url_for('static', filename='img/user_profile_img.jpg') }}"
+        class="responsive-img user-img"
+        alt="Profile Avatar"
+      />
     </div>
   </div>
-</section>
+
+  <!--Change Username -->
+  <div class="row center-align">
+    <div class="col s12 m4">
+      <a href="{{ url_for('change_username', username = session.username) }}"
+        class="waves-effect waves-light text-shadow-small btn btn-golden uppercase z-depth-3 btn-main btn-form bold"
+
+        >Change username</a
+      >
+    </div>
+    <!--Change password -->
+    <div class="col s12 m4">
+      <a href="{{ url_for('change_password', username = session.username) }}"
+		class="waves-effect waves-yellow text-shadow-small btn btn-green uppercase z-depth-3 btn-main btn-form bold">
+        Change password</a
+      >
+    </div>
+    <!--Delete account -->
+    <div class="col s12 m4">
+      <a href="#delete-modal-account" 
+    class="modal-trigger waves-effect waves-light text-shadow-small btn btn-red uppercase z-depth-3 btn-main btn-form bold"
+    
+      >
+      Delete account</a>
+    </div>
+  </div>
+</div>
 <!--Delete Account Modal -->
 <div id="delete-modal-account" class="modal">
   <div class="modal-content center-align container-95">
     <h5 class="text-red bold">Delete Account</h5>
     <div class="divider"></div>
-    <p class="text-red">
-     <h6 class="margin-top-small"> Are you sure you want to delete your account?</h6>
-     <form action="{{ url_for('delete_account', username = session.username) }}" method="POST">
-     <div class="row center-align margin-top-small">
-     <div class="input-field col s12 m6 offset-m3">
+    <p class="text-red"></p>
+    <h6 class="margin-top-small">
+      Are you sure you want to delete your account?
+    </h6>
+    <form
+      action="{{ url_for('delete_account', username = session.username) }}"
+      method="POST"
+    >
+      <div class="row center-align margin-top-small">
+        <div class="input-field col s12 m6 offset-m3">
           <i class="material-icons prefix">lock</i>
           <input
             placeholder="Enter password to confirm"
@@ -49,30 +76,27 @@
           />
           <label for="confirmed_password">Confirm password</label>
         </div>
-        </div>
-     <!--Get flashed messages-->
-    <div class="row center-align">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
+      </div>
+      <!--Get flashed messages-->
+      <div class="row center-align">
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
         <p class="flash-error margin-top-small">
-            {{ message }}
+          {{ message }}
         </p>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-    </div>
-    <div class="margin-top-small">
-    <a href="{{ url_for('account_settings',  username = session.username) }}" class="modal-close btn btn-secondary waves-effect waves-light z-depth-2"
-      >Cancel</a
-    >
-    <button
-      class="btn btn-red waves-effect waves-light z-depth-2"
-      href="#"
-      >Delete Account</button
-    >
-  </div>
-  </form>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
+      <div class="margin-top-small">
+        <a
+          href="{{ url_for('account_settings',  username = session.username) }}"
+          class="modal-close btn btn-secondary waves-effect waves-light z-depth-2"
+          >Cancel</a
+        >
+        <button class="btn btn-red waves-effect waves-light z-depth-2" href="#">
+          Delete Account
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}
