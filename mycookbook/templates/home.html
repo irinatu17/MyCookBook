@@ -38,8 +38,9 @@
   <div class="divider"></div>
 </div>
 <div class="container container-recipes">
+<!--Display 4 random recipes from the database-->
   <div class="row">
-    {% for recipe in recipes %} {% include "partials/_recipecards.html" %} {%
+    {% for recipe in featured_recipes %} {% include "partials/_recipecards.html" %} {%
     endfor %}
   </div>
 </div>

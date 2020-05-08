@@ -17,10 +17,13 @@ meals_coll = mongo.db.meals
 # Landing page
 @app.route('/')
 @app.route("/home")
+# The idea of getting random recipes using "$sample" is taken 
+# from MongoDB documentation: https://docs.mongodb.com/manual/reference/operator/aggregation/sample/
 def home():
-    # Variable for recipes collection
-    recipes = recipes_coll.find()
-    return render_template('home.html', recipes=recipes, title='Home')
+    featured_recipes = ([recipe for recipe in recipes_coll.aggregate
+                        ([{"$sample": {"size": 4}}])])
+    return render_template('home.html', featured_recipes=featured_recipes,
+                           title='Home')
 
 # All recipes display
 @app.route('/all_recipes')
