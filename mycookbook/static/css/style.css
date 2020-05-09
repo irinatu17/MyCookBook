@@ -166,9 +166,13 @@ width: 10rem;
 .error-message{
 color: var(--red);
 }
-/* override Materialize label color */
+/* override Materialize label color and dropdown colour */
 .input-field label {
 color: var(--black);
+}
+.dropdown-content li>a, .dropdown-content li>span {
+color:  var(--black);
+font-size:1rem;
 }
 /* Home page*/
 .home-container{
