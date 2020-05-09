@@ -36,7 +36,7 @@ def all_recipes():
     # Variable for recipes collection
     recipes = recipes_coll.find()
     return render_template("all_recipes.html", recipes=recipes,
-                           title='Recipes')
+                           title='All Recipes')
 # Single Recipe details display
 @app.route('/recipe_details/<recipe_id>')
 def single_recipe_details(recipe_id):
@@ -46,7 +46,7 @@ def single_recipe_details(recipe_id):
         {"_id": ObjectId(selected_recipe.get("author"))})["username"]
     return render_template("single_recipe_details.html",
                            selected_recipe=selected_recipe, author=author,
-                           title='Recipes')
+                           title='Recipe Details')
 
 # My recipes
 @app.route('/my_recipes/<username>')
@@ -306,9 +306,11 @@ Error handlers
 # handle 404 error (page not found)
 @app.errorhandler(404)
 def error_404(error):
-    return render_template('errors/404.html', error=True), 404
+    return render_template('errors/404.html', error=True,
+                           title="Page not found"), 404
 
 # handle 500 error (internal server error)
 @app.errorhandler(500)
 def error_500(error):
-    return render_template('errors/500.html', error=True), 500
+    return render_template('errors/500.html', error=True,
+                           title="Internal Server Error"), 500
