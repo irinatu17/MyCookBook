@@ -27,7 +27,7 @@
 <div class="input-field col s12 m6 l4">
     <i class="fas fa-globe-europe prefix"></i>
 <select id="cuisine_type" name="cuisine_type">
-    <option value="" disabled selected>Select an option</option>
+    <option value="None" selected>Select an option</option>
     {% for cuisine in cuisine_types %}
     {% if cuisine.cuisine_type == selected_recipe.cuisine_type %}
         <option value="{{cuisine.cuisine_type}}" selected>{{cuisine.cuisine_type}}</option>
@@ -57,7 +57,7 @@
     <div class="input-field col s12 m6 l4">
     <i class="fas fa-leaf prefix"></i>
     <select id="diet_type" name="diet_type">
-        <option value="" disabled selected>Select an option</option>
+        <option value="None" selected>Select an option</option>
     {% for diet in diet_types %}
     {% if diet.diet_type == selected_recipe.diet_type %}
         <option value="{{diet.diet_type}}" selected>{{diet.diet_type}}</option>

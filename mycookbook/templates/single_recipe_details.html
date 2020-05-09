@@ -56,7 +56,7 @@
         <div class="col s6">
           <i class="fas fa-globe-europe recipe_icon"></i>
           <h6>Cuisine Type</h6>
-          {% if selected_recipe.cuisine_type=="null" %}
+          {% if selected_recipe.cuisine_type=="None" %}
           <p class="paragraph-recipe">Not Specified</p>
           {% else %}
           <p class="paragraph-recipe">{{ selected_recipe.cuisine_type }}</p>
@@ -74,7 +74,7 @@
         <div class="col s6">
           <i class="fas fa-leaf recipe_icon"></i>
           <h6>Diet Type</h6>
-          {% if selected_recipe.diet_type=="null" %}
+          {% if selected_recipe.diet_type=="None" %}
           <p class="paragraph-recipe">Not Specified</p>
           {% else %}
           <p class="paragraph-recipe">{{ selected_recipe.diet_type }}</p>
