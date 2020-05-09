@@ -1,0 +1,9 @@
+/*The approach of using different css in terms of applying background image
+for different extended templates (implementing  'request.endpoint') is taken from 
+StackOverflow: https://stackoverflow.com/questions/52604210/jinja-using-a-different-css-for-each-extended-template*/
+main {
+background-image: radial-gradient(rgba(249, 238, 238, 0.91), rgba(152, 142, 142, 0.04)), url(../img/forms-bg.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}

@@ -8,27 +8,35 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    {% if request.endpoint == 'login' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_forms.css') }}">
+    {% elif request.endpoint == 'register' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_forms.css') }}">
+    {% elif request.endpoint == 'change_password' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_forms.css') }}">
+    {% elif request.endpoint == 'change_username' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_forms.css') }}">
+    {% endif %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.jpg') }}" type="image/x-icon" sizes="200x200">
-{% if title %}
- <title>MyCookBook - {{ title }}</title>
-{% else %}
-<title>Welcome to MyCookBook!</title>
-{% endif %}
+    {% if title %}
+    <title>MyCookBook - {{ title }}</title>
+    {% else %}
+    <title>Welcome to MyCookBook!</title>
+    {% endif %}
 </head>
 <body>
-<header>
-{% include "partials/_navbar.html" %}
-</header>
-<main>
-{% block content %}{% endblock %}
-</main>
-<footer>
-{% include "partials/_footer.html" %}
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="{{ url_for('static', filename='js/mycookbook.js') }}"></script>
+    <header>
+    {% include "partials/_navbar.html" %}
+    </header>
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+    <footer>
+    {% include "partials/_footer.html" %}
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/mycookbook.js') }}"></script>
 </body>
-
 </html>
