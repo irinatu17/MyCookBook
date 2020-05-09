@@ -386,6 +386,19 @@ margin: 5px;
 .btn-golden:focus{
 background-color: var(--yellow);
 }
+
+/*Errors*/
+.error-heading{
+font-size: 3.2rem;
+font-weight: 500;
+letter-spacing: 0.3rem; 
+font-family: var(--secondaryfont);
+text-shadow: 4px 4px 4px var(--lightgrey);
+color: var(--coral);
+}
+.error-sub-heading{
+font-size: 2rem;
+}
 /* Tablet and Desktop size Media queries*/
 @media (min-width: 600px) {
 .container-recipes{

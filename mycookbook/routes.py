@@ -25,6 +25,11 @@ def home():
     return render_template('home.html', featured_recipes=featured_recipes,
                            title='Home')
 
+
+'''
+RECIPES ROUTES
+
+'''
 # All recipes display
 @app.route('/all_recipes')
 def all_recipes():
@@ -143,6 +148,11 @@ def delete_recipe(recipe_id):
 
     return redirect(url_for("all_recipes"))
 
+
+'''
+USER ROUTES
+
+'''
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
@@ -287,3 +297,20 @@ def delete_account(username):
     else:
         flash("Password is incorrect! Please try again")
         return redirect(url_for("account_settings", username=username))
+
+
+'''
+Error handlers
+
+'''
+# handle 404 error (page not found)
+@app.errorhandler(404)
+def error_404(error):
+    return render_template('errors/404.html',
+                           title="Page not found"), 404
+
+# handle 500 error (internal server error)
+@app.errorhandler(500)
+def error_500(error):
+    return render_template('errors/500.html',
+                           title="Internal Server Error"), 500
