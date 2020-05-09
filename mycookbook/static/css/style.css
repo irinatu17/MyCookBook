@@ -319,7 +319,7 @@ font-size: 10px;
 .user-avatar{
 width:250px;
 height:250px;
-border-radius: 80px;
+border-radius: 40%;
 }
 /* Buttons*/
 .btn-main{

@@ -13,7 +13,7 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons navbar-icon">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="{{url_for('home')}}" class="uppercase"><i class="fas fa-home navbar-icon"></i> Home</a></li>
-            <li><a href="{{url_for('all_recipes')}}" class="uppercase"><i class="fas fa-utensils navbar-icon"></i> Recipes</a></li>
+            <li><a href="{{url_for('all_recipes')}}" class="uppercase"><i class="fas fa-utensils navbar-icon"></i>Browse Recipes</a></li>
             {% if session.username %}
             <li><a class="dropdown-trigger uppercase" href="{{ url_for('account_settings', username = session.username) }}" data-target="Account"><i class="fas fa-user-circle navbar-icon"></i> Account<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="{{ url_for('logout') }}" class="uppercase"><i class="fas fa-sign-out-alt navbar-icon" ></i> Logout</a></li>
