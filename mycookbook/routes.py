@@ -5,6 +5,7 @@ from mycookbook.forms import RegisterForm, LoginForm, \
     ChangeUsernameForm, ChangePasswordForm, Add_RecipeForm
 from flask_pymongo import pymongo
 from bson.objectid import ObjectId
+import math
 
 
 # MongoDB Collections
@@ -33,10 +34,16 @@ RECIPES ROUTES
 # All recipes display
 @app.route('/all_recipes')
 def all_recipes():
-    # Variable for recipes collection
-    recipes = recipes_coll.find()
+    limit_per_page = 8
+    current_page = int(request.args.get('current_page', 1))
+    number_of_all_rec = recipes_coll.count()
+    pages = range(1, int(math.ceil(number_of_all_rec / limit_per_page)) + 1)
+    recipes = recipes_coll.find().sort('_id', pymongo.ASCENDING).skip(
+        (current_page - 1)*limit_per_page).limit(limit_per_page)
+
     return render_template("all_recipes.html", recipes=recipes,
-                           title='All Recipes')
+                           title='All Recipes', current_page=current_page,
+                           pages=pages)
 # Single Recipe details display
 @app.route('/recipe_details/<recipe_id>')
 def single_recipe_details(recipe_id):
