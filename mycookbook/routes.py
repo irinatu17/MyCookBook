@@ -306,11 +306,9 @@ Error handlers
 # handle 404 error (page not found)
 @app.errorhandler(404)
 def error_404(error):
-    return render_template('errors/404.html',
-                           title="Page not found"), 404
+    return render_template('errors/404.html', error=True), 404
 
 # handle 500 error (internal server error)
 @app.errorhandler(500)
 def error_500(error):
-    return render_template('errors/500.html',
-                           title="Internal Server Error"), 500
+    return render_template('errors/500.html', error=True), 500
