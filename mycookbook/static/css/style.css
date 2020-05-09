@@ -316,9 +316,10 @@ color: var(--red);
 font-size: 10px;
 }
 /* Account Settings*/
-.user-img{
+.user-avatar{
 width:250px;
 height:250px;
+border-radius: 80px;
 }
 /* Buttons*/
 .btn-main{
