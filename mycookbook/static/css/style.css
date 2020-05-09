@@ -51,6 +51,9 @@ margin-top: 1rem;
 .margin-bottom-small{
 margin-bottom: 1rem;  
 }
+.margin-bottom-large{
+margin-bottom: 2rem; 
+}
 .container-95{
 width: 95%;
 }
@@ -369,9 +372,6 @@ margin: 5px;
 .btn-green:focus{
 background-color: var(--lighgreen);
 }
-.buttons-change{
-margin-bottom: 2rem;
-}
 .button-coral{
 background-color: var(--coral);
 text-shadow: 1px 1px 1px var(--lightblack);
@@ -390,7 +390,9 @@ margin: 5px;
 .btn-golden:focus{
 background-color: var(--yellow);
 }
-
+.btn-change{
+font-size: 11px;
+}
 /*Errors*/
 .error-heading{
 font-size: 3.2rem;
@@ -427,6 +429,9 @@ width: 15rem;
 }
 .unordered-list{
 text-align: left;
+}
+.btn-change{
+font-size: 14px;
 }
 }
 /*  Tablet size only Media queries */
