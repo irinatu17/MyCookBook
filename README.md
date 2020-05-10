@@ -2,28 +2,28 @@
 ---
 
 ## Table of Contents
-1. [**UX**](#ux)
+1. [UX](#ux)
 
-2. [**Features**](#features)
-    - [**Existing Features**](#existing-features)
-    - [**Features Left to Implement**](#features-left-to-implement)
+2. [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Features Left to Implement](#features-left-to-implement)
 
-3. [**Technologies Used**](#technologies-used)
+3. [Technologies Used](#technologies-used)
 
-4. [**Testing**](#testing)
-    - [**Manual Testing**](#manual-testing)
-    - [**Validators**](#validators)
-    - [**Compatibility**](#compatibility)
+4. [Testing](#testing)
+    - [Manual Testing](#manual-testing)
+    - [Validators](#validators)
+    - [Compatibility](#compatibility)
 
-5. [**Deployment**](#deployment)
-    - [**Local Deployment**](#local-deployment)
-    - [**Remote Deployment**](#remote-deployment)
+5. [Deployment](#deployment)
+    - [Local Deployment](#local-deployment)
+    - [Remote Deployment](#remote-deployment)
 
-6. [**Credits**](#credits)
-    - [**Content**](#content)
-    - [**Media**](#media)
-    - [**Code**](#code)
-    - [**Acknowledgements**](#acknowledgements)
+6. [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+    - [Code](#code)
+    - [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -46,29 +46,29 @@
 ---
 
 ## Technologies Used
--[**GitPod**](https://www.gitpod.io/) - online IDE for developing this project.
--[**Git**](https://git-scm.com/) - for version control.
--[**GitHub**](https://git-scm.com/) - for remotely storing project's code.
--[**PIP**](https://pip.pypa.io/en/stable/installing/) - for installation of necessary tools.
--[**GIMP2**](https://www.gimp.org/) - for editing, compressing and resizing images.
+-[GitPod](https://www.gitpod.io/) - online IDE for developing this project.
+-[Git](https://git-scm.com/) - for version control.
+-[GitHub](https://git-scm.com/) - for remotely storing project's code.
+-[PIP](https://pip.pypa.io/en/stable/installing/) - for installation of necessary tools.
+-[GIMP2](https://www.gimp.org/) - for editing, compressing and resizing images.
 ###Front-End
--[**HTML**](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
--[**CSS**](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
+-[HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
+-[CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
 ###Back-End
--[**Python 3.8.2**](https://www.python.org/) -  back-end programming language used in this project.
--[**Flask 1.1.2**](https://flask.palletsprojects.com/en/1.1.x/) - microframework for building and rendering pages.
--[**MongoDB Atlas**](https://www.mongodb.com/) - NoSQL database for storing back-end data.
--[**PyMongo**](https://api.mongodb.com/python/current/) - for Python to get access the MongoDB database.
--[**WTForms 2.2.1**](https://pypi.org/project/WTForms/) - for creating forms with validation.
--[**Werkzeug 0.16.1**](https://werkzeug.palletsprojects.com/en/0.16.x/) - to generate and verify password hashing.
--[**Jinja 2.10.1**](https://jinja.palletsprojects.com/en/2.10.x/) - templating language for Python, to display back-end data in HTML.
--[**Heroku**](https://heroku.com/) - to host the project.
+-[Python 3.8.2](https://www.python.org/) -  back-end programming language used in this project.
+-[Flask 1.1.2](https://flask.palletsprojects.com/en/1.1.x/) - microframework for building and rendering pages.
+-[MongoDB Atlas](https://www.mongodb.com/) - NoSQL database for storing back-end data.
+-[PyMongo](https://api.mongodb.com/python/current/) - for Python to get access the MongoDB database.
+-[WTForms 2.2.1](https://pypi.org/project/WTForms/) - for creating forms with validation.
+-[Werkzeug 0.16.1](https://werkzeug.palletsprojects.com/en/0.16.x/) - to generate and verify password hashing.
+-[Jinja 2.10.1](https://jinja.palletsprojects.com/en/2.10.x/) - templating language for Python, to display back-end data in HTML.
+-[Heroku](https://heroku.com/) - to host the project.
 ###Libraries
--[**Materialize 1.0.0**](https://materializecss.com/) - main responsive modern front-end framework used for grid and responsivesness.
--[**Google Fonts**](https://fonts.google.com/) - to import fonts.
--[**FontAwesome**](https://fontawesome.com/) - to provide icons used across the project. 
--[**Adorable Avatars**](http://avatars.adorable.io/) -  to create user avatars.
--[**JQuery 3.5.0 **](https://jquery.com/) - to simplify DOM manipulation and to initialize Materialize functions.
+-[Materialize 1.0.0](https://materializecss.com/) - main responsive modern front-end framework used for grid and responsivesness.
+-[Google Fonts](https://fonts.google.com/) - to import fonts.
+-[FontAwesome](https://fontawesome.com/) - to provide icons used across the project. 
+-[Adorable Avatars](http://avatars.adorable.io/) -  to create user avatars.
+-[JQuery 3.5.0](https://jquery.com/) - to simplify DOM manipulation and to initialize Materialize functions.
 ---
 
 ## Testing
