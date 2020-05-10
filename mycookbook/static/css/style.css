@@ -287,7 +287,7 @@ font-size: 1.2rem;
 color: var(--black);
 }
 .card .card-title:hover{
-text-shadow: 2px 2px 2px var(--lightgrey);
+color: var(--darkyellow);
 }
 .text-block {
 position: absolute;
