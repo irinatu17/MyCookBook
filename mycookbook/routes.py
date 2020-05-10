@@ -15,11 +15,12 @@ cuisines_coll = mongo.db.cuisines
 diets_coll = mongo.db.diets
 meals_coll = mongo.db.meals
 
-# Landing page
+'''
+HOME PAGE
+
+'''
 @app.route('/')
 @app.route("/home")
-# The idea of getting random recipes using "$sample" is taken 
-# from MongoDB documentation: https://docs.mongodb.com/manual/reference/operator/aggregation/sample/
 def home():
     featured_recipes = ([recipe for recipe in recipes_coll.aggregate
                         ([{"$sample": {"size": 4}}])])
@@ -62,10 +63,17 @@ def my_recipes(username):
     my_username = users_coll.find_one({'username': session
                                       ['username']})['username']
     my_recipes = recipes_coll.find({'author': my_id})
-    number_of_recipes = recipes_coll.find({'author': my_id}).count()
+    number_of_my_rec = my_recipes.count()
+    limit_per_page = 8
+    current_page = int(request.args.get('current_page', 1))
+    pages = range(1, int(math.ceil(number_of_my_rec / limit_per_page)) + 1)
+    recipes = my_recipes.sort('_id', pymongo.ASCENDING).skip(
+        (current_page - 1)*limit_per_page).limit(limit_per_page)
+
     return render_template("my_recipes.html", my_recipes=my_recipes,
-                           username=my_username,
-                           number_of_recipes=number_of_recipes,
+                           username=my_username, recipes=recipes,
+                           number_of_my_rec=number_of_my_rec,
+                           current_page=current_page, pages=pages,
                            title='My Recipes')
 
 # Add recipe

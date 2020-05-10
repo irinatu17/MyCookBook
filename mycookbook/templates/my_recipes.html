@@ -3,7 +3,7 @@
   <h1 class="secondary-heading uppercase center-align">
    <span class="text-black">{{ username }}</span>'s recipes
   </h1>
-  <p class="paragraph-count center-align">You have created <span class="red-text">{{ number_of_recipes }}</span> recipes</p>
+  <p class="paragraph-count center-align">You have created <span class="red-text">{{ number_of_my_rec }}</span> recipes</p>
 </div>
 
 <div class="container container-recipes center-align">
@@ -22,6 +22,16 @@
     </a>
     {% endfor %}
   </div>
+ <!--Pagination-->
+  <ul class="pagination center-align">
+    {% for page_num in pages %} 
+    {% if page_num == current_page %}
+    <li class="active"><a>{{ page_num }}</a></li>
+     {% else %}
+    <li class="waves-effect"><a href="{{ url_for('my_recipes', username = session.username, current_page=page_num) }}">{{ page_num }}</a></li>
+    {% endif %} 
+    {% endfor %}
+  </ul>
 </div>
 
 {% endblock %}
