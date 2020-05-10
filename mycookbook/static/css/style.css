@@ -72,6 +72,9 @@ font-weight: bold;
 .text-shadow-small{
  text-shadow: 1px 1px 1px var(--black);   
 }
+h6 {
+font-size: 1.1rem;
+}
 /* Headings*/
 .primary-heading{
 font-size: 2.3rem;
@@ -473,5 +476,53 @@ width:70%;
 }
 .button-container{
 width:60%;    
+}
+}
+/* Small resolution Media queries (e.g. iPhone 5/SE ) */
+@media (max-width: 360px) {
+.btn-change {
+font-size: 9px;
+}
+.secondary-heading {
+font-size: 1.3rem;
+}
+.btn-edit-del {
+font-size: 12px;
+}
+.card_meal_heading{
+font-size: 12px;
+}
+}
+/*  iPad Pro size Media queries */
+@media only screen and (min-width: 1024px) and (max-width: 1366px)and (-webkit-min-device-pixel-ratio: 1.5){
+.card .card-image img{
+height: 20vh;
+}
+.card .card-title{
+font-size:13px;
+}
+.card-bottom-info {
+font-size: 8px;
+}
+.icon-recipe-card {
+font-size: 10px;
+}
+.recipe-description-paragraph{
+padding-bottom: 0;
+}
+.container-addrecipe{
+width:90%;
+}
+.container-recipes{
+width:100%;
+}
+.container-recipe-lists{
+width:90%;
+}
+.button-container{
+width:70%;    
+}
+.btn-edit-del{
+width:90%;
 }
 }

@@ -28,7 +28,7 @@
     <h3 ><a href="{{ url_for('single_recipe_details', recipe_id=recipe._id) }}" class="card-title">{{ recipe.recipe_name }}</a></h3>
       <div class="divider"></div>
       <div class="row card-bottom-info">
-        <div class="col s4 uppercase">{{ recipe.meal_type }}</div>
+        <div class="col s4 uppercase card_meal_heading">{{ recipe.meal_type }}</div>
         <div class="col s8 right-align">
           <span title="Cooking time"
             ><i class="far fa-clock icon-recipe-card"></i> {{ recipe.cooking_time }} min|
