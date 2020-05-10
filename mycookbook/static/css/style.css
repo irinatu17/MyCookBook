@@ -268,9 +268,9 @@ margin-top: 5px;
 margin-bottom: 0;
 }
 .icon-recipe-card{
- color: var(--yellow);   
- font-size: 14px;
- padding: 2px;
+color: var(--yellow);   
+font-size: 14px;
+padding: 2px;
 }
 .card-recipe,
 .card-image{
@@ -279,7 +279,7 @@ border-radius: 25px;
 .card .card-image img{
 position: relative;
 object-fit: cover;
-height: 40vh;
+height: 50vh;
 }
 .card .card-content{
 padding-top: 0;
@@ -461,6 +461,9 @@ font-size: 1.2rem;
 .sub-heading{
 font-size: 1.9rem;
 text-align: left;
+}
+.card .card-image img{
+height: 40vh;
 }
 .recipe-description-paragraph{
 padding-bottom: 3rem;
