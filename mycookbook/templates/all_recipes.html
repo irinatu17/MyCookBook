@@ -1,8 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <section class="container margin-top-large">
-  <h1 class="secondary-heading uppercase center-align margin-bottom-large"><span class="text-black">All </span>Recipes</h1>
+  <h1 class="secondary-heading uppercase center-align margin-bottom-large"><span class="text-black">All </span>Recipes ({{ number_of_all_rec }})</h1>
+    <div class="margin-top-med hide-on-small-only">
+    <hr class="center-align divider-yellow" />
+    </div>
 </section>
-<div class="container container-recipes margin-top-small">
+<div class="container container-recipes margin-top-med">
   <div class="row">
     {% for recipe in recipes %} 
     {% include "partials/_recipecards.html" %} 

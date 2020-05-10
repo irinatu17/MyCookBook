@@ -52,7 +52,7 @@
 </div>
 <!--Delete Account Modal -->
 <div id="delete-modal-account" class="modal">
-  <div class="modal-content center-align container-95">
+  <div class="modal-content center-align">
     <h5 class="text-red bold">Delete Account</h5>
     <div class="divider"></div>
     <p class="text-red">
@@ -66,10 +66,10 @@ will remove all your recipes from the website. </p>
       method="POST"
     >
       <div class="row center-align margin-top-small">
-        <div class="input-field col s12 m6 offset-m3">
+        <div class="input-field col s12">
           <i class="material-icons prefix">lock</i>
           <input
-            placeholder="Enter password to confirm"
+            placeholder="Enter password"
             id="confirm_password_to_delete"
             name="confirm_password_to_delete"
             type="password"
@@ -91,10 +91,10 @@ will remove all your recipes from the website. </p>
       <div class="margin-top-small">
         <a
           href="{{ url_for('account_settings',  username = session.username) }}"
-          class="modal-close btn btn-secondary waves-effect waves-light z-depth-2"
+          class="modal-close  btn btn-change btn-secondary waves-effect waves-light z-depth-2 btn-small-font"
           >Cancel</a
         >
-        <button class="btn btn-red waves-effect waves-light z-depth-2" href="#">
+        <button class="btn btn-change btn-red waves-effect waves-light z-depth-2 btn-small-font" href="#">
           Delete Account
         </button>
       </div>

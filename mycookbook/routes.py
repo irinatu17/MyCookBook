@@ -44,7 +44,7 @@ def all_recipes():
 
     return render_template("all_recipes.html", recipes=recipes,
                            title='All Recipes', current_page=current_page,
-                           pages=pages)
+                           pages=pages, number_of_all_rec=number_of_all_rec)
 # Single Recipe details display
 @app.route('/recipe_details/<recipe_id>')
 def single_recipe_details(recipe_id):

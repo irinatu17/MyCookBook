@@ -45,6 +45,9 @@ text-transform: uppercase;
 .margin-top-large{
 margin-top: 5rem;
 }
+.margin-top-med{
+margin-top: 3rem;
+}
 .margin-top-small{
 margin-top: 1rem;
 }
@@ -279,7 +282,7 @@ border-radius: 25px;
 .card .card-image img{
 position: relative;
 object-fit: cover;
-height: 50vh;
+height: 45vh;
 }
 .card .card-content{
 padding-top: 0;
@@ -482,7 +485,7 @@ width:60%;
 }
 }
 /* Small resolution Media queries (e.g. iPhone 5/SE ) */
-@media (max-width: 360px) {
+@media (max-width: 350px) {
 .btn-change {
 font-size: 9px;
 }
@@ -494,6 +497,10 @@ font-size: 12px;
 }
 .card_meal_heading{
 font-size: 12px;
+}
+.btn-small-font{
+font-size: 10px;
+margin: 1px;
 }
 }
 /*  iPad Pro size Media queries */
