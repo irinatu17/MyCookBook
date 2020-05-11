@@ -69,7 +69,7 @@ As well as that, structuring the website in well-organised readable way with eas
 ### Wireframes
 [Balsamiq Wireframes](https://balsamiq.com/) was used to create all wireframes for the project.
 
-Wireframes for both desktop and mobile devices can be found [here] ().
+Wireframes for both desktop and mobile devices can be found here.
 ---
 
 ## Features
