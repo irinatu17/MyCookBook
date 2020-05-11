@@ -59,10 +59,21 @@ Registered users can add new recipes, edit and delete their own recipes, as well
 - [GitHub](https://git-scm.com/) - for remotely storing project's code.
 - [PIP](https://pip.pypa.io/en/stable/installing/) - for installation of necessary tools.
 - [GIMP2](https://www.gimp.org/) - for editing, compressing and resizing images.
+<<<<<<< HEAD
 ### Front-End
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
 - [CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
 ### Back-End
+=======
+
+### Front-End
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
+- [CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
+
+### Back-End
+
+>>>>>>> 345a5bccbf1e48fce6faba3f41258db122507402
 - [Python 3.8.2](https://www.python.org/) -  back-end programming language used in this project.
 - [Flask 1.1.2](https://flask.palletsprojects.com/en/1.1.x/) - microframework for building and rendering pages.
 - [MongoDB Atlas](https://www.mongodb.com/) - NoSQL database for storing back-end data.
@@ -71,7 +82,13 @@ Registered users can add new recipes, edit and delete their own recipes, as well
 - [Werkzeug 0.16.1](https://werkzeug.palletsprojects.com/en/0.16.x/) - to generate and verify password hashing.
 - [Jinja 2.10.1](https://jinja.palletsprojects.com/en/2.10.x/) - templating language for Python, to display back-end data in HTML.
 - [Heroku](https://heroku.com/) - to host the project.
+<<<<<<< HEAD
 ### Libraries
+=======
+
+### Libraries
+
+>>>>>>> 345a5bccbf1e48fce6faba3f41258db122507402
 - [Materialize 1.0.0](https://materializecss.com/) - main responsive modern front-end framework used for grid and responsivesness.
 - [Google Fonts](https://fonts.google.com/) - to import fonts.
 - [FontAwesome](https://fontawesome.com/) - to provide icons used across the project. 
