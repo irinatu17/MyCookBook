@@ -3,9 +3,10 @@
 
 The main purpose of this full-stack MongoDB-based Flask project is to create a database of recipes that allows users to create, read, update and delete (CRUD) recipes.
 "My CookBook" gives access to all recipes in the database for non-registered users. At the same time it gives the opportunity to create an account and benifit from having convenient access to all features of the website.
-Registered users can add new recipes, edit and delete their own ones, as well as edit their username and password or delete account. 
+Registered users can add new recipes, edit and delete their own ones, as well as edit their username and password or delete account.  
+[My CookBook](https://mycookbook-project.herokuapp.com/) is a simple way to view, create and store your recipies!   
+Sign in, get inspired, contribute, cook and enjoy!
 
-["My CookBook"](https://mycookbook-project.herokuapp.com/) is a simple way to view, create and store your recipies! Sign in, get inspired, contribute, cook and enjoy!
 ---
 
 ## Table of Contents
@@ -36,9 +37,9 @@ Registered users can add new recipes, edit and delete their own ones, as well as
 
 ## UX
 My main goal in UX was to built a website minimalistic in design, simple to use; where users can create their own recipes, view all recipes created by others,
-edit and delete their recipes. The target audience for this app is anyone who has passion for cooking, wants to discover new recipes or needs to store their own recipes online.
+edit and delete their recipes. The target audience for this app is anyone who has passion for cooking, wants to discover new recipes or needs to store their own recipes online.  
 Creating modern, sleek and user-friendly interface with easy access to all information is the key to giving users feel of reliability, security and positiveness. 
-With this in mind, I developed this app in a way that everyone can view all the recipes on the website, while only authors can make changes to their recipes. 
+With this in mind, I developed this app in a way that everyone can view all the recipes on the website, while only authors can make changes to their recipes.   
 As well as that, structuring the website in well-organised readable way with easy navigation was another goal for this project.
 ### User Stories
 **As a user, I want/expect:**
@@ -56,20 +57,32 @@ As well as that, structuring the website in well-organised readable way with eas
 - to delete my account and all recipes I've created
 - to use the website from any device(laptop, tablet, mobile)
 ### Design
-
-#### Color Scheme
-
+My CookBook website has an overall user friendly, modern feel, with emphasis on providing information about recipes in a readable and eye-catching way. Therefore following design choices were made:
 #### Framework
+[Materialize](https://materializecss.com/),front-end framework based on Material Design was chosen for this project for its modern interface and easy of use. It was used for creating features such as navbar, cards, forms, madal, as well as for its grid.  
+[JQuery](https://jquery.com/) was used for initializing some Materialize elements listed above, as well as for custom functions, simple DOM manipulation.
+#### Color Scheme
+One of the main goals was to focus user's attention on the recipes cards and recipes' images. Therefore I decided to have a lot of whitespaces and mostly white background accross the website, giving preferences to calm white and grey colours(e.g. for navbar, footer, forms). Bright colours are only used for buttons, icons and some headings to catch user's atention.    
+The idea of using different shades of the same colour is implemented accross the website. The primary colour used for main buttons and headings is coral as it seems to create a nice contrast with grey and white backgrounds. The secondary colour used for icons, deviders, some other buttons is yellow.   
+##### Main color palette
+ - ![#ff4242](https://placehold.it/15/ff4242/ff4242) `#ff4242` - **coral**
+ - ![#fab700](https://placehold.it/15/fab700/fab700) `#fab700` - **yellow**
+ - ![#c89200](https://placehold.it/15/c89200/c89200) `#c89200` - **darkyellow**
+ - ![#2e2e2e](https://placehold.it/15/2e2e2e/2e2e2e) `#2e2e2e` - **lightblack**
+ - ![#f5f5f5f3](https://placehold.it/15/f5f5f5f3/f5f5f5f3) `#f5f5f5f3` - **darkwhite**
+ - ![#ffffff](https://placehold.it/15/ffffff/ffffff) `#ffffff` - **white** 
+#### Typography
+There are two fonts used across the project: [Open Sans](https://fonts.google.com/specimen/Open+Sans)-the main primary font and [Ubuntu](https://fonts.google.com/specimen/Ubuntu) - the secondary font, used for some headings and buttons.
 
 #### Icons
-
-
-
+Icons are used wildly, as they are good attention grabbers. They help users to find and scan content. Another advantage of using them is that they help to break language barriers. They create more user-friendly experience for people with non-native English.  
+I used [FontAwesome](https://fontawesome.com/) as the main icon library across the project (e.g. for navbar, footer, forms, recipe details page). However,  [Materialize icons](https://materializecss.com/icons.html) were used as well in some cases.
 
 ### Wireframes
 [Balsamiq Wireframes](https://balsamiq.com/) was used to create all wireframes for the project.
 
-Wireframes for both desktop and mobile devices can be found [here] ().
+Wireframes for both desktop and mobile devices can be found [here]().
+
 ---
 
 ## Features
@@ -143,3 +156,6 @@ The project images are taken from the following sources:
 
 ### Acknowledgements
 
+---
+
+**This is for educational use only.**
