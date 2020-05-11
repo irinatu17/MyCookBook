@@ -2,9 +2,9 @@
 "My CookBook" - Practical Python and Data-Centric Development Milestone Project.
 
 The main purpose of this full-stack MongoDB-based Flask project is to create a database of recipes that allows users to create, read, update and delete (CRUD) recipes.
-"My CookBook" gives access to all recipes in the database for non-registered users. At the same time it gives the opportunity to create an account and benifit from having convenient access to all features of the website.
+"My CookBook" gives an access to all the recipes in the database for non-registered users. At the same time, it gives the opportunity to create an account and benifit from having convenient access to all features of the website.
 Registered users can add new recipes, edit and delete their own ones, as well as edit their username and password or delete account.  
-[My CookBook](https://mycookbook-project.herokuapp.com/) is a simple way to view, create and store your recipies!   
+[My CookBook](https://mycookbook-project.herokuapp.com/) is a simple way to view, create and store your recipes!   
 Sign in, get inspired, contribute, cook and enjoy!
 
 ---
@@ -36,7 +36,7 @@ Sign in, get inspired, contribute, cook and enjoy!
 ---
 
 ## UX
-My main goal in UX was to built a website minimalistic in design, simple to use; where users can create their own recipes, view all recipes created by others,
+My main goal in UX was to built a website minimalistic in design, simple to use; where users can create their own recipes, view all the recipes created by others,
 edit and delete their recipes. The target audience for this app is anyone who has passion for cooking, wants to discover new recipes or needs to store their own recipes online.  
 Creating modern, sleek and user-friendly interface with easy access to all information is the key to giving users feel of reliability, security and positiveness. 
 With this in mind, I developed this app in a way that everyone can view all the recipes on the website, while only authors can make changes to their recipes.   
@@ -44,8 +44,8 @@ As well as that, structuring the website in well-organised readable way with eas
 ### User Stories
 **As a user, I want/expect:**
 - to view all the recipes without having to register
-- to view all recipes details (including cuisine, meal and diet types, cooking time, servings, list of ingredients and directions)
-- to see how many recipes are in the website
+- to view all recipe details (including cuisine, meal and diet types, cooking time, servings, list of ingredients and directions)
+- to see how many recipes are on the website
 - to create my own account
 - to add new recipes 
 - to edit my recipes 
@@ -55,16 +55,16 @@ As well as that, structuring the website in well-organised readable way with eas
 - to change my current username
 - to change my current password
 - to delete my account and all recipes I've created
-- to use the website from any device(laptop, tablet, mobile)
+- to use the website from any device (laptop, tablet, mobile)
 ### Design
-My CookBook website has an overall user friendly, modern feel, with emphasis on providing information about recipes in a readable and eye-catching way. Therefore following design choices were made:
+The goal in design was to create a website that is overall user friendly, has a modern feel with emphasis on providing information about recipes in a readable and eye-catching way. Therefore, following design choices were made:
 #### Framework
-[Materialize](https://materializecss.com/),front-end framework based on Material Design was chosen for this project for its modern interface and easy of use. It was used for creating features such as navbar, cards, forms, madal, as well as for its grid.  
+[Materialize](https://materializecss.com/), front-end framework based on Material Design was chosen for this project for its modern interface and ease of use. It was used for creating features such as navbar, cards, forms, modal, as well as for its grid.  
 [JQuery](https://jquery.com/) was used for initializing some Materialize elements listed above, as well as for custom functions, simple DOM manipulation.
-#### Color Scheme
-One of the main goals was to focus user's attention on the recipes cards and recipes' images. Therefore I decided to have a lot of whitespaces and mostly white background accross the website, giving preferences to calm white and grey colours(e.g. for navbar, footer, forms). Bright colours are only used for buttons, icons and some headings to catch user's atention.    
-The idea of using different shades of the same colour is implemented accross the website. The primary colour used for main buttons and headings is coral as it seems to create a nice contrast with grey and white backgrounds. The secondary colour used for icons, deviders, some other buttons is yellow.   
-##### Main color palette
+#### Colour Scheme
+One of the main goals was to focus user's attention on the recipe cards and recipes' images. Therefore, I decided to have a lot of whitespaces and mostly white background accross the website, giving preferences to calm white and grey colours (e.g. for navbar, footer, forms). Bright colours are only used for buttons, icons and some headings to catch user's atention.    
+The idea of using different shades of the same colour is implemented accross the website. The primary colour used for main buttons and headings is coral as it seems to create a nice contrast with grey and white backgrounds. The secondary colour used for icons, dividers and some other buttons is yellow.   
+##### Main colour palette
  - ![#ff4242](https://placehold.it/15/ff4242/ff4242) `#ff4242` - **coral**
  - ![#fab700](https://placehold.it/15/fab700/fab700) `#fab700` - **yellow**
  - ![#c89200](https://placehold.it/15/c89200/c89200) `#c89200` - **darkyellow**
@@ -75,7 +75,7 @@ The idea of using different shades of the same colour is implemented accross the
 There are two fonts used across the project: [Open Sans](https://fonts.google.com/specimen/Open+Sans)-the main primary font and [Ubuntu](https://fonts.google.com/specimen/Ubuntu) - the secondary font, used for some headings and buttons.
 
 #### Icons
-Icons are used wildly, as they are good attention grabbers. They help users to find and scan content. Another advantage of using them is that they help to break language barriers. They create more user-friendly experience for people with non-native English.  
+Icons are used widely, as they are good attention grabbers. They help users to find and scan content. Another advantage of using them is to help to break language barriers. They create more user-friendly experience for people with non-native English.  
 I used [FontAwesome](https://fontawesome.com/) as the main icon library across the project (e.g. for navbar, footer, forms, recipe details page). However,  [Materialize icons](https://materializecss.com/icons.html) were used as well in some cases.
 
 ### Wireframes
@@ -86,8 +86,9 @@ Wireframes for both desktop and mobile devices can be found [here]().
 ---
 
 ## Features
-
 ### Existing Features
+#### Navbar
+
 ### Features Left to Implement
 
 ---
@@ -143,7 +144,7 @@ Wireframes for both desktop and mobile devices can be found [here]().
 All recipes and recipes' images are taken from [BBC Good Food](https://www.bbcgoodfood.com/).
 ### Media
 The project images are taken from the following sources:
-- **Homapge background image** and **errorpage background image** : [Pixels](https://www.pexels.com/)
+- **Homepage background image** and **errorpage background image** : [Pixels](https://www.pexels.com/)
 - **Favicon** : [Clipart-Library](http://clipart-library.com/)
 - **Logo** : [Hatchful](https://hatchful.shopify.com/)
 - **Background Image for forms** : [Unsplash](https://unsplash.com/), used for login, register, change username, change password pages.
