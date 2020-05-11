@@ -480,9 +480,6 @@ width:90%;
 .btn-edit-del {
 width:70%;
 }
-.button-container{
-width:60%;    
-}
 }
 /* Small resolution Media queries (e.g. iPhone 5/SE ) */
 @media (max-width: 350px) {
@@ -528,9 +525,6 @@ width:100%;
 }
 .container-recipe-lists{
 width:90%;
-}
-.button-container{
-width:70%;    
 }
 .btn-edit-del{
 width:90%;

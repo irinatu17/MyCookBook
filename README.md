@@ -1,11 +1,11 @@
 # [My CookBook](https://mycookbook-project.herokuapp.com/)
 "My CookBook" - Practical Python and Data-Centric Development Milestone Project.
 
-The main purpose of this full-stack MongoDB-backed Flask project is to create a database of recipes that allows users to create, read, update and delete (CRUD) recipes.
-"My CookBook" gives access to all recipes in the database for non-registered users, while it gives the opportunity to create an account and benifit of having convenient access to all features of the website.
-Registered users can add new recipes, edit and delete their own recipes, as well as edit their username and password or delete account. 
+The main purpose of this full-stack MongoDB-based Flask project is to create a database of recipes that allows users to create, read, update and delete (CRUD) recipes.
+"My CookBook" gives access to all recipes in the database for non-registered users. At the same time it gives the opportunity to create an account and benifit from having convenient access to all features of the website.
+Registered users can add new recipes, edit and delete their own ones, as well as edit their username and password or delete account. 
 
-[**"My CookBook"**](https://mycookbook-project.herokuapp.com/) is a simple way to find, create and store your recipies! Sign in, create your own, get inspired, cook and enjoy!
+["My CookBook"](https://mycookbook-project.herokuapp.com/) is a simple way to view, create and store your recipies! Sign in, get inspired, contribute, cook and enjoy!
 ---
 
 ## Table of Contents
@@ -35,14 +35,41 @@ Registered users can add new recipes, edit and delete their own recipes, as well
 ---
 
 ## UX
-
+My main goal in UX was to built a website minimalistic in design, simple to use; where users can create their own recipes, view all recipes created by others,
+edit and delete their recipes. The target audience for this app is anyone who has passion for cooking, wants to discover new recipes or needs to store their own recipes online.
+Creating modern, sleek and user-friendly interface with easy access to all information is the key to giving users feel of reliability, security and positiveness. 
+With this in mind, I developed this app in a way that everyone can view all the recipes on the website, while only authors can make changes to their recipes. 
+As well as that, structuring the website in well-organised readable way with easy navigation was another goal for this project.
 ### User Stories
-* 
-* 
-* 
+**As a user, I want/expect:**
+- to view all the recipes without having to register
+- to view all recipes details (including cuisine, meal and diet types, cooking time, servings, list of ingredients and directions)
+- to see how many recipes are in the website
+- to create my own account
+- to add new recipes 
+- to edit my recipes 
+- to view a list of my recipes on a separate page and see how many recipes I've created
+- to delete my recipes
+- to log out any time and have the session terminated
+- to change my current username
+- to change my current password
+- to delete my account and all recipes I've created
+- to use the website from any device(laptop, tablet, mobile)
 ### Design
-### Wireframes
 
+#### Color Scheme
+
+#### Framework
+
+#### Icons
+
+
+
+
+### Wireframes
+[Balsamiq Wireframes](https://balsamiq.com/) was used to create all wireframes for the project.
+
+Wireframes for both desktop and mobile devices can be found [here] ().
 ---
 
 ## Features
@@ -59,21 +86,10 @@ Registered users can add new recipes, edit and delete their own recipes, as well
 - [GitHub](https://git-scm.com/) - for remotely storing project's code.
 - [PIP](https://pip.pypa.io/en/stable/installing/) - for installation of necessary tools.
 - [GIMP2](https://www.gimp.org/) - for editing, compressing and resizing images.
-<<<<<<< HEAD
 ### Front-End
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
 - [CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
 ### Back-End
-=======
-
-### Front-End
-
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
-- [CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
-
-### Back-End
-
->>>>>>> 345a5bccbf1e48fce6faba3f41258db122507402
 - [Python 3.8.2](https://www.python.org/) -  back-end programming language used in this project.
 - [Flask 1.1.2](https://flask.palletsprojects.com/en/1.1.x/) - microframework for building and rendering pages.
 - [MongoDB Atlas](https://www.mongodb.com/) - NoSQL database for storing back-end data.
@@ -82,13 +98,7 @@ Registered users can add new recipes, edit and delete their own recipes, as well
 - [Werkzeug 0.16.1](https://werkzeug.palletsprojects.com/en/0.16.x/) - to generate and verify password hashing.
 - [Jinja 2.10.1](https://jinja.palletsprojects.com/en/2.10.x/) - templating language for Python, to display back-end data in HTML.
 - [Heroku](https://heroku.com/) - to host the project.
-<<<<<<< HEAD
 ### Libraries
-=======
-
-### Libraries
-
->>>>>>> 345a5bccbf1e48fce6faba3f41258db122507402
 - [Materialize 1.0.0](https://materializecss.com/) - main responsive modern front-end framework used for grid and responsivesness.
 - [Google Fonts](https://fonts.google.com/) - to import fonts.
 - [FontAwesome](https://fontawesome.com/) - to provide icons used across the project. 
