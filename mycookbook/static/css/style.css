@@ -500,8 +500,8 @@ font-size: 10px;
 margin: 1px;
 }
 }
-/*  iPad Pro size Media queries */
-@media only screen and (min-width: 1024px) and (max-width: 1366px)and (-webkit-min-device-pixel-ratio: 1.5){
+/*  iPad Pro  and iPad landscape size Media queries */
+@media only screen and (min-width: 992px) and (max-width: 1366px)and (-webkit-min-device-pixel-ratio: 1.5){
 .card .card-image img{
 height: 20vh;
 }
