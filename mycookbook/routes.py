@@ -119,7 +119,12 @@ def add_recipe():
     The function calls Add_RecipeForm class from forms.py
     to diplay the form for adding new recipe,
     fill dropdowns with data from cuisins, diets and meals collections.
+    Only logged in users can view and fill the form
     '''
+    # prevents guest users from viewing the form
+    if 'username' not in session:
+        flash('You must be logged in to add a new recipe!')
+        return redirect(url_for('home'))
     # form variable to initialise the form
     form = Add_RecipeForm()
     # variables to fill dropdownes with data from collections
@@ -127,8 +132,8 @@ def add_recipe():
     meal_types = meals_coll.find()
     cuisine_types = cuisines_coll.find()
     return render_template("add_recipe.html", diet_types=diet_types,
-                           cuisine_types=cuisine_types, meal_types=meal_types,
-                           form=form, title='New Recipe')
+                        cuisine_types=cuisine_types, meal_types=meal_types,
+                        form=form, title='New Recipe')
 
 # Insert recipe
 @app.route("/insert_recipe", methods=['GET', 'POST'])
@@ -138,6 +143,7 @@ def insert_recipe():
     Inserts new created recipe to the "recipes" collection in DB
     after submission the form from the add_recipe page.
     '''
+
     # split ingredients and directions into lists
     ingredients = request.form.get("ingredients").splitlines()
     directions = request.form.get("recipe_directions").splitlines()
@@ -177,15 +183,28 @@ def edit_recipe(recipe_id):
     Renders edit_recipe page, provides the user with a form to edit task
     with pre-populated fields.
     '''
+    # prevents guest users from viewing the form
+    if 'username' not in session:
+        flash('You must be logged in to edit a recipe!')
+        return redirect(url_for('home'))
+    user_in_session = users_coll.find_one({'username': session['username']})
     # get the selected recipe for filling the fields
     selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
-    # variables to fill dropdownes with data from collections
-    diet_types = diets_coll.find()
-    meal_types = meals_coll.find()
-    cuisine_types = cuisines_coll.find()
-    return render_template('edit_recipe.html', selected_recipe=selected_recipe,
-                           cuisine_types=cuisine_types, diet_types=diet_types,
-                           meal_types=meal_types, title='Edit Recipe')
+    # allows only author of the recipe to edit it;
+    # protects againts brute-forcing
+    if selected_recipe['author'] == user_in_session['_id']:
+        # variables to fill dropdownes with data from collections
+        diet_types = diets_coll.find()
+        meal_types = meals_coll.find()
+        cuisine_types = cuisines_coll.find()
+        return render_template('edit_recipe.html',
+                               selected_recipe=selected_recipe,
+                               cuisine_types=cuisine_types,
+                               diet_types=diet_types,
+                               meal_types=meal_types, title='Edit Recipe')
+    else:
+        flash("You can only edit your own recipes!")
+        return redirect(url_for('home'))
 
 
 # Update Recipe in the Database
@@ -228,15 +247,25 @@ def delete_recipe(recipe_id):
     DELETE.
     Removes the selected recipe from the database.
     Only the author of the recipe can delete the recipe.
-
     '''
-    recipes_coll.remove({"_id": ObjectId(recipe_id)})
-    # find the author of the selected recipe
-    author = users_coll.find_one({'username': session['username']})['_id']
-    users_coll.update_one({"_id": ObjectId(author)},
-                          {"$pull": {"user_recipes": ObjectId(recipe_id)}})
-
-    return redirect(url_for("all_recipes"))
+    # prevents guest users from viewing the modal
+    if 'username' not in session:
+        flash('You must be logged in to delete a recipe!')
+        return redirect(url_for('home'))
+    user_in_session = users_coll.find_one({'username': session['username']})
+    # get the selected recipe for filling the fields
+    selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
+    # allows only author of the recipe to delete it;
+    # protects againts brute-forcing
+    if selected_recipe['author'] == user_in_session['_id']:
+        recipes_coll.remove({"_id": ObjectId(recipe_id)})
+        # find the author of the selected recipe
+        author = users_coll.find_one({'username': session['username']})['_id']
+        users_coll.update_one({"_id": ObjectId(author)},
+                              {"$pull": {"user_recipes": ObjectId(recipe_id)}})
+    else:
+        flash("You can only delete your own recipes!")
+        return redirect(url_for('home'))
 
 
 '''
@@ -253,7 +282,7 @@ def login():
     '''
     # Check if the user is already logged in
     if 'username' in session:
-        flash('You are already logged in')
+        flash('You are already logged in!')
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
@@ -336,6 +365,9 @@ def account_settings(username):
     buttons for change_username, change_password
     and delete_account pages.
     '''
+    # prevents guest users from viewing the page
+    if 'username' not in session:
+        flash('You must be logged in to view settings page!')
     username = users_coll.find_one({'username':
                                     session['username']})['username']
     return render_template('account_settings.html',
@@ -351,6 +383,9 @@ def change_username(username):
     Checks if the new username is unique and not exist in database,
     then clear the session and redirect user to login page.
     '''
+    # prevents guest users from viewing the form
+    if 'username' not in session:
+        flash('You must be logged in to change username!')
     users = users_coll
     form = ChangeUsernameForm()
     if form.validate_on_submit():
@@ -386,6 +421,9 @@ def change_password(username):
     Then if new password matchs confirm password field,
     insert it to the database.
     '''
+    # prevents guest users from viewing the form
+    if 'username' not in session:
+        flash('You must be logged in to change password!')
     users = users_coll
     form = ChangePasswordForm()
     username = users.find_one({'username': session['username']})['username']
@@ -424,6 +462,9 @@ def delete_account(username):
     created by this user. Before deletion of the account, user is asked
     to confirm it by entering password.
     '''
+    # prevents guest users from viewing the form
+    if 'username' not in session:
+        flash('You must be logged in to delete an account!')
     user = users_coll.find_one({"username": username})
     # checks if password matches existing password in database
     if check_password_hash(user["password"],
