@@ -91,8 +91,76 @@ Initial wireframes with some comments for both desktop and mobile devices can be
 ## Features
 ### Existing Features
 #### Navbar
-
+The navbar is fixed at the top of the page while scrolling down, what allows a user to easily navigate throughout the website.  The logo in the top right corner on desktop and in the center on smaller devices redirects to the home page when it is clicked.
+On the smaller resolutions (tablet, mobile) it is collapsed into a burger icon, when it is clicked, slide out menu opens.  
+For **non-logged in** users or guests navbar contains the following links:
+- Home
+- Browse Recipes
+- Login
+- Register
+For **logged-in** users navbar contains the following links:
+- Home
+- Browse Recipes
+- Account (it is a dropdown on desktop)
+    - My Recipes
+    - Add New Recipe
+    - Settings
+- Logout
+#### Featured Recipes
+The home page contains a button that redirects to the "All Recipes" page. It also displays 4 random images from 
+the database using the `$sample` function of MongoDB. 
+#### Browse All Recipes
+All recipes page displays recipe cards sorted from the oldest to the most recently added. As well as that, there is a total number of recipes displayed in parentheses after the heading.
+All recipe cards are clickable and redirect a user to the individual recipe page with detailed information.
+The pagination at the bottom of the page allows to display 8 recipes per page.
+#### Single Recipe details
+Single recipe details page renders when user clicks on the recipe card. It displays information about the selected recipe:
+recipe name, description, cuisine type, meal type, diet type, number of servings, cooking time, author, ingredients, directions and recipe image(or recipe placeholder).
+If the user is author of the recipe, there are buttons "Edit" and "Delete", that redirect to the edit and delete recipe pages responsively.
+#### Register
+The register page allows user to create a new account. User is asked to fill the fields "username", "password" and "confirm password".
+The code checks against existing username to assign only unique username, that must be 3-15 characters long. The same validation requirement applies to the password fields,
+which must match the "confirm password" field. All passwords are hashed for security purposes. If user's input does not meet requirements, flash messages will inform user about the error.
+When form is submitted successfullly, user is redirected to the home page, informing that account was created.
+#### Login
+The login page features the form with "username" and "password" fields, allowing registered user to log into their account.
+If the entered username and hashed password match the ones in the database, user is redirected to the home page and informed that logged in was succsessful. Otherwise, flash messages will be displayed about incorrect user's input.
+#### Logout 
+Hitting "logout" button by logged in users ends their session and redirects to the homepage.
+#### My recipes
+My recipes page allows registered users to view all their recipes. It also displays the total number of all the user's recipes.
+Pagination is in place displaying 8 recipes per page. If user has not created any recipes yet, there's a button "Add recipe" preceded by insruction, which redirects user to the add recipe page.
+#### Add Recipe
+Registered and logged in users can add new recipes through the form. There are some validations in place, all the fields except "Cuisine type", "Diet type" and "Recipe Image" are required. For the "recipe name" and "recipe description" characters limit is set.
+If user does not provide a URL to the recipe image, recipe placeholder will be assigned for that recipe. There is also Tooltip-instruction saying that user can upload the image to a free image hosting website(e.g. ImgBB).
+After succsessful addition, user is redirected to the created recipe details page. There is also a button "Cancel" that simply redirects user to the home page (in order to avoid to hit "back").
+#### Edit Recipe
+Edit recipe page allows logged in user to update the the information about the recipe. The "Edit" button will appear only for author of the recipe. 
+As well as that, the defensive design(against brute-forcing) in place allows only authors of the recipe make changes. 
+The form is pre-populated with the relevant data. After clicking "Edit recipe" button, the recipe is updated in the database and user is redirected to the updated recipe details page.
+#### Delete Recipe
+Delete recipe function allows only author of the recipe delete it. After user clicks the "delete" button in a Single Recipe Details page, the modal will be opened. It asks user to confirm that the recipe is wanted to be deleted. 
+If so, clicking "delete" button, recipe will be removed from the database as well as from the user_recipes field of the recipe's author in users collection. There is also button "cancel" that is close the modal when it's clicked.
+#### Account Settings page
+Account Settings page contains username, randomly assigned user avatar and 3 buttons "Change username", "Change password" and "Delete account".
+#### Change username
+The form displayed allows registered user to change the username. If checks if the new entered username is not exist in the database. After succsessfull submition, it redirect user to login page asking for logging in with a new username.
+#### Change password
+A user can change the current password by filling the form, that contains following fields "Current password", "New password", "Confirm New password".
+Both new password have to match and be 3-15 characters long. If the form is successfullly submited, user is redirected to the account settings page with a flash message about successfullly changed password.
+#### Delete account
+Once the "delete account" button on the account settings page is clicked, the modal shows up asking to confirm if the user is sure wans to delete account. To verify it, user have to provide the password and after clicking "delete account" button, the account is removed from the users collection. All the recipes created by this user are removed from the recipes collection as well.
+#### Footer
+The footer features links to the social media which open in a new tab (by using 'target="_blank"). 
 ### Features Left to Implement
+There are some features that I was not able to implement due to time time constraints, but would like to do it in future.
+Both of these features are can be seen in my initial wireframes.
+#### Search recipe
+Search recipe function based on the keyword, recipe name allowing user to search for the recipe. Filters by cuisine, by meal type and by diet type would 
+allow user to have more detailed search.
+#### My favourites
+User would have an opportunity to "like" others recipes, saving in "my favourites" collection, which would be displayed on a separate page.
+Each recipe card will include small "heart" icon, clicking which user will add the selecteed recipe to "my favourits"
 
 ---
 
