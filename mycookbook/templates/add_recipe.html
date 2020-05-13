@@ -80,9 +80,9 @@
 <div class="input-field col s12">
 <i class="far fa-images prefix"></i>
     {{ form.image(id="recipe_image", placeholder="Provide URL for your recipe image", class="validate") }}
-<label for="recipe_image">Recipe Image (optional) 
-<i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting site, e.g. ImgBB, and paste direct URL here"></i> <i class="fas fa-asterisk asterisk"></i></label>
-
+<label for="recipe_image">Recipe Image URL (optional) 
+<i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting website (e.g. ImgBB) and paste direct link here"></i>
+</label>
 </div>
 <div>
 {% with messages = get_flashed_messages() %}

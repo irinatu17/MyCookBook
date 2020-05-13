@@ -8,7 +8,7 @@
 <div class="input-field col s12">
 <i class="far fa-file-alt prefix"></i>
 <input id="recipe_name" name="recipe_name" value="{{ selected_recipe.recipe_name }}" type="text" minlength="4" maxlength="25" class="validate" required />
-<label for="recipe_name">Recipe Name  <i class="fas fa-asterisk asterisk"></i></label>
+<label for="recipe_name">Recipe Name  <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="4-25 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
 </div>
 <!--Recipe Description-->
 <div class="input-field col s12">
@@ -21,7 +21,7 @@
     maxlength="300" 
     required
 >{{ selected_recipe.description }}</textarea>
-<label for="recipe_description">Recipe Description  <i class="fas fa-asterisk asterisk"></i></label>
+<label for="recipe_description">Recipe Description  <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="20-300 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
 </div>
 <!-- Cuisine_type-->
 <div class="input-field col s12 m6 l4">
@@ -131,7 +131,9 @@ https://stackoverflow.com/questions/35775207/remove-unnecessary-whitespace-from-
     type="text"
     class="validate"
 />
-<label for="recipe_image">Recipe Image (optional)</label>
+<label for="recipe_image">Recipe Image URL (optional)
+<i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting website (e.g. ImgBB) and paste direct link here"></i>
+</label>
 </div>
 <div>
 {% with messages = get_flashed_messages() %}

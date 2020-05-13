@@ -34,7 +34,7 @@
           {% endfor %}
         </div>
       </div>
-      <!--Error messages-->
+      <!--Error flash messages-->
       <div class="row center-align">
         {% with messages = get_flashed_messages() %} 
         {% if messages %} 
@@ -44,13 +44,13 @@
         </p>
         {% endfor %} {% endif %} {% endwith %}
       </div>
-      <!--Login button-->
+      <!--Login submission button-->
       <div class="row">
         <div class="col s12 center-align">
           {{ form.submit(class="btn btn-form btn-main z-depth-3 uppercase") }}
         </div>
       </div>
-      <!--Link to register page-->
+      <!--Link to the register page-->
       <div class="row center-align">
         <div class="col s12">
           <small

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!--Assign background image for all form templates in a separate css file-->
     {% if request.endpoint == 'login' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_forms.css') }}">
     {% elif request.endpoint == 'register' %}
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_forms.css') }}">
     {% elif request.endpoint == 'change_username' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_forms.css') }}">
+    <!--Assign background image for error handlers in a separate css file-->
     {% elif error %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_errors.css') }}">
     {% endif %}

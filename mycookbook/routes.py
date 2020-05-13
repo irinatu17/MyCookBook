@@ -16,7 +16,6 @@ meals_coll = mongo.db.meals
 
 '''
 HOME PAGE
-
 '''
 @app.route('/')
 @app.route("/home")
@@ -25,7 +24,6 @@ def home():
     Main home page.
     Allows users to view 4 random featured recipes
     from the database as clickable cards, located bellow the hero image.
-
     '''
     # Generate 4 random recipes from the DB
     featured_recipes = ([recipe for recipe in recipes_coll.aggregate
@@ -36,7 +34,6 @@ def home():
 
 '''
 RECIPES ROUTES
-
 '''
 # All recipes display
 @app.route('/all_recipes')
@@ -46,7 +43,6 @@ def all_recipes():
     Displays all the recipes from the database using pagination.
     The limit is set to 8 recipes per page.
     Also displayes the number of all recipes.
-
     '''
     limit_per_page = 8
     current_page = int(request.args.get('current_page', 1))
@@ -89,7 +85,6 @@ def my_recipes(username):
     giving an opportunity to create a new recipe.
     Pagination is in place diplaying 8 recipes per page.
     Also displays the total number of recipes created by the user.
-
     '''
     my_id = users_coll.find_one({'username': session['username']})['_id']
     my_username = users_coll.find_one({'username': session
@@ -132,8 +127,8 @@ def add_recipe():
     meal_types = meals_coll.find()
     cuisine_types = cuisines_coll.find()
     return render_template("add_recipe.html", diet_types=diet_types,
-                        cuisine_types=cuisine_types, meal_types=meal_types,
-                        form=form, title='New Recipe')
+                           cuisine_types=cuisine_types, meal_types=meal_types,
+                           form=form, title='New Recipe')
 
 # Insert recipe
 @app.route("/insert_recipe", methods=['GET', 'POST'])
@@ -153,7 +148,7 @@ def insert_recipe():
     if request.method == 'POST':
         # inser the new recipe after submission the form
         new_recipe = {
-            "recipe_name": request.form.get("recipe_name"),
+            "recipe_name": request.form.get("recipe_name").strip(),
             "description": request.form.get("recipe_description"),
             "cuisine_type": request.form.get("cuisine_type"),
             "meal_type": request.form.get("meal_type"),
@@ -261,8 +256,10 @@ def delete_recipe(recipe_id):
         recipes_coll.remove({"_id": ObjectId(recipe_id)})
         # find the author of the selected recipe
         author = users_coll.find_one({'username': session['username']})['_id']
+
         users_coll.update_one({"_id": ObjectId(author)},
                               {"$pull": {"user_recipes": ObjectId(recipe_id)}})
+        return redirect(url_for("all_recipes"))
     else:
         flash("You can only delete your own recipes!")
         return redirect(url_for('home'))
@@ -270,7 +267,6 @@ def delete_recipe(recipe_id):
 
 '''
 USER ROUTES
-
 '''
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
@@ -485,7 +481,6 @@ def delete_account(username):
 
 '''
 ERROR HANDLERS
-
 '''
 
 
