@@ -8,14 +8,14 @@
 <!--Recipe Name-->
 <div class="input-field col s12">
  <i class="far fa-file-alt prefix"></i>
-    {{ form.recipe_name(id="recipe_name", class="validate", minlength="4", maxlength="25") }}
-    <label for="recipe_name">Recipe Name <i class="fas fa-asterisk asterisk"></i></label>
+    {{ form.recipe_name(id="recipe_name", placeholder="Provide a recipe name", class="validate", minlength="4", maxlength="25") }}
+    <label for="recipe_name">Recipe Name  <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="4-25 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
 </div>
 <!--Recipe Description-->
 <div class="input-field col s12">
 <i class="fas fa-pen prefix"></i>
-    {{ form.recipe_description(id="recipe_description", class="validate materialize-textarea", minlength="20", maxlength="300") }}
-    <label for="recipe_description">Recipe Description  <i class="fas fa-asterisk asterisk"></i></label>
+    {{ form.recipe_description(id="recipe_description", placeholder="Write few sentences about your recipe", class="validate materialize-textarea", minlength="20", maxlength="300") }}
+    <label for="recipe_description">Recipe Description  <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="20-300 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
 </div>
 <!-- Cuisine_type-->
 <div class="input-field col s12 m6 l4">
@@ -80,7 +80,8 @@
 <div class="input-field col s12">
 <i class="far fa-images prefix"></i>
     {{ form.image(id="recipe_image", placeholder="Provide URL for your recipe image", class="validate") }}
-<label for="recipe_image">Recipe Image (optional)</label>
+<label for="recipe_image">Recipe Image (optional) 
+<i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting site, e.g. ImgBB, and paste direct URL here"></i> <i class="fas fa-asterisk asterisk"></i></label>
 
 </div>
 <div>

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu&display=swap");
 
-/* Colour Variables and Fonts*/
+/* Colour and Font Variables */
 :root {
 --white: #ffffff;
 --midiumwhite: #fffafa;
@@ -20,7 +20,7 @@
 --primaryfont: "Open Sans", sans-serif;
 --secondaryfont: "Ubuntu", sans-serif;
 }
-/**Materialize styly required for flexbox**/
+/* Global style settings*/
 main {
 flex: 1 0 auto;
 margin-top:4em;
@@ -38,7 +38,6 @@ font-weight: 400;
 line-height: 1.7rem;
 overflow-x: hidden;
 }
-/* General style settings*/
 .uppercase {
 text-transform: uppercase;
 }
@@ -73,10 +72,21 @@ color: var(--lightblack);
 font-weight: bold;
 }
 .text-shadow-small{
- text-shadow: 1px 1px 1px var(--black);   
+text-shadow: 1px 1px 1px var(--black);   
 }
-h6 {
+.error-message{
+color: var(--red);
+}
+.small-text-delete{
 font-size: 1.1rem;
+}
+/* override Materialize label color and dropdown colour */
+.input-field label {
+color: var(--black);
+}
+.dropdown-content li>a, .dropdown-content li>span {
+color:  var(--black);
+font-size:1rem;
 }
 /* Headings*/
 .primary-heading{
@@ -105,7 +115,7 @@ margin: 2rem;
 padding-bottom: 1rem;
 text-shadow: 1px 1px 1px var(--lightgrey);
 }
-/* Navigation Bar*/
+/* Navigation Bar - fixed on the top; slide out menu on mobile*/
 nav{
 position: fixed;
 top: 0px;
@@ -143,6 +153,7 @@ color: var(--lightblack);
 -moz-box-shadow: 0px -5px 10px -6px var(--lightblack);
 box-shadow: 0px -5px 10px -6px var(--lightblack);
 }
+/*Smooth transition on hover makes icons larger*/
 .media-icons{
 font-size: 25px;
 color: var(--black);
@@ -160,9 +171,7 @@ transition-timing-function: ease-in-out;
 -moz-transform: scale(1.3);
 -o-transform: scale(1.3);
 }
-
-
-/* Register-Login */
+/* Register-Login Pages*/
 .login-reg-section{
 max-width: 30rem;
 min-width: 250px;
@@ -171,17 +180,6 @@ margin-top: 4rem;
 }
 .logo-login-register{
 width: 10rem;
-}
-.error-message{
-color: var(--red);
-}
-/* override Materialize label color and dropdown colour */
-.input-field label {
-color: var(--black);
-}
-.dropdown-content li>a, .dropdown-content li>span {
-color:  var(--black);
-font-size:1rem;
 }
 /* Home page*/
 .home-container{
@@ -192,6 +190,7 @@ height: 350px;
 display:flex;
 margin-top:2em;
 }
+/*Radial gradient on the image is used for making the text more readable and outstanding in the center*/
 .hero-image{
 background-image: radial-gradient(rgba(249, 238, 238, 0.91), rgba(152, 142, 142, 0.04)), url(../img/bg-home.jpg);
 background-repeat: no-repeat;
@@ -400,7 +399,7 @@ background-color: var(--yellow);
 .btn-change{
 font-size: 11px;
 }
-/*Errors*/
+/*Errors 404 and 500*/
 .error-heading{
 font-size: 3.2rem;
 font-weight: 500;
@@ -441,7 +440,7 @@ text-align: left;
 font-size: 14px;
 }
 }
-/*  Tablet size only Media queries */
+/*  Tablet size Media queries */
 @media (min-width: 600px) and (max-width: 992px){
 .container-addrecipe{
 width:85%;
@@ -450,7 +449,7 @@ width:85%;
 height: 30vh;
 }
 }
-/* Desktop size only Media queries */
+/* Desktop size Media queries */
 @media (min-width: 992px) {
 .container-addrecipe{
 width:70%;
@@ -481,7 +480,7 @@ width:90%;
 width:70%;
 }
 }
-/* Small resolution Media queries (e.g. iPhone 5/SE ) */
+/* Small resolution Media queries (e.g. iPhone 5/SE - 320px width ) */
 @media (max-width: 350px) {
 .btn-change {
 font-size: 9px;

@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container margin-top-large">
-<!--Flash messages-->
-<div class="row center-align">
+  <!--Flash messages-->
+  <div class="row center-align">
     {% with messages = get_flashed_messages() %} 
     {% if messages %} 
     {% for message in messages %}
     <p class="error-message margin-top-small">
-      {{ message }}
+    {{ message }}
     </p>
     {% endfor %} {% endif %} {% endwith %}
   </div>
@@ -49,7 +49,11 @@
           </a>
         </div>
         <div class="col s6 center-align">
-          <a href="#delete-modal" class="modal-trigger btn z-depth-2 btn-edit-del btn-red waves-effect waves-orange uppercase" name="action">
+          <a
+            href="#delete-modal"
+            class="modal-trigger btn z-depth-2 btn-edit-del btn-red waves-effect waves-orange uppercase"
+            name="action"
+          >
             <i class="fas fa-trash-alt right"></i>
             Delete
           </a>
@@ -143,19 +147,23 @@
     <h5 class="text-red bold">Delete Recipe</h5>
     <div class="divider"></div>
     <p class="text-red">
-      <i class="fas fa-exclamation-circle text-red margin-top-small"></i> Attention! Deleting the recipe
-      will permanently remove it from the website! </p>
-     <h6 class="margin-top-small"> Are you sure you want to delete it?</h6>
+      <i class="fas fa-exclamation-circle text-red margin-top-small"></i>
+      Attention! Deleting the recipe will permanently remove it from the
+      website!
+    </p>
+    <h6 class="margin-top-small small-text-delete">Are you sure you want to delete it?</h6>
     <div class="margin-top-small">
-    <a href="#" class="modal-close btn btn-secondary waves-effect waves-light z-depth-2 btn-small-font"
-      >Cancel</a
-    >
-    <a
-      class="btn btn-red waves-effect waves-light z-depth-2 btn-small-font"
-      href="{{ url_for('delete_recipe', recipe_id=selected_recipe._id) }}"
-      >Delete Recipe</a
-    >
-  </div>
+      <a
+        href="#"
+        class="modal-close btn btn-secondary waves-effect waves-light z-depth-2 btn-small-font"
+        >Cancel</a
+      >
+      <a
+        class="btn btn-red waves-effect waves-light z-depth-2 btn-small-font"
+        href="{{ url_for('delete_recipe', recipe_id=selected_recipe._id) }}"
+        >Delete Recipe</a
+      >
+    </div>
   </div>
 </div>
 {% endblock %}
