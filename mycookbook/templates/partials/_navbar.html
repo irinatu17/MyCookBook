@@ -31,7 +31,7 @@
     <li><a href="{{url_for('all_recipes')}}" class="uppercase"><i class="fas fa-utensils"></i>Browse Recipes</a></li>
     {% if session.username %}
     <li><a href="{{ url_for('my_recipes',username = session.username) }}" class="uppercase"><i class="fas fa-user"></i> My Recipes</a></li>
-    <li><a href="{{ url_for('add_recipe') }}" class="uppercase"><i class="fas fa-plus-circle"></i>Add New Recipe</a></li>
+    <li><a href="{{ url_for('add_recipe') }}" class="uppercase"><i class="fas fa-plus-circle"></i>Add Recipe</a></li>
     <li class="divider"></li>
     <li><a href="{{url_for('account_settings', username = session.username)}}" class="uppercase"><i class="fas fa-cog"></i>Settings</a></li>
     <li><a href="{{ url_for('logout') }}" class="uppercase"><i class="fas fa-sign-out-alt" ></i> Logout</a></li>
