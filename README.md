@@ -92,8 +92,9 @@ Initial wireframes with some comments for both desktop and mobile devices can be
 ### Existing Features
 #### Navbar
 The navbar is fixed at the top of the page while scrolling down, what allows a user to easily navigate throughout the website.  The logo in the top right corner on desktop and in the center on smaller devices redirects to the home page when it is clicked.
-On the smaller resolutions (tablet, mobile) it is collapsed into a burger icon, when it is clicked, slide out menu opens.  
-For **non-logged in** users or guests navbar contains the following links:
+On the smaller resolutions (tablet, mobile) it is collapsed into a burger icon, when it is clicked, slide out menu opens.     
+
+For **non-logged in** users or **guests** navbar contains the following links:
 - Home
 - Browse Recipes
 - Login
@@ -142,7 +143,7 @@ The form is pre-populated with the relevant data. After clicking "Edit recipe" b
 Delete recipe function allows only author of the recipe delete it. After user clicks the "delete" button in a Single Recipe Details page, the modal will be opened. It asks user to confirm that the recipe is wanted to be deleted. 
 If so, clicking "delete" button, recipe will be removed from the database as well as from the user_recipes field of the recipe's author in users collection. There is also button "cancel" that is close the modal when it's clicked.
 #### Account Settings page
-Account Settings page contains username, randomly assigned user avatar and 3 buttons "Change username", "Change password" and "Delete account".
+Account Settings page contains username, randomly generated user avatar and 3 buttons "Change username", "Change password" and "Delete account".
 #### Change username
 The form displayed allows registered user to change the username. If checks if the new entered username is not exist in the database. After succsessfull submition, it redirect user to login page asking for logging in with a new username.
 #### Change password
@@ -151,7 +152,10 @@ Both new password have to match and be 3-15 characters long. If the form is succ
 #### Delete account
 Once the "delete account" button on the account settings page is clicked, the modal shows up asking to confirm if the user is sure wans to delete account. To verify it, user have to provide the password and after clicking "delete account" button, the account is removed from the users collection. All the recipes created by this user are removed from the recipes collection as well.
 #### Footer
-The footer features links to the social media which open in a new tab (by using 'target="_blank"). 
+The footer features links to the social media which open in a new tab (by using `'target="_blank"`). 
+#### 404 and 500 error pages
+Custom 404 and 500 pages contains short information about the error and a button "Back Home". As well as that, it displays navbar that allows users easily come back to any page if they are got lost.
+
 ### Features Left to Implement
 There are some features that I was not able to implement due to time time constraints, but would like to do it in future.
 Both of these features are can be seen in my initial wireframes.
@@ -166,7 +170,7 @@ Each recipe card will include small "heart" icon, clicking which user will add t
 
 ## Technologies Used
 
-- [GitPod](https://www.gitpod.io/) - online IDE for developing this project.
+- [GitPod](https://www.gitpod.io/) - an online IDE for developing this project.
 - [Git](https://git-scm.com/) - for version control.
 - [GitHub](https://git-scm.com/) - for remotely storing project's code.
 - [PIP](https://pip.pypa.io/en/stable/installing/) - for installation of necessary tools.
@@ -175,7 +179,7 @@ Each recipe card will include small "heart" icon, clicking which user will add t
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
 - [CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
 ### Back-End
-- [Python 3.8.2](https://www.python.org/) -  back-end programming language used in this project.
+- [Python 3.8.2](https://www.python.org/)[ -  back-end programming language used in this project.
 - [Flask 1.1.2](https://flask.palletsprojects.com/en/1.1.x/) - microframework for building and rendering pages.
 - [MongoDB Atlas](https://www.mongodb.com/) - NoSQL database for storing back-end data.
 - [PyMongo](https://api.mongodb.com/python/current/) - for Python to get access the MongoDB database.
@@ -204,8 +208,81 @@ Each recipe card will include small "heart" icon, clicking which user will add t
 
 ## Deployment
 ### Local Deployment
+To be able to run this project, the following tools have to be installed:
+- An IDE (I used **[GitPod]**(https://www.gitpod.io/) online IDE for creating this project)
+- [MongoDB Atlas](https://www.mongodb.com/) (for creation your database)
+- [Git](https://git-scm.com/)
+- [PIP](https://pip.pypa.io/en/stable/installing/) 
+- [Python](https://www.python.org/)   
+#### Directions
+1. You can clone this repository directly into the editor of your choice by pasting the following command in the terminal:   
+`git clone https://github.com/irinatu17/MyCookBook`    
+Alternatively, you can save a copy of this repository by clicking the green button "Clone or download" , then "Download Zip" button, and after by extracting the Zip file to your folder.
+2. In the terminal window change directory CD to the correct file location(directory that you have just created)
+3. Set up environment variables:
+    - Create **.env** file in the root directory.
+    - On the top of the file add `import os` to set the environment variables in the operating system.
+    - Set the connection to your MongoDB database(MONGO_URI) and a SECRET_KEY with the following syntax:
+    `os.environ["SECRET_KEY"] = "YourSecretKey"`   
+    `os.environ["MONGO_URI"] = "YourMongoURI"`  
+    .
+4. Install all requirements from the **requirements.txt** file putting this command in your terminal:   
+`pip3 install -r requirements.txt`  
+*Note, GitPod does not require `sudo`, so if you use another IDE, you will need to include `sudo` in th beginning of the command: `sudo pip3 install -r requirements.txt`.*
+5. Create a new Database called "MyCookBook" in [MongoDB Atlas](https://www.mongodb.com/). *You can sign up for free account, if you do not have one.*
+6. In "MyCookBook" database create five following collections:
+###### Cuisines
+```
+_id: <ObjectId>
+cuisine_type: <String>
+```
+###### Meals
+```
+_id: <ObjectId>
+meal_type: <String>
+```
+###### Diets
+```
+_id: <ObjectId>
+diet_type: <String>
+```
+###### Users
+```
+_id: <ObjectId>
+username: <String>
+password: <String>
+user_recipes: <Array>
+```
+###### Recipes
+```
+_id: <ObjectId>
+recipe_name: <String>
+description: <String>
+cuisine_type: <String>
+meal_type: <String>
+cooking_time: <String>
+diet_type: <String>
+servings: <String>
+ingredients: <Array>
+directions: <Array>
+author: <ObjectId>
+image: <String>
+```
+7. You will now be able to run the application using the following command `python3 run.py`.   
 
-### Remote Deployment
+### Heroku Deployment
+To deploy the project to [Heroku](https://heroku.com/) the following steps need to be completed:
+1. Create a **requirement.txt** file, which contains a list of the dependencies, using the following command in the terminal:  
+`pip3 freeze > requirements.txt`
+2. Create a **Procfile**, in order to tell Heroku how to run our project, using the following command in the terminal:   
+`echo web: python run.py > Procfile`
+3. `git add`, `git commit` and `git push` these files to GitHub repo
+4. Create a **new app** in Heroku, assigning a name (must be unique) and set a region (for my project I set Europe)
+5. From the heroku dashboard link the new Heroku app to your GitHub repository:    
+    - "Deploy" - "Deployment method" - "GitHub"
+6. In the **Settings** of the new Heroku app, 
+
+
 
 ---
 
