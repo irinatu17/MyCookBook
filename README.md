@@ -91,8 +91,8 @@ Initial wireframes with some comments for both desktop and mobile devices can be
 ## Features
 ### Existing Features
 #### Navbar
-The navbar is fixed at the top of the page while scrolling down, what allows a user to easily navigate throughout the website.  The logo in the top right corner on desktop and in the center on smaller devices redirects to the home page when it is clicked.
-On the smaller resolutions (tablet, mobile) it is collapsed into a burger icon, when it is clicked, slide out menu opens.     
+The navbar is fixed at the top of the page, this allows a user to easily navigate throughout the website. The logo is located in the top right corner on a desktop and in the center on smaller devices. It redirects the user to the home page when clicked.
+On the smaller resolutions (tablet, mobile) the navbar is collapsed into a burger icon. A slide out menu opens when the burger icon is clicked.     
 
 For **non-logged in** users or **guests** navbar contains the following links:
 - Home
@@ -102,69 +102,71 @@ For **non-logged in** users or **guests** navbar contains the following links:
 For **logged-in** users navbar contains the following links:
 - Home
 - Browse Recipes
-- Account (it is a dropdown on desktop)
+- Account (it is a dropdown on a desktop)
     - My Recipes
-    - Add New Recipe
+    - Add Recipe
     - Settings
 - Logout
-#### Featured Recipes
-The home page contains a button that redirects to the "All Recipes" page. It also displays 4 random images from 
+#### Home page and Featured Recipes
+The home page contains a button that redirects a user to the "All Recipes" page. It also displays 4 random images from 
 the database using the `$sample` function of MongoDB. 
 #### Browse All Recipes
-All recipes page displays recipe cards sorted from the oldest to the most recently added. As well as that, there is a total number of recipes displayed in parentheses after the heading.
+The all recipes page displays recipe cards sorted from the oldest to the most recently added. As well as that, there is a total number of recipes displayed in parentheses after the heading.
 All recipe cards are clickable and redirect a user to the individual recipe page with detailed information.
 The pagination at the bottom of the page allows to display 8 recipes per page.
 #### Single Recipe details
-Single recipe details page renders when user clicks on the recipe card. It displays information about the selected recipe:
-recipe name, description, cuisine type, meal type, diet type, number of servings, cooking time, author, ingredients, directions and recipe image(or recipe placeholder).
-If the user is author of the recipe, there are buttons "Edit" and "Delete", that redirect to the edit and delete recipe pages responsively.
+The single recipe details page renders when user clicks on the recipe card. It displays information about the selected recipe:
+recipe name, description, cuisine type, meal type, diet type, number of servings, cooking time, author, ingredients, directions and recipe image (or recipe placeholder if no image was added by user).
+If the user is an author of the recipe, there are buttons "Edit" and "Delete", that redirect to the edit and delete recipe pages, respectively.
 #### Register
-The register page allows user to create a new account. User is asked to fill the fields "username", "password" and "confirm password".
-The code checks against existing username to assign only unique username, that must be 3-15 characters long. The same validation requirement applies to the password fields,
-which must match the "confirm password" field. All passwords are hashed for security purposes. If user's input does not meet requirements, flash messages will inform user about the error.
-When form is submitted successfullly, user is redirected to the home page, informing that account was created.
+The register page allows a user to create a new account. The user is asked to fill the fields "username", "password" and "confirm password".
+When adding a username, the code compares it against existing usernames to ensure that it is unique. A username must be 3-15 characters long. The same requirement applies to the password field.
+The "confirm password" field must match the original password. All passwords are hashed for security purposes. If user's input does not meet requirements, flash messages will inform a user about the error.
+When the form is submitted successfully, a user is redirected to the home page and informed that account was created.
+There is also a link to the login page for existing users at the bottom of the form.
 #### Login
-The login page features the form with "username" and "password" fields, allowing registered user to log into their account.
-If the entered username and hashed password match the ones in the database, user is redirected to the home page and informed that logged in was succsessful. Otherwise, flash messages will be displayed about incorrect user's input.
+The login page features the form with "username" and "password" fields, allowing registered users to log into their account.
+If the entered username and hashed password match the ones in the database, a user is redirected to the home page and informed that the  log in was successful. Otherwise, flash messages will be displayed about incorrect user's input.
+There is also a link to the register page for new users at the bottom of the form.
 #### Logout 
-Hitting "logout" button by logged in users ends their session and redirects to the homepage.
+Hitting "logout" button by the logged in users ends their session and redirects to the homepage.
 #### My recipes
-My recipes page allows registered users to view all their recipes. It also displays the total number of all the user's recipes.
-Pagination is in place displaying 8 recipes per page. If user has not created any recipes yet, there's a button "Add recipe" preceded by insruction, which redirects user to the add recipe page.
+My recipes page allows registered users to view all their recipes. It also displays the total number of all the user's recipes. Below that there is a button "Add new recipe" taht redirects a user to the "Add recipe" page.
+Pagination is in place displaying 8 recipes per page. If user has not created any recipes yet, there's a message that asks a user to create one.
 #### Add Recipe
-Registered and logged in users can add new recipes through the form. There are some validations in place, all the fields except "Cuisine type", "Diet type" and "Recipe Image" are required. For the "recipe name" and "recipe description" characters limit is set.
-If user does not provide a URL to the recipe image, recipe placeholder will be assigned for that recipe. There is also Tooltip-instruction saying that user can upload the image to a free image hosting website(e.g. ImgBB).
-After succsessful addition, user is redirected to the created recipe details page. There is also a button "Cancel" that simply redirects user to the home page (in order to avoid to hit "back").
+The registered and logged in users can add new recipes through the form. There are some validations in place - all the fields except "Cuisine type", "Diet type" and "Recipe Image" are required. For the "recipe name" and "recipe description" fields, limit of characters is set.
+If user does not provide a URL to the recipe image, the recipe placeholder will be assigned for that recipe. There is also a Tooltip-instruction saying that a user can upload the image to a free image hosting website(e.g. ImgBB).   
+After the succsessful addition, a user is redirected to the newly created recipe details page. There is also a button "Cancel" that simply redirects a user to the home page (in order to avoid to hit "back" button in a browser).
 #### Edit Recipe
-Edit recipe page allows logged in user to update the the information about the recipe. The "Edit" button will appear only for author of the recipe. 
-As well as that, the defensive design(against brute-forcing) in place allows only authors of the recipe make changes. 
-The form is pre-populated with the relevant data. After clicking "Edit recipe" button, the recipe is updated in the database and user is redirected to the updated recipe details page.
+The edit recipe page allows the logged in user to update information about the recipe. The "Edit" button will appear only for the author of the recipe.   
+As well as that, the defensive design (against brute-forcing) in place allows only author of the recipe to make changes. 
+The form is pre-populated with the original recipe's details. After clicking "Edit recipe" button, the recipe is updated in the database and a user is redirected to the details page of the updated recipe.   
+There is also a button "Cancel" that simply redirects a user to the home page (in order to avoid to hit "back" button in a browser)
 #### Delete Recipe
-Delete recipe function allows only author of the recipe delete it. After user clicks the "delete" button in a Single Recipe Details page, the modal will be opened. It asks user to confirm that the recipe is wanted to be deleted. 
-If so, clicking "delete" button, recipe will be removed from the database as well as from the user_recipes field of the recipe's author in users collection. There is also button "cancel" that is close the modal when it's clicked.
+The delete recipe function allows only author of the recipe to delete it. After a user clicks the "delete" button in a Single Recipe Details page, the modal will be opened. It asks a user to confirm if the recipe is to be deleted. 
+If so, upon clicking "delete" button the recipe will be removed from the database as well as from the "user_recipes" field of the recipe's author in "users" collection. There is also a button "cancel" that closes the modal when it's clicked.
 #### Account Settings page
-Account Settings page contains username, randomly generated user avatar and 3 buttons "Change username", "Change password" and "Delete account".
+The Account Settings page contains username, randomly generated user avatar with a greeting and 3 buttons: "Change username", "Change password" and "Delete account". These buttons redirect a user to the corresponding page.
 #### Change username
-The form displayed allows registered user to change the username. If checks if the new entered username is not exist in the database. After succsessfull submition, it redirect user to login page asking for logging in with a new username.
+The Change Username form displayed allows the registered user to change their username. It checks if the new entered username is present in the database. The current username is displayed above the new username field. There is also a question mark that displays requirements for the field when hovered over. After succsessfull submission, it redirects a user to the login page asking to log in with a new username. There is also a button "Cancel" that simply redirects a user to the account settings page.
 #### Change password
-A user can change the current password by filling the form, that contains following fields "Current password", "New password", "Confirm New password".
-Both new password have to match and be 3-15 characters long. If the form is successfullly submited, user is redirected to the account settings page with a flash message about successfullly changed password.
+A user can change their current password by filling the form that contains following fields: "Current password", "New password", "Confirm New password".
+Both new password have to match and be 3-15 characters long. There is a question mark that displays requirements for the field when hovered over. If the form is successfully submitted, a user is redirected to the account settings page with a flash message about successfully changed password. There is also a button "Cancel" that simply redirects a user to the account settings page.
 #### Delete account
-Once the "delete account" button on the account settings page is clicked, the modal shows up asking to confirm if the user is sure wans to delete account. To verify it, user have to provide the password and after clicking "delete account" button, the account is removed from the users collection. All the recipes created by this user are removed from the recipes collection as well.
+Once the "delete account" button on the account settings page is clicked, the modal shows up asking to confirm if the user certainly wants to delete their account. To verify this, user has to provide the password. After clicking the "delete account" button, the account is removed from the "users" collection. All the recipes created by this user are removed from the "recipes" collection as well. There is also a button "Cancel" that closes the modal.
 #### Footer
 The footer features links to the social media which open in a new tab (by using `'target="_blank"`). 
 #### 404 and 500 error pages
-Custom 404 and 500 pages contains short information about the error and a button "Back Home". As well as that, it displays navbar that allows users easily come back to any page if they are got lost.
+Customized 404 and 500 pages contain short information about the error and a button "Back Home". As well as that, they display navbar that allows users to come back easily to any page if they got lost.
 
 ### Features Left to Implement
-There are some features that I was not able to implement due to time time constraints, but would like to do it in future.
-Both of these features are can be seen in my initial wireframes.
+There are some features that I considered were of secondary importance and I have not implemented them yet due to time constraints, but would like to do so in future.
+Both of these features are displayed in my initial wireframes.
 #### Search recipe
-Search recipe function based on the keyword, recipe name allowing user to search for the recipe. Filters by cuisine, by meal type and by diet type would 
-allow user to have more detailed search.
+The search recipe function is based on the keyword and recipe name, allowing user to search for the recipe. Filters "by cuisine", "by meal type" and "by diet type" would allow user to have more detailed search.
 #### My favourites
-User would have an opportunity to "like" others recipes, saving in "my favourites" collection, which would be displayed on a separate page.
-Each recipe card will include small "heart" icon, clicking which user will add the selecteed recipe to "my favourits"
+User would have an opportunity to "like" other recipes, saving them in "my favourites" collection, which would be displayed on a separate page.
+Each recipe card will include a small "heart" icon, clicking which will enable user to add the selected recipe to "my favourits".
 
 ---
 
@@ -215,10 +217,10 @@ To be able to run this project, the following tools have to be installed:
 - [PIP](https://pip.pypa.io/en/stable/installing/) 
 - [Python](https://www.python.org/)   
 #### Directions
-1. You can clone this repository directly into the editor of your choice by pasting the following command in the terminal:   
+1. You can clone this repository directly into the editor of your choice by pasting the following command into the terminal:   
 `git clone https://github.com/irinatu17/MyCookBook`    
-Alternatively, you can save a copy of this repository by clicking the green button "Clone or download" , then "Download Zip" button, and after by extracting the Zip file to your folder.
-2. In the terminal window change directory CD to the correct file location(directory that you have just created)
+Alternatively, you can save a copy of this repository by clicking the green button "Clone or download" , then "Download Zip" button, and after extract the Zip file to your folder.
+2. In the terminal window change directory (CD) to the correct file location (directory that you have just created).
 3. Set up environment variables:
     - Create **.env** file in the root directory.
     - On the top of the file add `import os` to set the environment variables in the operating system.
@@ -226,9 +228,9 @@ Alternatively, you can save a copy of this repository by clicking the green butt
     `os.environ["SECRET_KEY"] = "YourSecretKey"`   
     `os.environ["MONGO_URI"] = "YourMongoURI"`  
     .
-4. Install all requirements from the **requirements.txt** file putting this command in your terminal:   
+4. Install all requirements from the **requirements.txt** file putting this command into your terminal:   
 `pip3 install -r requirements.txt`  
-*Note, GitPod does not require `sudo`, so if you use another IDE, you will need to include `sudo` in th beginning of the command: `sudo pip3 install -r requirements.txt`.*
+*Note, GitPod does not require `sudo`, so if you use another IDE, you will need to include `sudo` in the beginning of the command: `sudo pip3 install -r requirements.txt`.*
 5. Create a new Database called "MyCookBook" in [MongoDB Atlas](https://www.mongodb.com/). *You can sign up for free account, if you do not have one.*
 6. In "MyCookBook" database create five following collections:
 ###### Cuisines
@@ -274,12 +276,12 @@ image: <String>
 To deploy the project to [Heroku](https://heroku.com/) the following steps need to be completed:
 1. Create a **requirement.txt** file, which contains a list of the dependencies, using the following command in the terminal:  
 `pip3 freeze > requirements.txt`
-2. Create a **Procfile**, in order to tell Heroku how to run our project, using the following command in the terminal:   
+2. Create a **Procfile**, in order to tell Heroku how to run the project, using the following command in the terminal:   
 `echo web: python run.py > Procfile`
-3. `git add`, `git commit` and `git push` these files to GitHub repo
+3. `git add`, `git commit` and `git push` these files to GitHub repository
 4. Create a **new app** in Heroku, assigning a name (must be unique) and set a region (for my project I set Europe)
 5. From the Heroku dashboard link the new Heroku app to your GitHub repository:    
-    - "Deploy" - "Deployment method" - "GitHub"
+    - "Deploy" -> "Deployment method" -> "GitHub"
     - then "Enable automatic deployment"
 6. To start the web process, put the following command into the terminal: `heroku ps:scale web=1` to scale dynos
 7. In the **Settings** tab of the new Heroku app, click on "Reveal Config Vars" and set the following config vars:
@@ -292,8 +294,8 @@ To deploy the project to [Heroku](https://heroku.com/) the following steps need 
 
 8. The app will be deployed and ready to run. Click "Open App" to view the app.   
 
-**Note**: if you have not linked GitHub and Heroku following step N.5, alternatively as the last step of depluyment you can put folloeing command in your terminal:   
- `heroku login`, after loggin in `git push heroku master` - to push the app to Heroku,and finally in Heroku dashboard click "Open App" to view the app.
+**Note**: if you have not linked GitHub and Heroku following step N.5, alternatively as the last step of deployment, you can put the following command into your terminal:   
+ `heroku login`, after a successful log in `git push heroku master` - to push the app to Heroku, and finally click "Open App" in Heroku dashboard to view the app.
 
 
 
