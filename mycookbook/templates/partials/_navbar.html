@@ -1,9 +1,9 @@
 <!--Account Dropdown Structure -->
 <ul id="Account" class="dropdown-content center-align">
-  <li><a href="{{ url_for('my_recipes', username = session.username) }}">My Recipes</a></li>
-  <li><a href="{{ url_for('add_recipe') }}">Add New Recipe</a></li>
+  <li><a href="{{ url_for('my_recipes', username = session.username) }}"><i class="fas fa-user small-nav-icon"></i> My Recipes</a></li>
+  <li><a href="{{ url_for('add_recipe') }}"><i class="fas fa-plus-circle small-nav-icon"></i>Add Recipe</a></li>
   <li class="divider"></li>
-  <li><a href="{{url_for('account_settings', username = session.username)}}">Settings</a></li>
+  <li><a href="{{url_for('account_settings', username = session.username)}}"><i class="fas fa-cog small-nav-icon"></i>Settings</a></li>
 </ul>
 <nav>
     <div class="nav-wrapper">
