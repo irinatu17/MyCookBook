@@ -28,7 +28,7 @@ Sign in, get inspired, contribute, cook and enjoy!
 
 5. [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
-    - [Remote Deployment](#remote-deployment)
+    - [Heroku Deployment](#heroku-deployment)
 
 6. [Credits](#credits)
     - [Content](#content)
@@ -98,7 +98,8 @@ For **non-logged in** users or **guests** navbar contains the following links:
 - Home
 - Browse Recipes
 - Login
-- Register
+- Register    
+   
 For **logged-in** users navbar contains the following links:
 - Home
 - Browse Recipes
@@ -211,7 +212,7 @@ Each recipe card will include a small "heart" icon, clicking which will enable u
 ## Deployment
 ### Local Deployment
 To be able to run this project, the following tools have to be installed:
-- An IDE (I used **[GitPod]**(https://www.gitpod.io/) online IDE for creating this project)
+- An IDE  (I used [GitPod](https://www.gitpod.io/) online IDE for creating this project)
 - [MongoDB Atlas](https://www.mongodb.com/) (for creation your database)
 - [Git](https://git-scm.com/)
 - [PIP](https://pip.pypa.io/en/stable/installing/) 
@@ -230,8 +231,9 @@ Alternatively, you can save a copy of this repository by clicking the green butt
     .
 4. Install all requirements from the **requirements.txt** file putting this command into your terminal:   
 `pip3 install -r requirements.txt`  
-*Note, GitPod does not require `sudo`, so if you use another IDE, you will need to include `sudo` in the beginning of the command: `sudo pip3 install -r requirements.txt`.*
-5. Create a new Database called "MyCookBook" in [MongoDB Atlas](https://www.mongodb.com/). *You can sign up for free account, if you do not have one.*
+*Note: GitPod does not require `sudo`, so if you use another IDE, you will need to include `sudo` in the beginning of the command: `sudo pip3 install -r requirements.txt`.*
+5. Create a new Database called "MyCookBook" in [MongoDB Atlas](https://www.mongodb.com/).   
+*You can sign up for free account, if you do not have one.*
 6. In "MyCookBook" database create five following collections:
 ###### Cuisines
 ```
