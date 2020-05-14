@@ -278,9 +278,23 @@ To deploy the project to [Heroku](https://heroku.com/) the following steps need 
 `echo web: python run.py > Procfile`
 3. `git add`, `git commit` and `git push` these files to GitHub repo
 4. Create a **new app** in Heroku, assigning a name (must be unique) and set a region (for my project I set Europe)
-5. From the heroku dashboard link the new Heroku app to your GitHub repository:    
+5. From the Heroku dashboard link the new Heroku app to your GitHub repository:    
     - "Deploy" - "Deployment method" - "GitHub"
-6. In the **Settings** of the new Heroku app, 
+    - then "Enable automatic deployment"
+6. To start the web process, put the following command into the terminal: `heroku ps:scale web=1` to scale dynos
+7. In the **Settings** tab of the new Heroku app, click on "Reveal Config Vars" and set the following config vars:
+    - **IP** : 0.0.0.0
+    - **PORT** : 8080
+    - **MONGO_URI** : `<link to your MongoDB database>`
+    - **SECRET_KEY** : `<your secret key>`
+    - **DEBUG**: **FALSE**  
+*Note: your MONGO_URI and SECRET_KEY must match the ones you entered in .env.py file*
+
+8. The app will be deployed and ready to run. Click "Open App" to view the app.   
+
+**Note**: if you have not linked GitHub and Heroku following step N.5, alternatively as the last step of depluyment you can put folloeing command in your terminal:   
+ `heroku login`, after loggin in `git push heroku master` - to push the app to Heroku,and finally in Heroku dashboard click "Open App" to view the app.
+
 
 
 
