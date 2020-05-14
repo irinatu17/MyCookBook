@@ -14,9 +14,12 @@ cuisines_coll = mongo.db.cuisines
 diets_coll = mongo.db.diets
 meals_coll = mongo.db.meals
 
+
 '''
 HOME PAGE
 '''
+
+
 @app.route('/')
 @app.route("/home")
 def home():
@@ -35,6 +38,8 @@ def home():
 '''
 RECIPES ROUTES
 '''
+
+
 # All recipes display
 @app.route('/all_recipes')
 def all_recipes():
@@ -56,6 +61,7 @@ def all_recipes():
                            title='All Recipes', current_page=current_page,
                            pages=pages, number_of_all_rec=number_of_all_rec)
 
+
 # Single Recipe details display
 @app.route('/recipe_details/<recipe_id>')
 def single_recipe_details(recipe_id):
@@ -74,6 +80,7 @@ def single_recipe_details(recipe_id):
     return render_template("single_recipe_details.html",
                            selected_recipe=selected_recipe, author=author,
                            title='Recipe Details')
+
 
 # My recipes
 @app.route('/my_recipes/<username>')
@@ -106,6 +113,7 @@ def my_recipes(username):
                            current_page=current_page, pages=pages,
                            title='My Recipes')
 
+
 # Add recipe
 @app.route('/add_recipe')
 def add_recipe():
@@ -129,6 +137,7 @@ def add_recipe():
     return render_template("add_recipe.html", diet_types=diet_types,
                            cuisine_types=cuisine_types, meal_types=meal_types,
                            form=form, title='New Recipe')
+
 
 # Insert recipe
 @app.route("/insert_recipe", methods=['GET', 'POST'])
@@ -169,6 +178,7 @@ def insert_recipe():
         return redirect(url_for(
             "single_recipe_details",
             recipe_id=insert_recipe_intoDB.inserted_id))
+
 
 # Edit Recipe
 @app.route("/edit_recipe/<recipe_id>")
@@ -235,6 +245,7 @@ def update_recipe(recipe_id):
         return redirect(url_for("single_recipe_details",
                                 recipe_id=recipe_id))
 
+
 # Delete Recipe
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
@@ -268,6 +279,8 @@ def delete_recipe(recipe_id):
 '''
 USER ROUTES
 '''
+
+
 # Login
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
@@ -304,6 +317,7 @@ def login():
             flash("Username does not exist! Please try again")
             return redirect(url_for('login'))
     return render_template('login.html',  form=form, title='Login')
+
 
 # Register
 @app.route("/register", methods=['GET', 'POST'])
@@ -344,6 +358,7 @@ def register():
             return redirect(url_for('home'))
     return render_template('register.html', form=form,  title='Register')
 
+
 # Logout
 @app.route("/logout")
 def logout():
@@ -352,6 +367,7 @@ def logout():
     '''
     session.pop("username",  None)
     return redirect(url_for("home"))
+
 
 # Account Settings
 @app.route("/account_settings/<username>")
@@ -368,6 +384,7 @@ def account_settings(username):
                                     session['username']})['username']
     return render_template('account_settings.html',
                            username=username, title='Account Settings')
+
 
 # Change username
 @app.route("/change_username/<username>", methods=['GET', 'POST'])
@@ -405,6 +422,7 @@ def change_username(username):
     return render_template('change_username.html',
                            username=session["username"],
                            form=form, title='Change Username')
+
 
 # Change password
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
@@ -448,6 +466,7 @@ def change_password(username):
                             username=session["username"]))
     return render_template('change_password.html', username=username,
                            form=form, title='Change Password')
+
 
 # Delete Account
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
