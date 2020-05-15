@@ -1,6 +1,6 @@
 # [My CookBook](https://mycookbook-project.herokuapp.com/)   
 
-<img src="https://i.ibb.co/3kJTfZG/home.jpg" alt="mockup-home" target="_blank" rel="noopener" width="800">
+<img src="https://i.ibb.co/3kJTfZG/home.jpg" alt="mockup-homepage" target="_blank" rel="noopener" width="800">
 
 "My CookBook" - Practical Python and Data-Centric Development Milestone Project.
 
@@ -96,19 +96,20 @@ Initial wireframes with some comments for both desktop and mobile devices can be
 
 ## Features
 ### Existing Features
-#### Navbar
+#### Navbar   
+- <img src="https://i.imgur.com/V4XgEvj.gif" alt="navbar-logged-in" target="_blank" rel="noopener">
 The navbar is fixed at the top of the page, this allows a user to easily navigate throughout the website. The logo is located in the top right corner on a desktop and in the center on smaller devices. It redirects the user to the home page when clicked.
 On the smaller resolutions (tablet, mobile) the navbar is collapsed into a burger icon. A slide out menu opens when the burger icon is clicked.     
 
 For **non-logged in** users or **guests** navbar contains the following links:
-<img src="https://i.ibb.co/kXy0gH1/navbar-not-logged-in.jpg" alt="navbar-not-logged-in">
+<img src="https://i.ibb.co/kXy0gH1/navbar-not-logged-in.jpg" alt="navbar-not-logged-in" target="_blank" rel="noopener">
 - Home
 - Browse Recipes
 - Login
 - Register    
    
 For **logged-in** users navbar contains the following links:
-<img src="https://i.ibb.co/7KYHxg4/navbar-logged-in.jpg" alt="navbar-logged-in">
+<img src="https://i.ibb.co/7KYHxg4/navbar-logged-in.jpg" alt="navbar-logged-in" target="_blank" rel="noopener">
 - Home
 - Browse Recipes
 - Account (it is a dropdown on a desktop)
@@ -120,36 +121,36 @@ For **logged-in** users navbar contains the following links:
 The home page contains a button that redirects a user to the "All Recipes" page. It also displays 4 random images from 
 the database using the `$sample` function of MongoDB. 
 #### Browse All Recipes   
- - <img src="https://i.ibb.co/fvR791x/all-recipes.jpg" alt="all-recipes">
+ - <img src="https://i.ibb.co/fvR791x/all-recipes.jpg" alt="all-recipes" target="_blank" rel="noopener">
 The all recipes page displays recipe cards sorted from the oldest to the most recently added. As well as that, there is a total number of recipes displayed in parentheses after the heading.
 All recipe cards are clickable and redirect a user to the individual recipe page with detailed information.
 The pagination at the bottom of the page allows to display 8 recipes per page.
 #### Single Recipe details   
-- <img src="https://i.ibb.co/tBvfdTM/recipe-card.jpg" alt="recipe-card">
+- <img src="https://i.ibb.co/tBvfdTM/recipe-card.jpg" alt="recipe-card" target="_blank" rel="noopener">
 
 The single recipe details page renders when user clicks on the recipe card. It displays information about the selected recipe:
 recipe name, description, cuisine type, meal type, diet type, number of servings, cooking time, author, ingredients, directions and recipe image (or recipe placeholder if no image was added by user).
 If the user is an author of the recipe, there are buttons "Edit" and "Delete", that redirect to the edit and delete recipe pages, respectively.
 #### Register   
-- <img src="https://i.ibb.co/JCYct0y/register.jpg" alt="register">
+- <img src="https://i.imgur.com/teX28yi.gif" alt="register" target="_blank" rel="noopener">
 The register page allows a user to create a new account. The user is asked to fill the fields "username", "password" and "confirm password".
 When adding a username, the code compares it against existing usernames to ensure that it is unique. A username must be 3-15 characters long. The same requirement applies to the password field.
 The "confirm password" field must match the original password. All passwords are hashed for security purposes. If user's input does not meet requirements, flash messages will inform a user about the error.
 When the form is submitted successfully, a user is redirected to the home page and informed that account was created.
 There is also a link to the login page for existing users at the bottom of the form.
 #### Login   
-- <img src="https://i.ibb.co/8mxdPPk/login.jpg" alt="login">
+- <img src="https://i.ibb.co/8mxdPPk/login.jpg" alt="login" target="_blank" rel="noopener">
 The login page features the form with "username" and "password" fields, allowing registered users to log into their account.
 If the entered username and hashed password match the ones in the database, a user is redirected to the home page and informed that the  log in was successful. Otherwise, flash messages will be displayed about incorrect user's input.
 There is also a link to the register page for new users at the bottom of the form.
 #### Logout 
 Hitting "logout" button by the logged in users ends their session and redirects to the homepage.
 #### My recipes   
-- <img src="https://i.ibb.co/kyQMbCR/my-recipes.jpg" alt="my-recipes">
+- <img src="https://i.ibb.co/kyQMbCR/my-recipes.jpg" alt="my-recipes" target="_blank" rel="noopener">
 My recipes page allows registered users to view all their recipes. It also displays the total number of all the user's recipes. Below that there is a button "Add new recipe" taht redirects a user to the "Add recipe" page.
 Pagination is in place displaying 8 recipes per page. If user has not created any recipes yet, there's a message that asks a user to create one.
 #### Add Recipe   
-- <img src="https://i.ibb.co/8PDVxSV/add-recipe.jpg" alt="add-recipe">
+- <img src="https://i.ibb.co/8PDVxSV/add-recipe.jpg" alt="add-recipe" target="_blank" rel="noopener">
 The registered and logged in users can add new recipes through the form. There are some validations in place - all the fields except "Cuisine type", "Diet type" and "Recipe Image" are required. For the "recipe name" and "recipe description" fields, limit of characters is set.
 If user does not provide a URL to the recipe image, the recipe placeholder will be assigned for that recipe. There is also a Tooltip-instruction saying that a user can upload the image to a free image hosting website(e.g. ImgBB).   
 After the succsessful addition, a user is redirected to the newly created recipe details page. There is also a button "Cancel" that simply redirects a user to the home page (in order to avoid to hit "back" button in a browser).
@@ -161,19 +162,21 @@ There is also a button "Cancel" that simply redirects a user to the home page (i
 #### Delete Recipe
 The delete recipe function allows only author of the recipe to delete it. After a user clicks the "delete" button in a Single Recipe Details page, the modal will be opened. It asks a user to confirm if the recipe is to be deleted. 
 If so, upon clicking "delete" button the recipe will be removed from the database as well as from the "user_recipes" field of the recipe's author in "users" collection. There is also a button "cancel" that closes the modal when it's clicked.
-#### Account Settings page
+#### Account Settings page   
+- <img src="https://i.ibb.co/H2G09hg/settings.jpg" alt="settings" target="_blank" rel="noopener">
 The Account Settings page contains username, randomly generated user avatar with a greeting and 3 buttons: "Change username", "Change password" and "Delete account". These buttons redirect a user to the corresponding page.
 #### Change username
 The Change Username form displayed allows the registered user to change their username. It checks if the new entered username is present in the database. The current username is displayed above the new username field. There is also a question mark that displays requirements for the field when hovered over. After succsessfull submission, it redirects a user to the login page asking to log in with a new username. There is also a button "Cancel" that simply redirects a user to the account settings page.
 #### Change password
 A user can change their current password by filling the form that contains following fields: "Current password", "New password", "Confirm New password".
 Both new password have to match and be 3-15 characters long. There is a question mark that displays requirements for the field when hovered over. If the form is successfully submitted, a user is redirected to the account settings page with a flash message about successfully changed password. There is also a button "Cancel" that simply redirects a user to the account settings page.
-#### Delete account
+#### Delete account   
+- <img src="https://i.imgur.com/U72EQ0Y.gif" alt="delete-account" target="_blank" rel="noopener">
 Once the "delete account" button on the account settings page is clicked, the modal shows up asking to confirm if the user certainly wants to delete their account. To verify this, user has to provide the password. After clicking the "delete account" button, the account is removed from the "users" collection. All the recipes created by this user are removed from the "recipes" collection as well. There is also a button "Cancel" that closes the modal.
 #### Footer
 The footer features links to the social media which open in a new tab (by using `'target="_blank"`). 
 #### 404 and 500 error pages   
-- <img src="https://i.ibb.co/16LRVcp/error-404.jpg" alt="error-404">
+- <img src="https://i.ibb.co/16LRVcp/error-404.jpg" alt="error-404" target="_blank" rel="noopener">
 Customized 404 and 500 pages contain short information about the error and a button "Back Home". As well as that, they display navbar that allows users to come back easily to any page if they got lost.
 
 ### Features Left to Implement
@@ -197,6 +200,9 @@ As the website will grow and the number of recipes will increase, I consider upg
 - [PIP](https://pip.pypa.io/en/stable/installing/) - for installation of necessary tools.
 - [GIMP2](https://www.gimp.org/) - for editing, compressing and resizing images.
 - [Am I Responsive](http://ami.responsivedesign.is/) - for creation of the images in the readme file and checking responsiveness.
+- [Ezgit](https://ezgif.com/) - to create gifs for README
+- [Imgur](https://imgur.com/) - to host gifs
+- [ImgBB](https://imgbb.com/) - to host images used in README
 ### Front-End
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
 - [CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
