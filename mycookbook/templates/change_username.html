@@ -39,16 +39,18 @@
             {% endfor %}
           </div>
         </div>
-      <!--Error messages-->
-      <div class="row center-align">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %} 
-        {% for message in messages %}
-        <p class="error-message">
-          {{ message }}
-        </p>
-        {% endfor %} {% endif %} {% endwith %}
-      </div>
+        <!--Flash messages-->
+        <div class="row center-align">
+        {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% for message in messages %}
+                    <p class="error-message">
+                    {{ message }}
+                    </p>
+                {% endfor %} 
+            {% endif %} 
+        {% endwith %}
+        </div>
         <!--Button-->
       <div class="col s6 right-align margin-bottom-large">
         <a

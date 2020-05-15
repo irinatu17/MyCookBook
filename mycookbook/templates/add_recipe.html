@@ -94,15 +94,16 @@
         <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting website (e.g. ImgBB) and paste direct link here"></i>
         </label>
         </div>
-        <div>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <p class="error-message">
-            {{ message }}
-        </p>
-        {% endfor %}
-        {% endif %}
+        <!--Flash messages-->
+        <div class="row center-align">
+        {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% for message in messages %}
+                    <p class="error-message">
+                    {{ message }}
+                    </p>
+                {% endfor %} 
+            {% endif %} 
         {% endwith %}
         </div>
         <!--Button-->
