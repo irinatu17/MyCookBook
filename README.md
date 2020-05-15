@@ -1,4 +1,7 @@
 # [My CookBook](https://mycookbook-project.herokuapp.com/)
+
+<img src="https://i.ibb.co/JrVfZPH/home-mockup.jpg" alt="home-mockup">
+
 "My CookBook" - Practical Python and Data-Centric Development Milestone Project.
 
 The main purpose of this full-stack MongoDB-based Flask project is to create a database of recipes that allows users to create, read, update and delete (CRUD) recipes.
