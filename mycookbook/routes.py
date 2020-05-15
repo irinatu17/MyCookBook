@@ -49,6 +49,8 @@ def all_recipes():
     The limit is set to 8 recipes per page.
     Also displayes the number of all recipes.
     '''
+    # CREDITS: the idea of pagination used below is taken and modified
+    # from the Shane Muirhead's project
     limit_per_page = 8
     current_page = int(request.args.get('current_page', 1))
     # get total of all the recipes in db
@@ -101,6 +103,8 @@ def my_recipes(username):
     # get total number of recipes created by the user
     number_of_my_rec = my_recipes.count()
     # Pagination, displays 8 recipes per page
+    # CREDITS: the idea of pagination used below is taken and modified
+    # from the Shane Muirhead's project
     limit_per_page = 8
     current_page = int(request.args.get('current_page', 1))
     pages = range(1, int(math.ceil(number_of_my_rec / limit_per_page)) + 1)
@@ -380,7 +384,7 @@ def account_settings(username):
     '''
     # prevents guest users from viewing the page
     if 'username' not in session:
-        flash('You must be logged in to view settings page!')
+        flash('You must be logged in to view that page!')
     username = users_coll.find_one({'username':
                                     session['username']})['username']
     return render_template('account_settings.html',
