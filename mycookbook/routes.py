@@ -270,7 +270,8 @@ def delete_recipe(recipe_id):
 
         users_coll.update_one({"_id": ObjectId(author)},
                               {"$pull": {"user_recipes": ObjectId(recipe_id)}})
-        return redirect(url_for("all_recipes"))
+        flash('Your recipe has been deleted.')
+        return redirect(url_for("home"))
     else:
         flash("You can only delete your own recipes!")
         return redirect(url_for('home'))
@@ -354,7 +355,7 @@ def register():
             users.insert_one(new_user)
             # add new user to the session
             session["username"] = request.form['username']
-            flash('Your account have been successfully created.')
+            flash('Your account has been successfully created.')
             return redirect(url_for('home'))
     return render_template('register.html', form=form,  title='Register')
 

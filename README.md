@@ -178,11 +178,12 @@ Each recipe card will include a small "heart" icon, clicking which will enable u
 - [GitHub](https://git-scm.com/) - for remotely storing project's code.
 - [PIP](https://pip.pypa.io/en/stable/installing/) - for installation of necessary tools.
 - [GIMP2](https://www.gimp.org/) - for editing, compressing and resizing images.
+- [Am I Responsive](http://ami.responsivedesign.is/) - for creation of the images in the readme file and checking responsiveness.
 ### Front-End
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - to build the foundation of the project.
 - [CSS](https://developer.mozilla.org/en-US/docs/Archive/CSS3) - to create custom styles.
 ### Back-End
-- [Python 3.8.2](https://www.python.org/)[ -  back-end programming language used in this project.
+- [Python 3.8.2](https://www.python.org/) -  back-end programming language used in this project.
 - [Flask 1.1.2](https://flask.palletsprojects.com/en/1.1.x/) - microframework for building and rendering pages.
 - [MongoDB Atlas](https://www.mongodb.com/) - NoSQL database for storing back-end data.
 - [PyMongo](https://api.mongodb.com/python/current/) - for Python to get access the MongoDB database.
@@ -199,8 +200,53 @@ Each recipe card will include a small "heart" icon, clicking which will enable u
 ---
 
 ## Testing
-### Manual Testing
+### Manual Testing 
+#### User stories testing
+All the following manual testing was implemented on both desktop and mobile devices.
+##### All recipes and single recipe display
+When I click on "All Recipe page", I can see recipe cards display in rows, 8 recipes per page. From that view, I can see image, recipe name and short information about the recipe.
+Clicking on the recipe cards, redirects me to the single recipe page, where I can see all detailed information about the recipe. I tested this functionality as a non-logged in (guest) user and logged-in user and it perfectly works in both cases.
+I also can see the total number of the recipes in parentheses. I tried to add and delete some recipes, and this total number changes accordingly.
+##### Create a new user account
+I created my own main account, as well as few testing accounts to test this functionality. Clicking on "Register" button in the navbar opens the form, where I can put username and password to create a new account. I tried to put an existing username, different passwords in "password" and "confirm password" fields, put less then 3 or more then 15 charachters.
+In all cases I got corresponding flash error message. As well as that, I tried to leave an empty field and submit the form, but got an error message again asking to fill the field. When the form was successfully submitted, I was redirected to the home page, seeing a message that my new account was created. 
+I also checked the link to the Login page at the bottom of the form, which workes well. 
+##### Login
+Clicking on "Login" button in the navbar opens the form, allowing me to login to my account. I checked validation against empty fields or incorrect details, so I was not able to submit the form if somemething was entered incorrectly. After successful login I was redirected to the home page, seeing the message that I was logged in. 
+I also checked the link to the Register page at the bottom of the form, which workes well.
+##### Change username/password
+To test it I changed my username and password multiple times to ensure that functionality woeks well. Both pages opens when the corresponding buttons are clicked. Validations against existing username and against incorrect input works well. 
+In both forms I can see the flash messages about changes I made. As well as that, If I click "Cancel" button, I will be redirected to the "Account Settings" page.
+For "change username" function, I checked database to make sure that username was updated there.  
+##### Delete Account
+I deleted some testing accounts to test the functionality. Clicking the "Delete account" button on the Account Settings page, the modal opens and I am asked to confirm the deletion by entering my password. I tried to put the wrong password, but got a flash message. 
+When I input the correct password, I am redirected to the home page and see the message that my account was deleted. After I checked the database to make sure that the account was removed, as well as all the recipes created by this user.
+##### Add New Recipe
+I added plenty of test recipes with to check  the functionality throughout the development.  If I leave some of the required fields empty, I am not able to submit the form. I can see flash messages displayed if I my input does not meet lenght requirement. I also tried to create recipe without the URL image provided to check if the placeholder is in place and it works well.
+##### Edit Recipe
+If I am the author of selected recipe, I can see the buttons "Edit" and "Delete" in the single_recipe page. I tried to view someone else's recipes and the buttons were not displays. I also tried to change the link manually to edit other's recipe. However, I was not able to open the form and got the message, that I can only edit my own recipes, which means defensive design works well against brute forcing.
+Being the author of the recipe, I can view the form with pre-populated fields and can change anything that I want. If all fields valid, after submission I can see tha changes I made in a Single Recipe Details Page. I tried to edit a number of recipes and edit different fields, everything works correctly.
+##### Delete Recipe
+I deleted some dummy testing recipes to test the functionality. After clicking "delete" button,  I can see the modal showed up asking me to confirm the deletion. Clicking "Cancel" I am redirected back and modal closes. After clicking "Delete" button in the modal, I am redirected to the home page and can see the message about the succsessful delition.  
+Then I checked the database to make sure, that the recipe was removed. As well as that I tested against brute-forcing, trying to delete another user's recipe(by changing the link manually), but wasn't able to do that.
+##### My Recipes
+The link in the navbar leads to My Recipes page, where I can see the total number of my recipes, recipes cards, "Add New Recipe" button and pagination in place. I tested it by clicking the buttons in pagination, by creating/deleting a recipe to check total number. All functionality works well.
+##### 404 and 500 errors
+I manually changed URL to get a non-existing page or page, which I do not have rights to access, to test error pages. In both cases cutom pages renders and all links in navbar and the button "Back Home" work well.
+##### Navbar/ Footer
+All links in navbar and footer were manually tested to ensure that they are pointing to the correct destination.
 
+
+Apart from that, I also manually tested the app with **debugger**: `debug=True` throughout all development process. 
+So every time when there was an error (when app crashed), debugger displayed an error message to the view, that allowed me to find the location of the error and fix it.
+#### Further testing
+I also asked my friends, family members and fellow students in Slack to thoroughly test my website in all possible deviced. So, a number of new accounts were created and new recipes added/editted and some of them then deleted. 
+At that stage I got useful feedback and few issues were found out: 
+##### Knowing bugs
+ - The text of the "Delete" and "Edit" buttons desappear on the smaller devices(320px size), so I added media query to fix this issue
+ - There was a similar issue with "Change username", "Change password" buttons, to solve it I removed "buttons-container" class to increase width of the buttons dividers
+ - I was adviced to make "Add Recipe" button more visible to the user, as it was dicplayed only on the navbar deopdown. To fix that, I added "Add new recipe" button to the "My Recipes" page above the recipes cards. Also I added icons in the navbar dropdown to give a user visual clue about the links.
+ - I also added a small-greeting text above the user avtar in "Account Settings" to make it more user-friendly as some users did not understand "what does this face means".
 ### Validators
 #### Html
 All HTML files were tested through [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input). Since it does not recognize Jinja2 templating language, it shows a number of errors. Apart from that, no other error was found across html pages.
@@ -208,7 +254,7 @@ All HTML files were tested through [W3C Markup Validation Service](https://valid
 CSS files were tested through [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). Since it does not recognize CSS variables (I use `:root{}` for colours and fonts variables), there are several Parse Errors found.  
  As well as that, there are few error warnings for some -webkit, -moz pseudo element selectors. Both of the error can be safely ignored as they are not errors in fact. The rest of the CSS files was completely valid.
 #### JavaScript
-JS file was tested through [Esprima](https://esprima.org/demo/validate.html) and [JSHint](https://jshint.com/) validators, code was syntactically valid.
+JS file was tested through [Esprima](https://esprima.org/demo/validate.html) and [JSHint](https://jshint.com/) validators, code was syntactically valid.  "$" was not defined by JSHint (it is necessary for jQuery Materialize initializing).
 #### Python
 All python files were tested through [PEP8 Online](http://pep8online.com/) validator and were completely PEP8 compliant, 
 except one thing:   
@@ -216,9 +262,12 @@ except one thing:
 as it needs to import routes after the app has been initialised
 to prevent circular imports.
 
-### Compatibility
-
-
+### Compatibility and Responsivesness
+This website were been testing during the development across **multiple browsers** (Chrome, Safary, Opera, FireFox, Internet Explorer) and on **multiple devices**: mobile (iPhone 5, 6, 8, Samsung Galaxy, Sony Xperia), tablets(iPad) and laptops (with HiDPI and MDPI and touch screens).
+As well as on **Google Chrome's developer tools** to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness.
+I also used [Am I Responsive](http://ami.responsivedesign.is/) online tool for checking responsiveness on different devices.
+Plenty of changes were made and necessary media queries added to make the website fully responsive. 
+The one noticed issue was found that website renders poorly on Internet Explorer browser(as it is outdated). However the website renders well as expected on the modern browsers.
 
 ---
 
