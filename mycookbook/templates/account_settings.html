@@ -6,7 +6,8 @@
   <!--Flash messages-->
   <div class="row center-align">
     {% with messages = get_flashed_messages() %} 
-    {% if messages %} {% for message in messages %}
+    {% if messages %} 
+    {% for message in messages %}
     <p class="error-message">
       {{ message }}
     </p>
@@ -87,10 +88,11 @@
       </div>
       <!--Get flashed messages-->
       <div class="row center-align">
-        {% with messages = get_flashed_messages() %} {% if messages %} {% for
-        message in messages %}
+        {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+        {% formessage in messages %}
         <p class="flash-error margin-top-small">
-          {{ message }}
+        {{ message }}
         </p>
         {% endfor %} {% endif %} {% endwith %}
       </div>
@@ -101,8 +103,8 @@
           >Cancel</a
         >
         <button
+          type="submit"
           class="btn btn-change btn-red waves-effect waves-light z-depth-2 btn-small-font"
-          href="#"
         >
           Delete Account
         </button>

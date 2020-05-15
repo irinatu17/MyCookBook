@@ -13,8 +13,8 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
 '''
-The following import has to be at the bottom of the file,
-as it need to import routes after the app ha been initialised
-to prevents circular imports.
+The following import has to be located at the bottom of the file,
+as it needs to import routes after the app has been initialised
+to prevent circular imports.
 '''
 from mycookbook import routes

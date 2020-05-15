@@ -21,12 +21,13 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/background_errors.css') }}">
     {% endif %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.jpg') }}" type="image/x-icon" sizes="200x200">
     {% if title %}
     <title>MyCookBook - {{ title }}</title>
     {% else %}
     <title>Welcome to MyCookBook!</title>
     {% endif %}
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.jpg') }}" type="image/x-icon" sizes="200x200">
 </head>
 <body>
     <header>

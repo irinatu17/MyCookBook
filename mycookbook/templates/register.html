@@ -5,7 +5,6 @@
       src="{{ url_for('static', filename='img/logo.png') }}"
       class="logo-login-register hide-on-med-and-down"
       alt="My CookBook Logo"
-      lazyload="on"
     />
   </a>
   <h1 class="secondary-heading heading-black uppercase">Create account</h1>
@@ -17,7 +16,7 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">person</i>
           {{ form.username(placeholder="Enter username") }}
-           <label for="username">Username <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="3-15 characters, case sensitive"></i></label>
+           <label>Username <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="3-15 characters, case sensitive"></i></label>
           {% for error in form.username.errors %}
           <span class="error-message">{{ error }}</span>
           {% endfor %}
@@ -28,7 +27,7 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">lock</i>
           {{ form.password (placeholder="Enter password") }}
-          <label for="password">Password <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="3-15 characters, case sensitive"></i></label>
+          <label>Password <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="3-15 characters, case sensitive"></i></label>
           {% for error in form.password.errors %}
           <span class="error-message">{{ error }}</span>
           {% endfor %}

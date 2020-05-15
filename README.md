@@ -202,6 +202,19 @@ Each recipe card will include a small "heart" icon, clicking which will enable u
 ### Manual Testing
 
 ### Validators
+#### Html
+All HTML files were tested through [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input). Since it does not recognize Jinja2 templating language, it shows a number of errors. Apart from that, no other error was found across html pages.
+#### CSS
+CSS files were tested through [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). Since it does not recognize CSS variables (I use `:root{}` for colours and fonts variables), there are several Parse Errors found.  
+ As well as that, there are few error warnings for some -webkit, -moz pseudo element selectors. Both of the error can be safely ignored as they are not errors in fact. The rest of the CSS files was completely valid.
+#### JavaScript
+JS file was tested through [Esprima](https://esprima.org/demo/validate.html) and [JSHint](https://jshint.com/) validators, code was syntactically valid.
+#### Python
+All python files were tested through [PEP8 Online](http://pep8online.com/) validator and were completely PEP8 compliant, 
+except one thing:   
+- in "_init_.py" file, the following import `from mycookbook import routes` has to be located at the bottom of the file
+as it needs to import routes after the app has been initialised
+to prevent circular imports.
 
 ### Compatibility
 
