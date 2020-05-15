@@ -90,7 +90,7 @@
       <div class="row center-align">
         {% with messages = get_flashed_messages() %} 
         {% if messages %} 
-        {% formessage in messages %}
+        {% for message in messages %}
         <p class="flash-error margin-top-small">
         {{ message }}
         </p>
