@@ -1,16 +1,17 @@
 {% extends 'base.html' %} {% block content %}
-<!-- 404 Error handler-->
+<!-- 404 Error handler, for easy navigation if a user enters incorrect URL-->
 <div class="container">
   <div class="row">
     <div class="col s12 center-align margin-top-large">
-      <h1 class="uppercase bold error-heading"><span class="text-black"> 404</span> error</h1>
-      <h3 class="margin-top-small error-sub-heading">Oops! Looks like you got lost</h3>
-      
-      <a href="{{ url_for('home')}}" class="btn btn-main text-shadow-small  waves-effect waves-light uppercase z-depth-3 btn-large"
-        >Back Home</a
-      >
+      <h1 class="uppercase bold error-heading"> 
+        <span class="text-black"> 404</span> error
+      </h1>
+      <h3 class="margin-top-small error-sub-heading">
+        Oops! Looks like you got lost
+      </h3>
+      <a href="{{ url_for('home')}}" class="btn btn-main text-shadow-small 
+      waves-effect waves-light uppercase z-depth-3 btn-large">Back Home</a>
     </div>
   </div>
 </div>
-
 {% endblock %}
