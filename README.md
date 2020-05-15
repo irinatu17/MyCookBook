@@ -391,7 +391,7 @@ To deploy the project to [Heroku](https://heroku.com/) the following steps need 
 ## Credits
 
 ### Content
-All recipes and recipes' images are taken from [BBC Good Food](https://www.bbcgoodfood.com/).
+All recipes and recipes' images are taken from [BBC Good Food](https://www.bbcgoodfood.com/) except the ones added by other users.
 ### Media
 The project images are taken from the following sources:
 - **Homepage background image** and **errorpage background image** : [Pixels](https://www.pexels.com/)
@@ -401,14 +401,14 @@ The project images are taken from the following sources:
 - **Recipe placeholder** is taken from free available Google images. 
 
 ### Code
-1. [Stack Overflow](https://stackoverflow.com/), the Code Institute Slack were extremely helpful and useful during the building this project.
+1. [Stack Overflow](https://stackoverflow.com/), the Code Institute Slack were extremely helpful and useful during the process of building this project.
 2. I constantly referred to the following documentation sources: [Flask](https://flask.palletsprojects.com/en/1.1.x/) and [MongoDB](https://docs.mongodb.com/manual/).
-3. For building the Register, Login, Change Username/Password pages - for WTForms usage, hashing passwords, as well as for better understanding `session` , I used the following tutorials: 
-- **Flask Tutorials** - [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH) - Package structure, Blueprints, custom error pages, 
+3. For building the Register, Login, Change Username/Password pages, as well as for better understanding `session` , I used the following tutorials: 
+- **Flask Tutorials** - [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH) - package structure, custom error pages, WTForms,  hashing passwords
 - **The Flask Mega-Tutorial** - [Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 - **Flask WTForms Tutorials** - [Pretty Printed](https://www.youtube.com/watch?v=eu0tg4vgFr4&list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
-4. Pagination logic used for All Recipes and My Recipes pages was inspired by Shane Muirhead project.
-5. For UI & UX design I took inspiration from different website found in [Dribble](https://dribbble.com/)
+4. Pagination logic, used for All Recipes and My Recipes pages, was inspired by Shane Muirhead's project.
+5. For UI & UX design concept I took inspiration from different projects found in [Dribble](https://dribbble.com/)
 6. The idea of using prefix-icons, asterixes and question-mark tooltips in forms was taken and modified from Tim Nelson's project.
 
 ### Acknowledgements
