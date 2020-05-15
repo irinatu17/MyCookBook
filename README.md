@@ -272,6 +272,9 @@ At that stage I got useful feedback and a few issues were found:
  - There was a similar issue with the "Change username" and the "Change password" buttons, to solve it I removed "buttons-container" class to increase width between the buttons.
  - I was adviced to make "Add Recipe" button more visible to the user, as it was dipplayed only on the navbar dropdown. To fix that, I added the "Add new recipe" button to the "My Recipes" page above the recipe cards. Also, I added icons in the navbar dropdown to give a user visual clue about the links.
  - I also added a small-greeting text above the user avtar in "Account Settings" to make it more user-friendly as some users did not understand "what does this face mean".
+ -  IMPORTANT NOTE: I accidentally introduced that  error with creating extra spaces again
+         during "last-minute" corrections. I was trying to beautify the code, which broke the Jinja logic and was 
+         not able to fix it quickly
 ### Validators
 #### Html
 All the HTML files were tested through [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input). Since it does not recognize Jinja2 templating language, it showed a number of errors. Apart from that, no other errors were found across the html pages.
