@@ -8,17 +8,19 @@
 <div class="container container-recipes margin-top-med">
   <div class="row">
     {% for recipe in recipes %} 
-    {% include "partials/_recipecards.html" %} 
+        {% include "partials/_recipecards.html" %} 
     {% endfor %}
   </div>
     <!--Pagination-->
   <ul class="pagination center-align">
     {% for page_num in pages %} 
-    {% if page_num == current_page %}
-    <li class="active"><a>{{ page_num }}</a></li>
-     {% else %}
-    <li class="waves-effect"><a href="{{ url_for('all_recipes', current_page=page_num) }}">{{ page_num }}</a></li>
-    {% endif %} 
+        {% if page_num == current_page %}
+        <li class="active"><a>{{ page_num }}</a></li>
+        {% else %}
+        <li class="waves-effect">
+        <a href="{{ url_for('all_recipes', current_page=page_num) }}">{{ page_num }}</a>
+        </li>
+        {% endif %} 
     {% endfor %}
   </ul>
 </div>

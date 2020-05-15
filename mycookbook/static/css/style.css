@@ -230,7 +230,7 @@ display:flex;
 margin-top:2em;
 }
 
-/*Radial gradient on the image is used for making the text more readable and outstanding in the center*/
+/*Radial gradient on the image is used for making the text more readable and outstanding*/
 .hero-image{
 background-image: radial-gradient(rgba(249, 238, 238, 0.91), rgba(152, 142, 142, 0.04)), url(../img/bg-home.jpg);
 background-repeat: no-repeat;

@@ -19,26 +19,27 @@
 
 <div class="container container-recipes center-align">
   <div class="row">
-    {% for recipe in my_recipes %} {% include "partials/_recipecards.html" %} {%
-    else %}
+    {% for recipe in my_recipes %} 
+        {% include "partials/_recipecards.html" %} 
+    {% else %}
     <h5 class="margin-top-small">
-      You haven't created any recipes yet. Click on the button above to get
-      started!
+      You haven't created any recipes yet. Click on the button above to get started!
     </h5>
     {% endfor %}
   </div>
   <!--Pagination-->
   <ul class="pagination center-align">
-    {% for page_num in pages %} {% if page_num == current_page %}
-    <li class="active"><a>{{ page_num }}</a></li>
-    {% else %}
-    <li class="waves-effect">
-      <a
-        href="{{ url_for('my_recipes', username = session.username, current_page=page_num) }}"
-        >{{ page_num }}</a
-      >
-    </li>
-    {% endif %} {% endfor %}
+    {% for page_num in pages %} 
+        {% if page_num == current_page %}
+        <li class="active"><a>{{ page_num }}</a></li>
+        {% else %}
+        <li class="waves-effect">
+        <a
+            href="{{ url_for('my_recipes', username = session.username, current_page=page_num) }}"
+            >{{ page_num }}</a>
+        </li>
+        {% endif %} 
+    {% endfor %}
   </ul>
 </div>
 
