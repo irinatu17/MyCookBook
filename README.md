@@ -183,6 +183,7 @@ Customized 404 and 500 pages contain short information about the error and a but
 There are some features that I considered were of secondary importance and I have not implemented them yet due to time constraints, but would like to do so in future.
 Both of these features are displayed in my initial wireframes.
 #### Search recipe
+At this stage Search functionality was considered not as important as other features. However, I believe that in future as the website will grow, it will be necessary to implement it.  
 The search recipe function is based on the keyword and recipe name, allowing user to search for the recipe. Filters "by cuisine", "by meal type" and "by diet type" would allow user to have more detailed search.
 #### My favourites
 User would have an opportunity to "like" other recipes, saving them in "my favourites" collection, which would be displayed on a separate page.
@@ -385,9 +386,6 @@ To deploy the project to [Heroku](https://heroku.com/) the following steps need 
 **Note**: if you have not linked GitHub and Heroku following step N.5, alternatively as the last step of deployment, you can put the following command into your terminal:   
  `heroku login`, after a successful log in `git push heroku master` - to push the app to Heroku, and finally click "Open App" in Heroku dashboard to view the app.
 
-
-
-
 ---
 
 ## Credits
@@ -403,12 +401,20 @@ The project images are taken from the following sources:
 - **Recipe placeholder** is taken from free available Google images. 
 
 ### Code
+1. [Stack Overflow](https://stackoverflow.com/), the Code Institute Slack were extremely helpful and useful during the building this project.
+2. I constantly referred to the following documentation sources: [Flask](https://flask.palletsprojects.com/en/1.1.x/) and [MongoDB](https://docs.mongodb.com/manual/).
+3. For building the Register, Login, Change Username/Password pages - for WTForms usage, hashing passwords, as well as for better understanding `session` , I used the following tutorials: 
 - **Flask Tutorials** - [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH) - Package structure, Blueprints, custom error pages, 
 - **The Flask Mega-Tutorial** - [Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 - **Flask WTForms Tutorials** - [Pretty Printed](https://www.youtube.com/watch?v=eu0tg4vgFr4&list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)
+4. Pagination logic used for All Recipes and My Recipes pages was inspired by Shane Muirhead project.
+5. For UI & UX design I took inspiration from different website found in [Dribble](https://dribbble.com/)
+6. The idea of using prefix-icons, asterixes and question-mark tooltips in forms was taken and modified from Tim Nelson's project.
 
 ### Acknowledgements
-
+ I would like to thank everyone who has helped me throughout the development of this project.
+ Code Institute tutors, fellow students, my friends and my family for the time, assistance and support!
+ 
 ---
 
-**This is for educational use only.**
+**This project is for educational use only.**
