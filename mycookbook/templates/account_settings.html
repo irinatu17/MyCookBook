@@ -1,114 +1,119 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container margin-top-large">
-  <h1 class="secondary-heading uppercase center-align">
-    <span class="text-black"> {{ username }}</span>'s account
-  </h1>
-  <!--Flash messages-->
-  <div class="row center-align">
+    <h1 class="secondary-heading uppercase center-align">
+        <span class="text-black"> {{ username }}</span>'s account
+    </h1>
+
+    <!--Flash messages-->
+    <div class="row center-align">
     {% with messages = get_flashed_messages() %} 
-    {% if messages %} 
-    {% for message in messages %}
-    <p class="error-message">
-      {{ message }}
-    </p>
-    {% endfor %} {% endif %} {% endwith %}
+        {% if messages %} 
+            {% for message in messages %}
+                <p class="error-message">
+                {{ message }}
+                </p>
+            {% endfor %} 
+        {% endif %} 
+    {% endwith %}
   </div>
+
   <!--User profile avatar, generated randomly for each user in session. 
-      CREDIT: Adoreble Avatars (http://avatars.adorable.io/)  -->
+    CREDIT: Adoreble Avatars (http://avatars.adorable.io/)  -->
   <div class="row">
-      <p class = "center-align avatar-text">Hi, {{username}}!<br/>I am your Adorable Avatar :)</p>
+    <p class = "center-align avatar-text">
+        Hi, {{username}}!<br/>I am your Adorable Avatar :)
+    </p>
     <div class="col s12 center-align">
-      <img
-        id="user_avatar"
+      <img id="user_avatar"
         src="https://api.adorable.io/avatars/200/{{session.username}}@adorable.png"
-        class="responsive-img user-avatar"
-        alt="Profile Avatar"
-      />
+        class="responsive-img user-avatar" alt="Profile Avatar"/>
     </div>
   </div>
 
-  <!--Change Username -->
+
   <div class="row center-align margin-bottom-large">
+    <!--Change Username -->
     <div class="col s12 m4">
-      <a
-        href="{{ url_for('change_username', username = session.username) }}"
-        class="waves-effect waves-light text-shadow-small btn btn-golden uppercase z-depth-3 btn-main btn-form bold"
-        >Change username</a
-      >
+        <a href="{{ url_for('change_username', username = session.username) }}"
+           class="waves-effect waves-light text-shadow-small btn btn-golden
+           uppercase z-depth-3 btn-main btn-form bold">
+         Change username
+        </a>
     </div>
+
     <!--Change password -->
     <div class="col s12 m4">
-      <a
-        href="{{ url_for('change_password', username = session.username) }}"
-        class="waves-effect waves-yellow text-shadow-small btn btn-green uppercase z-depth-3 btn-main btn-form bold"
-      >
-        Change password</a
-      >
+        <a href="{{ url_for('change_password', username = session.username) }}"
+           class="waves-effect waves-yellow text-shadow-small btn btn-green
+           uppercase z-depth-3 btn-main btn-form bold">
+           Change password
+        </a>
     </div>
+
     <!--Delete account -->
     <div class="col s12 m4">
-      <a
-        href="#delete-modal-account"
-        class="modal-trigger waves-effect waves-light text-shadow-small btn btn-red uppercase z-depth-3 btn-main btn-form bold"
-      >
-        Delete account</a
-      >
+        <a href="#delete-modal-account"
+          class="modal-trigger waves-effect waves-light text-shadow-small btn
+          btn-red uppercase z-depth-3 btn-main btn-form bold">
+          Delete account
+        </a>
     </div>
   </div>
 </div>
+
+
 <!--Delete Account Modal -->
 <div id="delete-modal-account" class="modal">
-  <div class="modal-content center-align">
-    <h5 class="text-red bold">Delete Account</h5>
-    <div class="divider"></div>
-    <p class="text-red">
-      <i class="fas fa-exclamation-circle margin-top-small"></i> Deleting
-      account will remove all your recipes from the website.
-    </p>
-    <h6 class="margin-top-small small-text-delete">
-      Are you sure you want to delete your account?
-    </h6>
-    <form
-      action="{{ url_for('delete_account', username = session.username) }}"
-      method="POST"
-    >
-      <div class="row center-align margin-top-small">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">lock</i>
-          <input
-            placeholder="Enter password"
-            id="confirm_password_to_delete"
-            name="confirm_password_to_delete"
-            type="password"
-            class="validate"
-            required
-          />
-          <label for="confirm_password_to_delete">Confirm password</label>
-        </div>
-      </div>
-      <!--Get flashed messages-->
-      <div class="row center-align">
-        {% with messages = get_flashed_messages() %} 
-        {% if messages %} 
-        {% for message in messages %}
-        <p class="flash-error margin-top-small">
-        {{ message }}
+    <div class="modal-content center-align">
+        <h5 class="text-red bold">Delete Account</h5>
+        <div class="divider"></div>
+        <p class="text-red">
+            <i class="fas fa-exclamation-circle margin-top-small"></i> 
+            Deleting account will remove all your recipes from the website.
         </p>
-        {% endfor %} {% endif %} {% endwith %}
-      </div>
-      <div class="margin-top-small">
-        <a
-          href="{{ url_for('account_settings',  username = session.username) }}"
-          class="modal-close btn btn-change btn-secondary waves-effect waves-light z-depth-2 btn-small-font"
-          >Cancel</a
-        >
-        <button
-          type="submit"
-          class="btn btn-change btn-red waves-effect waves-light z-depth-2 btn-small-font"
-        >
-          Delete Account
-        </button>
-      </div>
+        <h6 class="margin-top-small small-text-delete">
+            Are you sure you want to delete your account?
+        </h6>
+
+        <form action="{{ url_for('delete_account', username = session.username) }}"
+         method="POST">
+        <div class="row center-align margin-top-small">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                <input placeholder="Enter password"
+                       id="confirm_password_to_delete"
+                       name="confirm_password_to_delete"
+                       type="password"
+                       class="validate"
+                       required/>
+                <label for="confirm_password_to_delete">Confirm password</label>
+            </div>
+        </div>
+
+        <!--Flash messages-->
+        <div class="row center-align">
+        {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% for message in messages %}
+                    <p class="error-message">
+                    {{ message }}
+                    </p>
+                {% endfor %} 
+            {% endif %} 
+        {% endwith %}
+        </div>
+
+        <div class="margin-top-small">
+            <a href="{{ url_for('account_settings',  username = session.username) }}"
+               class="modal-close btn btn-change btn-secondary waves-effect 
+               waves-light z-depth-2 btn-small-font">
+               Cancel
+            </a>
+            <button type="submit" class="btn btn-change btn-red waves-effect
+               waves-light z-depth-2 btn-small-font">
+               Delete Account
+            </button>
+        </div>
     </form>
   </div>
 </div>
