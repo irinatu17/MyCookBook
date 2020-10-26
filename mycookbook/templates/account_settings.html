@@ -17,15 +17,11 @@
     {% endwith %}
   </div>
 
-  <!--User profile avatar, generated randomly for each user in session. 
-    CREDIT: Adoreble Avatars (http://avatars.adorable.io/)  -->
+  <!--User profile avatar-->
   <div class="row">
-    <p class = "center-align avatar-text">
-        Hi, {{username}}!<br/>I am your Adorable Avatar :)
-    </p>
     <div class="col s12 center-align">
       <img id="user_avatar"
-        src="https://api.adorable.io/avatars/200/{{session.username}}@adorable.png"
+        src="{{ url_for('static', filename='img/chief_avatar.jpg') }}"
         class="responsive-img user-avatar" alt="Profile Avatar"/>
     </div>
   </div>
