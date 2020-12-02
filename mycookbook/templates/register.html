@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% block content %}
+<section class="login-reg-section center-align">
+    <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo-login-register hide-on-med-and-down"
+            alt="My CookBook Logo" />
+    </a>
+    <h1 class="secondary-heading heading-black uppercase">Create account</h1>
+    <div class="row">
+        <form method="POST" action="" class="col s12">
+            {{ form.hidden_tag() }}
+            <!--Username-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">person</i>
+                    {{ form.username(placeholder="Enter username", id="username") }}
+                    <label for="username">Username <i class="fas fa-question-circle tooltipped" data-position="top"
+                            data-tooltip="3-15 characters, case sensitive"></i></label>
+                    {% for error in form.username.errors %}
+                    <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--Password-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    {{ form.password (placeholder="Enter password", id="password") }}
+                    <label for="password">Password <i class="fas fa-question-circle tooltipped" data-position="top"
+                            data-tooltip="3-15 characters, case sensitive"></i></label>
+                    {% for error in form.password.errors %}
+                    <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--Confirm Password-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    {{ form.confirm_password.label }}
+                    {{ form.confirm_password(placeholder="Confirm password") }}
+                    {% for error in form.confirm_password.errors %}
+                    <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--Error messages-->
+            <div class="row center-align">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="error-message">
+                    {{ message }}
+                </p>
+                {% endfor %} {% endif %} {% endwith %}
+            </div>
+            <!--Login button-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    {{ form.submit(class="btn btn-form btn-main z-depth-3 uppercase") }}
+                </div>
+            </div>
+            <!--Link to register page-->
+            <div class="row center-align">
+                <div class="col s12">
+                    <small>Already a user?
+                        <a href="{{ url_for('login') }}">Login here!</a></small>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container margin-top-large container-addrecipe z-depth-2">
+<h1 class="uppercase center-align secondary-heading">New Recipe</h1>
+    <form class="add-edit-form" autocomplete="off" method="POST" action="{{ url_for('insert_recipe') }}">
+    {{ form.hidden_tag() }}
+        <div class="row">
+        <!--Recipe Name-->
+        <div class="input-field col s12">
+        <i class="far fa-file-alt prefix"></i>
+            {{ form.recipe_name(id="recipe_name", placeholder="Provide a recipe name", class="validate", minlength="4", maxlength="25") }}
+            <label for="recipe_name">Recipe Name  <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="4-25 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+        <!--Recipe Description-->
+        <div class="input-field col s12">
+        <i class="fas fa-pen prefix"></i>
+            {{ form.recipe_description(id="recipe_description",  placeholder="Write few sentences about your recipe", class="validate materialize-textarea", minlength="20", maxlength="300") }}
+            <label for="recipe_description">Recipe Description  
+                <i class="fas fa-question-circle tooltipped" data-position="top" 
+                data-tooltip="20-300 characters"></i> 
+                <i class="fas fa-asterisk asterisk"></i>
+            </label>
+        </div>
+        <!-- Cuisine_type-->
+        <div class="input-field col s12 m6 l4">
+            <i class="fas fa-globe-europe prefix"></i>
+        <!--If cuisine is not selected(as it is optional), value "None" is assigned,
+        to be "not specified" displayed on the recipe card-->
+        <select id="cuisine_type" name="cuisine_type">
+            <option value="None" selected>Select an option</option>
+            {% for cuisine in cuisine_types %}
+                <option value="{{cuisine.cuisine_type}}">{{cuisine.cuisine_type}}</option>
+            {% endfor %}
+        </select>
+            <label for="cuisine_type">Cuisine (optional)</label>
+        </div>
+        <!-- Meal_type-->
+        <div class="input-field col s12 m6 l4">
+        <i class="fas fa-utensils prefix"></i>
+        <select id="meal_type" name="meal_type" class="validate" required>
+            <option value="" disabled selected>Select an option</option>
+            {% for meal in meal_types %}
+                <option value="{{meal.meal_type}}">{{meal.meal_type}}</option>
+            {% endfor %}
+            </select>
+            <label for="meal_type">Meal Type <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+        <!-- Diet_type-->
+            <div class="input-field col s12 m6 l4">
+            <i class="fas fa-leaf prefix"></i>
+        <!--If diet_type is not selected(as it is optional), value "None" is assigned,
+        to be "not specified" displayed on the recipe card-->
+            <select id="diet_type" name="diet_type">
+                <option value="None" selected>Select an option</option>
+            {% for diet in diet_types %}
+                <option value="{{diet.diet_type}}">{{diet.diet_type}}</option>
+            {% endfor %}
+        </select>
+            <label for="diet_type">Diet Type (optional)</label>
+        </div>
+        <!--Cooking Time-->
+        <div class="input-field col s12 m6">
+        <i class="far fa-clock prefix"></i>
+            {{ form.cooking_time(type="number", class="validate", id="cooking_time")  }}
+            <label for="cooking_time">Cooking time (min)  <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+        <!-- Servings-->
+        <div class="input-field col s12 m6">
+        <i class="fas fa-concierge-bell prefix"></i>
+            {{ form.servings(type="number", class="validate", id="servings") }}
+            <label for="servings">No. of Servings  <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+        <!-- Ingredients-->
+        <div class="input-field col s12">
+            <i class="fas fa-clipboard-list prefix"></i>
+            {{ form.ingredients(id="ingredients", placeholder="Add each ingredient on a new line", class="validate materialize-textarea") }}
+            <label for="ingredients">Ingredients (each on a new line) 
+                <i class="fas fa-asterisk asterisk"></i>
+            </label>
+        </div>
+        <!-- Directions-->
+        <div class="input-field col s12">
+        <i class="fas fa-list-ol prefix"></i>
+            {{ form.recipe_directions(id="directions", placeholder=" Add each step on a new line", class="validate materialize-textarea") }}
+        <label for="directions">Directions (each on a new line) 
+            <i class="fas fa-asterisk asterisk"></i>
+        </label>
+        </div>
+        <!-- Image Recipe-->
+        <div class="input-field col s12">
+        <i class="far fa-images prefix"></i>
+            {{ form.image(id="recipe_image", placeholder="Provide URL for your recipe image", class="validate") }}
+        <label for="recipe_image">Recipe Image URL (optional) 
+        <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting website (e.g. ImgBB) and paste direct link here"></i>
+        </label>
+        </div>
+        <!--Flash messages-->
+        <div class="row center-align">
+        {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% for message in messages %}
+                    <p class="error-message">
+                    {{ message }}
+                    </p>
+                {% endfor %} 
+            {% endif %} 
+        {% endwith %}
+        </div>
+        <!--Button-->
+        <div class="row">
+        <div class="col s6 right-align">
+        <a
+            href="{{ url_for('home') }}"
+            class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase"
+            name="action"
+        >
+            Cancel
+        </a>
+        </div>
+        <div class="col s6">
+        {{ form.submit(class="btn z-depth-3 btn-form btn-main uppercase") }}
+        </div>
+        </div>
+        </div>
+    </form>
+</section>
+{% endblock %}

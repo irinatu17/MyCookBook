@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %}
+<section class="login-reg-section center-align">
+  <a href="{{ url_for('home') }}">
+    <img
+      src="{{ url_for('static', filename='img/logo.png') }}"
+      class="logo-login-register hide-on-med-and-down"
+      alt="My CookBook Logo"
+    />
+  </a>
+  <h1 class="secondary-heading heading-black uppercase">Login</h1>
+  <div class="row">
+    <form method="POST" action="" class="col s12">
+      {{ form.hidden_tag() }}
+      <!--Username-->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">person</i>
+          {{ form.username.label }} 
+          {{ form.username(placeholder="Enter username") }} 
+          {% for error in form.username.errors %}
+          <span class="error-message">{{ error }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <!--Password-->
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          {{ form.password.label }} 
+          {{ form.password (placeholder="Enter password") }} 
+          {% for error in form.password.errors %}
+          <span class="error-message">{{ error }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <!--Error flash messages-->
+      <div class="row center-align">
+        {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+        {% for message in messages %}
+        <p class="error-message">
+          {{ message }}
+        </p>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
+      <!--Login submission button-->
+      <div class="row">
+        <div class="col s12 center-align">
+          {{ form.submit(class="btn btn-form btn-main z-depth-3 uppercase") }}
+        </div>
+      </div>
+      <!--Link to the register page-->
+      <div class="row center-align">
+        <div class="col s12">
+          <small
+            >Don't have an account?
+            <a href="{{ url_for('register') }}">Create one!</a></small
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

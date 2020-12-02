@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+<!--Flash messages-->
+   <div class="row center-align">
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+            {% for message in messages %}
+                <p class="error-message">
+                {{ message }}
+                </p>
+            {% endfor %} 
+        {% endif %} 
+    {% endwith %}
+  </div>
+
+<!--Main section, hero image and button-->
+<div class="container home-container container-95">
+  <div class="hero-image">
+    <div class="row">
+      <div class="col s12">
+        <div class="text-block-home center-align">
+          <h1 class="uppercase primary-heading">My CookBook</h1>
+          <p class="home-paragpaph">
+            Simple way to view, create and store <br class="tablet-break" />
+            your recipes
+          </p>
+          <a href="{{ url_for('all_recipes')}}"
+            class="waves-effect waves-light btn uppercase z-depth-3 btn-main"
+            id="btn-home">
+            Discover our recipes
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row container-85">
+  <h3 class="sub-heading center-align">
+    Featured recipes
+ </h3>
+  <div class="divider"></div>
+</div>
+<div class="container container-recipes">
+
+<!--Display 4 random recipes from the database-->
+  <div class="row">
+    {% for recipe in featured_recipes %} 
+        {% include "partials/recipecards.html" %} 
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    
+    <!--Assign background image located in a separate css file for all form templates -->
+    {% if request.endpoint == 'login' %}
+        <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('static', filename='css/background_forms.css') }}">
+    {% elif request.endpoint == 'register' %}
+        <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('static', filename='css/background_forms.css') }}">
+    {% elif request.endpoint == 'change_password' %}
+        <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('static', filename='css/background_forms.css') }}">
+    {% elif request.endpoint == 'change_username' %}
+        <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('static', filename='css/background_forms.css') }}">
+    <!--Assign background image located in a separate css file for error handlers -->
+    {% elif error %}
+        <link rel="stylesheet" type="text/css" 
+        href="{{ url_for('static', filename='css/background_errors.css') }}">
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!--To assign different headings for each page: -->
+    {% if title %}
+        <title>MyCookBook - {{ title }}</title>
+    {% else %}
+        <title>Welcome to MyCookBook!</title>
+    {% endif %}
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.jpg') }}" 
+    type="image/x-icon" sizes="200x200">
+</head>
+<body>
+    <header>
+    {% include "partials/navbar.html" %}
+    </header>
+
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+    {% include "partials/footer.html" %}
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/mycookbook.js') }}"></script>
+</body>
+
+</html>

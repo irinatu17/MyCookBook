@@ -1,0 +1,142 @@
+<!--Account dropdown structure, for desktop-->
+<ul id="Account" class="dropdown-content center-align">
+  <li>
+    <a href="{{ url_for('my_recipes', username = session.username) }}">
+        <i class="fas fa-user small-nav-icon" aria-hidden="true"></i> 
+        My Recipes
+    </a>
+  </li>
+  <li>
+    <a href="{{ url_for('add_recipe') }}">
+        <i class="fas fa-plus-circle small-nav-icon" aria-hidden="true"></i>
+        Add Recipe
+    </a>
+ </li>
+  <li class="divider"></li>
+  <li>
+    <a href="{{url_for('account_settings', username = session.username)}}">
+        <i class="fas fa-cog small-nav-icon" aria-hidden="true"></i>
+        Settings
+    </a>
+ </li>
+</ul>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" 
+            class="brand-logo" alt="My CookBook Logo" >
+        </a>
+        <!--The burger-icon button to get the navbar opened in mobile/tablet devices-->
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons navbar-icon" aria-hidden="true">menu</i>
+        </a>
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href="{{url_for('home')}}" class="uppercase">
+                    <i class="fas fa-home navbar-icon" aria-hidden="true"></i> 
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('all_recipes')}}" class="uppercase">
+                    <i class="fas fa-utensils navbar-icon" aria-hidden="true"></i>
+                    Browse Recipes
+                </a>
+            </li>
+
+            {% if session.username %}
+                <li>
+                    <a class="dropdown-trigger uppercase" 
+                        href="{{ url_for('account_settings', username = session.username) }}" 
+                        data-target="Account">
+                        <i class="fas fa-user-circle navbar-icon" aria-hidden="true"></i> 
+                        Account
+                        <i class="material-icons right" aria-hidden="true">arrow_drop_down</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}" class="uppercase">
+                        <i class="fas fa-sign-out-alt navbar-icon" aria-hidden="true"></i> 
+                        Logout
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{url_for('login')}}" class="uppercase">
+                        <i class="fas fa-sign-in-alt navbar-icon" aria-hidden="true"></i> 
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('register')}}" class="uppercase">
+                        <i class="fas fa-user-plus navbar-icon" aria-hidden="true"></i>
+                         Register
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<!--Navbar for Mobile and Tablet; collapses when the burger icon button clicked-->
+<ul class="sidenav" id="mobile-demo">
+    <li>
+        <h1 class ="center-align mobile-navbar-heading">My CookBook</h1>
+    </li>
+    <li>
+        <a href="{{url_for('home')}}" class="uppercase">
+            <i class="fas fa-home" aria-hidden="true"></i>
+            Home
+        </a>
+    </li>
+    <li>
+        <a href="{{url_for('all_recipes')}}" class="uppercase">
+            <i class="fas fa-utensils" aria-hidden="true"></i>
+            Browse Recipes
+        </a>
+    </li>
+    {% if session.username %}
+        <li>
+            <a href="{{ url_for('my_recipes',username = session.username) }}" 
+            class="uppercase">
+                <i class="fas fa-user" aria-hidden="true"></i> 
+                My Recipes
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('add_recipe') }}" class="uppercase">
+                <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                    Add Recipe
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="{{url_for('account_settings', username = session.username)}}" 
+            class="uppercase">
+                <i class="fas fa-cog" aria-hidden="true"></i>
+                Settings
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('logout') }}" class="uppercase">
+                <i class="fas fa-sign-out-alt" aria-hidden="true"></i> 
+                Logout
+            </a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{{url_for('login')}}" class="uppercase">
+                <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+                Login
+            </a>
+        </li>
+        <li>
+            <a href="{{url_for('register')}}" class="uppercase">
+                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                Register
+            </a>
+        </li>
+    {% endif %}
+</ul>
