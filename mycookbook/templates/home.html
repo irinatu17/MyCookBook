@@ -4,7 +4,7 @@
     {% with messages = get_flashed_messages() %} 
         {% if messages %} 
             {% for message in messages %}
-                <p class="error-message">
+                <p class="text-red">
                 {{ message }}
                 </p>
             {% endfor %} 
@@ -40,7 +40,7 @@
  </h3>
   <div class="divider"></div>
 </div>
-<div class="container container-recipes">
+<div class="container-recipes">
 
 <!--Display 4 random recipes from the database-->
   <div class="row">

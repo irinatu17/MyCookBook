@@ -16,7 +16,7 @@
                     <label for="username">Username <i class="fas fa-question-circle tooltipped" data-position="top"
                             data-tooltip="3-15 characters, case sensitive"></i></label>
                     {% for error in form.username.errors %}
-                    <span class="error-message">{{ error }}</span>
+                    <span class="text-red">{{ error }}</span>
                     {% endfor %}
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     <label for="password">Password <i class="fas fa-question-circle tooltipped" data-position="top"
                             data-tooltip="3-15 characters, case sensitive"></i></label>
                     {% for error in form.password.errors %}
-                    <span class="error-message">{{ error }}</span>
+                    <span class="text-red">{{ error }}</span>
                     {% endfor %}
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     {{ form.confirm_password.label }}
                     {{ form.confirm_password(placeholder="Confirm password") }}
                     {% for error in form.confirm_password.errors %}
-                    <span class="error-message">{{ error }}</span>
+                    <span class="text-red">{{ error }}</span>
                     {% endfor %}
                 </div>
             </div>
@@ -48,7 +48,7 @@
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
                 {% for message in messages %}
-                <p class="error-message">
+                <p class="text-red">
                     {{ message }}
                 </p>
                 {% endfor %} {% endif %} {% endwith %}

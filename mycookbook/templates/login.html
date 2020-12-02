@@ -18,7 +18,7 @@
           {{ form.username.label }} 
           {{ form.username(placeholder="Enter username") }} 
           {% for error in form.username.errors %}
-          <span class="error-message">{{ error }}</span>
+          <span class="text-red">{{ error }}</span>
           {% endfor %}
         </div>
       </div>
@@ -29,7 +29,7 @@
           {{ form.password.label }} 
           {{ form.password (placeholder="Enter password") }} 
           {% for error in form.password.errors %}
-          <span class="error-message">{{ error }}</span>
+          <span class="text-red">{{ error }}</span>
           {% endfor %}
         </div>
       </div>
@@ -38,7 +38,7 @@
         {% with messages = get_flashed_messages() %} 
         {% if messages %} 
         {% for message in messages %}
-        <p class="error-message">
+        <p class="text-red">
           {{ message }}
         </p>
         {% endfor %} {% endif %} {% endwith %}
