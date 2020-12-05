@@ -1,5 +1,5 @@
-<!--Account dropdown structure, for desktop-->
-<ul id="Account" class="dropdown-content center-align">
+<!--account dropdown structure, for desktop-->
+<ul id="account" class="dropdown-content center-align">
   <li>
     <a href="{{ url_for('my_recipes', username = session.username) }}">
         <i class="fas fa-user small-nav-icon" aria-hidden="true"></i> 
@@ -21,7 +21,7 @@
  </li>
 </ul>
 
-<nav>
+<nav class = "nav-main">
     <div class="nav-wrapper">
         <a href="{{ url_for('home') }}">
             <img src="{{ url_for('static', filename='img/logo.png') }}" 
@@ -29,7 +29,8 @@
         </a>
         <!--The burger-icon button to get the navbar opened in mobile/tablet devices-->
         <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-            <i class="material-icons navbar-icon" aria-hidden="true">menu</i>
+            <i class="fas fa-bars navbar-icon"></i>
+            <!-- <i class="material-icons navbar-icon" aria-hidden="true">menu</i> -->
         </a>
 
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -50,9 +51,9 @@
                 <li>
                     <a class="dropdown-trigger uppercase" 
                         href="{{ url_for('account_settings', username = session.username) }}" 
-                        data-target="Account">
+                        data-target="account">
                         <i class="fas fa-user-circle navbar-icon" aria-hidden="true"></i> 
-                        Account
+                        account
                         <i class="material-icons right" aria-hidden="true">arrow_drop_down</i>
                     </a>
                 </li>

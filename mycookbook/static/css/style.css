@@ -33,7 +33,9 @@
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%; //1rem = 10px, 10px/16px = 62.5%
+    /*1rem = 10px, 10px/16px = 62.5%*/
+    font-size: 62.5%; 
+    overflow-x: hidden;
 }
 
 body {
@@ -44,14 +46,14 @@ body {
     color: var(--lightblack);
     background-color: var(--white);
     font-family: var(--primaryfont);
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 1.7;
-    overflow-x: hidden;
 }
 
 main {
     flex: 1 0 auto;
-    margin-top: 6rem;
+    margin-top: 5rem;
 }
 
 /*/////////////////////////////////////////
@@ -156,13 +158,13 @@ main {
 /* fixed on the top; slide out menu on mobile*/
 nav {
     position: fixed;
-    top: 0px;
-    z-index: 10;
+    top: 0;
+    z-index: 100;
     background-color: var(--darkwhite);
     font-family: var(--primaryfont);
 }
 
-nav img {
+nav img{
     height: 2em;
     padding-left: 6px;
 }
@@ -532,7 +534,6 @@ nav ul a {
 
 /*/////////////////////////////////////////
 //////////////// MEDIA QUERIES ///////////*/
-
 /* 0-600px: Phone
 600-900px: Tablet portrait
 900-1200px: Tablet landscape
@@ -540,12 +541,14 @@ nav ul a {
 1800px + : Big desktop */
 
 /* 
-$bp-largest: 75em;   // 1200px/16px = 75em
-$bp-large: 68.75em;   // 1100px/16px = 68.75em
-$bp-medium: 56.25em;   // 900px
-$bp-small: 37.5em;   // 600px
-$bp-smaller: 31.25em;   // 500px
-$bp-smallest: 25em  // 400px */
+Media Queries are declared in em:
+25em = 400px
+31.25em = 500px
+37.5em = 600px
+56.25em = 900px
+75em = 1200px
+112.5em = 1800px
+*/ 
 
 /* Mobile devices from 400px */ 
 @media only screen and (min-width: 25em) {
@@ -559,23 +562,27 @@ $bp-smallest: 25em  // 400px */
 
 /* Tablet portrait devices from 600px */ 
 @media only screen and (min-width: 37.5em) {
-    
+    html {font-size: 70%;}  
 }
 
 /* Tablet landscape devices from 900px */ 
 @media only screen and (min-width: 56.25em) {
-    
+    html {font-size: 80%;} 
 }
 
 /* Desktop from 1200px */ 
-@media only screen and (max-width: 75em) {
-    
+@media only screen and (min-width: 75em) {
+    /* 8px/16px = 50% */
+    html {font-size: 85%;}    
 }
 
 /* Big desktop from 1800px */ 
-@media only screen and (max-width: 112.5em) {
-    
+@media only screen and (min-width: 112.5em) {
+    html {font-size: 95%;} 
 }
+
+
+
 
 
  /* Tablet size Media queries 600px- 1000px
