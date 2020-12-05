@@ -21,26 +21,41 @@
 --secondaryfont: "Ubuntu", sans-serif;
 }
 
-/* Global style settings*/
-main {
-    flex: 1 0 auto;
-    margin-top:4em;
+/*/////////////////////////////////////////
+//////////////// GLOBAL SETTINGS ///////////*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px, 10px/16px = 62.5%
 }
 
 body {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
-    margin: 0;
-    padding: 0; 
-    color:var(--lightblack);
+    min-height: 100vh;
+
+    color: var(--lightblack);
     background-color: var(--white);
     font-family: var(--primaryfont);
     font-weight: 400;
-    line-height: 1.7rem;
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
+main {
+    flex: 1 0 auto;
+    margin-top: 6rem;
+}
+
+/*/////////////////////////////////////////
+//////////////// HELPERS - UTILITIES ///////////*/
 .uppercase {
     text-transform: uppercase;
 }
@@ -103,7 +118,8 @@ body {
     font-size:1rem;
 }
 
-/* Headings*/
+/*/////////////////////////////////////////
+//////////////// HEADINGS ///////////*/
 .primary-heading {
     font-size: 2.3rem;
     font-weight: 500;
@@ -135,7 +151,9 @@ body {
     text-shadow: 1px 1px 1px var(--lightgrey);
 }
 
-/* Navigation Bar - fixed on the top; slide out menu on mobile*/
+/*/////////////////////////////////////////
+//////////////// NAVBAR///////////*/
+/* fixed on the top; slide out menu on mobile*/
 nav {
     position: fixed;
     top: 0px;
@@ -174,7 +192,8 @@ nav ul a {
     color: var(--coral);
 }
 
-/* Footer */
+/*/////////////////////////////////////////
+//////////////// FOOTER ///////////*/
 .footer-container {
     background-color: var(--darkwhite);
     padding-bottom: 0.5rem;
@@ -204,7 +223,8 @@ nav ul a {
     -o-transform: scale(1.3);
 }
 
-/* Register-Login Pages*/
+/*/////////////////////////////////////////
+//////////////// LOGIN - REGISTER PAGES ///////////*/
 .login-reg-section {
     max-width: 30rem;
     min-width: 250px;
@@ -216,7 +236,8 @@ nav ul a {
     width: 10rem;
 }
 
-/* Home page*/
+/*/////////////////////////////////////////
+//////////////// HOME PAGE ///////////*/
 .home-container {
     padding-left:10px;
     padding-right: 10px;
@@ -242,7 +263,7 @@ nav ul a {
     font-size: 1rem;
 }
 
-/* Home page: Place text in the middle of the image */
+/* place text in the middle of the image */
 .text-block-home {
     position: absolute;
     top: 50%;
@@ -253,7 +274,8 @@ nav ul a {
     padding: 9px;
 }
 
-/*Recipe details*/
+/*/////////////////////////////////////////
+//////////////// RECIPE DETAILS PAGE ///////////*/
 .divider-yellow {
     background-color: var(--darkyellow);
     margin-top: -20px;
@@ -296,13 +318,14 @@ nav ul a {
     margin-right:10px;
 }
 
-/*My recipes*/
+/*/////////////////////////////////////////
+//////////////// MY RECIPIES PAGE ///////////*/
 .paragraph-count {
     font-size: 1.5rem;
     font-family: var(--secondaryfont);
 }
 
-/* Cards*/
+
 .card .card-image img {
     border-radius: 25px;
 }
@@ -506,11 +529,68 @@ nav ul a {
     width: 90%;
     margin: 0 auto;
 }
+
 /*/////////////////////////////////////////
 //////////////// MEDIA QUERIES ///////////*/
 
-/* Tablet and Desktop size Media queries*/
-@media (min-width: 600px) {
+/* 0-600px: Phone
+600-900px: Tablet portrait
+900-1200px: Tablet landscape
+1200-1800px: Desktop
+1800px + : Big desktop */
+
+/* 
+$bp-largest: 75em;   // 1200px/16px = 75em
+$bp-large: 68.75em;   // 1100px/16px = 68.75em
+$bp-medium: 56.25em;   // 900px
+$bp-small: 37.5em;   // 600px
+$bp-smaller: 31.25em;   // 500px
+$bp-smallest: 25em  // 400px */
+
+/* Mobile devices from 400px */ 
+@media only screen and (min-width: 25em) {
+    
+}
+
+/* Mobile devices from 500px */ 
+@media only screen and (min-width: 31.25em) {
+    
+}
+
+/* Tablet portrait devices from 600px */ 
+@media only screen and (min-width: 37.5em) {
+    
+}
+
+/* Tablet landscape devices from 900px */ 
+@media only screen and (min-width: 56.25em) {
+    
+}
+
+/* Desktop from 1200px */ 
+@media only screen and (max-width: 75em) {
+    
+}
+
+/* Big desktop from 1800px */ 
+@media only screen and (max-width: 112.5em) {
+    
+}
+
+
+ /* Tablet size Media queries 600px- 1000px
+@media only screen and (min-width: 37.5em) and (max-width: 62.5em) {
+    .container-addrecipe {
+        width: 85%;
+    }
+
+    .card .card-image img {
+        height: 30vh;
+    }
+}
+
+/* Tablet and Desktop size Media queries: 600px and more*/
+/* @media only screen and (min-width: 37.5em) { 
     
     .add-edit-form {
         padding:0 2rem;
@@ -540,21 +620,10 @@ nav ul a {
     .btn-change {
         font-size: 14px;
     }
-}
-
-/*  Tablet size Media queries */
-@media (min-width: 600px) and (max-width: 992px) {
-    .container-addrecipe {
-        width:85%;
-    }
-
-    .card .card-image img {
-        height: 30vh;
-    }
-}
+} */
 
 /* Desktop size Media queries */
-@media (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
     .container-addrecipe {
         width:70%;
     }
@@ -591,10 +660,10 @@ nav ul a {
     .btn-edit-del {
         width:70%;
     }
-}
+} */
 
 /* Small resolution Media queries (e.g. iPhone 5/SE - 320px width ) */
-@media (max-width: 350px) {
+/* @media only screen and (max-width: 350px) {
     .btn-change {
         font-size: 9px;
     }
@@ -615,10 +684,10 @@ nav ul a {
         font-size: 10px;
         margin: 1px;
     }
-}
+} */
 
 /*  iPad Pro  and iPad landscape size Media queries */
-@media only screen and (min-width: 992px) and (max-width: 1366px) and 
+/* @media only screen and (min-width: 992px) and (max-width: 1366px) and 
        (-webkit-min-device-pixel-ratio: 1.5) {
     .card .card-image img {
         
@@ -650,5 +719,5 @@ nav ul a {
 
     .btn-edit-del {
         width:90%;
-    }
-}
+    } */
+/* } */ 
