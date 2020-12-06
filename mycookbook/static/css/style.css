@@ -4,7 +4,7 @@
 :root {
 --white: #ffffff;
 --midiumwhite: #fffafa;
---darkwhite: #f5f5f5f3;
+--darkwhite: rgba(245, 245, 245, 0.953);
 --black: #070707;
 --lightblack: #2e2e2e;
 --darkgrey: #515151;
@@ -53,7 +53,7 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 5rem;
+    margin-top: 6rem;
 }
 
 /*/////////////////////////////////////////
@@ -117,7 +117,7 @@ main {
 
 .dropdown-content li>a, .dropdown-content li>span {
     color:  var(--black);
-    font-size:1rem;
+    font-size: 1.2rem;
 }
 
 /*/////////////////////////////////////////
@@ -164,9 +164,8 @@ nav {
     font-family: var(--primaryfont);
 }
 
-nav img{
-    height: 2em;
-    padding-left: 6px;
+nav img {
+    height: 3.2rem;
 }
 
 nav ul a {
@@ -179,13 +178,16 @@ nav ul a {
 
 .navbar-icon {
     margin-right: 0.8rem;
-    font-size: 20px;
+    font-size: 1.5rem;
     color: var(--lightblack);
+}
+
+.brand-logo {
+    color: var(--darkgrey);
 }
 
 .small-nav-icon {
     font-size: 1rem;
-    margin: 0;
 }
 
 .mobile-navbar-heading {

@@ -21,16 +21,15 @@
  </li>
 </ul>
 
-<nav class = "nav-main">
+<nav>
     <div class="nav-wrapper">
         <a href="{{ url_for('home') }}">
             <img src="{{ url_for('static', filename='img/logo.png') }}" 
-            class="brand-logo" alt="My CookBook Logo" >
+             alt="My CookBook Logo" >
         </a>
         <!--The burger-icon button to get the navbar opened in mobile/tablet devices-->
         <a href="#" data-target="mobile-demo" class="sidenav-trigger">
             <i class="fas fa-bars navbar-icon"></i>
-            <!-- <i class="material-icons navbar-icon" aria-hidden="true">menu</i> -->
         </a>
 
         <ul id="nav-mobile" class="right hide-on-med-and-down">
