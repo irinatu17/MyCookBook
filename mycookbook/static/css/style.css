@@ -53,7 +53,7 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 4.8rem;
+    margin-top: 5.7rem;
 }
 
 /*/////////////////////////////////////////
@@ -120,6 +120,18 @@ main {
     font-size: 1.2rem;
 }
 
+.flashes {
+    text-align: center;
+    color: var(--lightcoral);
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.toast-message {
+    margin-left: .1rem;
+    font-size: inherit;
+}
+
 /*/////////////////////////////////////////
 //////////////// HEADINGS ///////////*/
 .primary-heading {
@@ -164,16 +176,6 @@ nav {
     font-family: var(--primaryfont);
 }
 
-/* nav .brand-logo {
-    height: 100%;
-} */
-
-/* .nav-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-} */
-
 nav .brand-logo{
     height: 100%;
     display: flex;
@@ -182,20 +184,6 @@ nav .brand-logo{
 
 nav img {
     height: 5.5rem;
-}
-/* nav img {
-    /* order: 1; 
-    height: 4rem;
-    display: inline-block;
-    
-    /* padding:  0 .5rem;
-   
-    
-    /* justify-self: center;
-} */
-
-.sidenav-trigger{
-    
 }
 
 nav ul a {
@@ -545,6 +533,7 @@ nav ul a {
     font-size: 11px;
 }
 
+
 /*Errors 404 and 500*/
 .error-heading {
     font-size: 3.2rem;
@@ -603,6 +592,10 @@ Media Queries are declared in em:
         font-size: 80%;
     } 
 
+    main {
+        margin-top: 5.1rem;
+    }
+
     nav img {
         display: inline-block;
         padding: .6rem;
@@ -613,12 +606,20 @@ Media Queries are declared in em:
 /* Desktop from 1200px */ 
 @media only screen and (min-width: 75em) {
     /* 8px/16px = 50% */
-    html {font-size: 85%;}    
+    html {font-size: 85%;}  
+    
+    main {
+        margin-top: 4.8rem;
+    }
 }
 
 /* Big desktop from 1800px */ 
 @media only screen and (min-width: 112.5em) {
     html {font-size: 95%;} 
+
+    main {
+        margin-top: 4.4rem;
+    }
 }
 
 

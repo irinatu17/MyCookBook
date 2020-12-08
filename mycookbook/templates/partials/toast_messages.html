@@ -1,0 +1,13 @@
+<!--Flash messages-->
+<div class="flashes">
+{% with messages = get_flashed_messages() %} 
+    {% if messages %} 
+        {% for message in messages %}
+        <i class="fas fa-info-circle"></i> 
+            <span class="toast-message">
+            {{ message }}
+            </span>
+        {% endfor %} 
+    {% endif %} 
+{% endwith %}
+</div>
