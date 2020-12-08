@@ -53,7 +53,7 @@ body {
 
 main {
     flex: 1 0 auto;
-    margin-top: 6rem;
+    margin-top: 4.8rem;
 }
 
 /*/////////////////////////////////////////
@@ -164,8 +164,38 @@ nav {
     font-family: var(--primaryfont);
 }
 
+/* nav .brand-logo {
+    height: 100%;
+} */
+
+/* .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+nav .brand-logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 nav img {
-    height: 3.2rem;
+    height: 5.5rem;
+}
+/* nav img {
+    /* order: 1; 
+    height: 4rem;
+    display: inline-block;
+    
+    /* padding:  0 .5rem;
+   
+    
+    /* justify-self: center;
+} */
+
+.sidenav-trigger{
+    
 }
 
 nav ul a {
@@ -569,7 +599,15 @@ Media Queries are declared in em:
 
 /* Tablet landscape devices from 900px */ 
 @media only screen and (min-width: 56.25em) {
-    html {font-size: 80%;} 
+    html {
+        font-size: 80%;
+    } 
+
+    nav img {
+        display: inline-block;
+        padding: .6rem;
+        height: 5.5rem;
+    }
 }
 
 /* Desktop from 1200px */ 
