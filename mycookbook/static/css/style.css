@@ -262,6 +262,67 @@ nav ul a {
 }
 
 /*/////////////////////////////////////////
+//////////////// RECIPE CARD ///////////*/
+.card-recipe,
+.card-image,
+.card .card-image img  {
+    border-radius: 2.5rem;
+}
+
+.card {
+    transition: transform .2s;
+}
+
+.card:hover {
+    transform: translateY(-.5rem) scale(1.01);
+}
+
+.card .card-image img {
+    width: 100%;
+    height: 45vh;
+    display: block;
+    object-fit: cover;
+}
+
+.text-block {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    background-color: var(--yellow);
+    font-family:var(--secondaryfont);
+    font-size: 1.2rem;
+    padding: 0 5px;
+    opacity: 0.9;
+    border-radius: .4rem;
+}
+
+.card-bottom-info {
+    font-size: 1.2rem;
+    margin-top: .4rem;
+    margin-bottom: 0;
+}
+
+.icon-recipe-card {
+    color: var(--yellow);   
+    font-size: 1.3rem;
+    padding: 2px;
+}
+
+.card .card-content{
+    padding-top: 0;
+    margin-top: -1rem;
+}
+
+.card .card-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+
+
+
+/*/////////////////////////////////////////
 //////////////// FOOTER ///////////*/
 .footer-container {
     background-color: var(--darkwhite);
@@ -361,69 +422,8 @@ nav ul a {
 }
 
 
-.card .card-image img {
-    border-radius: 25px;
-}
-
-.recipe-image {
-    border-radius: 25px;
-}
-
-.card {
-    background-color: var(--white);
-}
-
-.card-bottom-info {
-    font-size:13px;
-    margin-top: 5px;
-    margin-bottom: 0;
-}
-
-.icon-recipe-card {
-    color: var(--yellow);   
-    font-size: 14px;
-    padding: 2px;
-}
-
-.card-recipe,
-.card-image {
-    border-radius: 25px;
-}
-
-.card .card-image img {
-    position: relative;
-    object-fit: cover;
-    height: 45vh;
-}
-
-.card .card-content{
-    padding-top: 0;
-}
-
-.card .card-title {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--black);
-}
-
-.card .card-title:hover {
-    color: var(--darkyellow);
-}
-
-.text-block {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    background-color: var(--yellow);
-    color: var(--black);
-    font-family:var(--primaryfont);
-    padding: 0 5px;
-    line-height: 1px;
-    opacity: 0.9;
-    border-radius: 3px;
-}
-
-/* Add-Edit recipe*/
+/*/////////////////////////////////////////
+//////////////// ADD/EDIT PAGE ///////////*/
 .container-addrecipe {
     padding:1px;
     border-radius: 20px;
@@ -607,14 +607,14 @@ Media Queries are declared in em:
     .btn-main:visited{
         padding: .5rem 1.7rem;
     }
+
+    .card .card-image img {
+        height: 35vh;
+    }
 }
 
 /* Tablet landscape devices from 900px */ 
 @media only screen and (min-width: 56.25em) {
-    html {
-        font-size: 80%;
-    } 
-
     main {
         margin-top: 5.1rem;
     }
@@ -629,12 +629,28 @@ Media Queries are declared in em:
         letter-spacing: .2rem;
     }
 
+    .container-recipes {
+        width: 95%;
+    }
+
+    .card .card-title {
+        font-size: 1.3rem;
+    }
+
+    .icon-recipe-card {
+        font-size: 1.1rem;
+    }
+
+    .card-bottom-info {
+        font-size: .9rem;
+    }
+
 }
 
 /* Desktop from 1200px */ 
 @media only screen and (min-width: 75em) {
     /* 8px/16px = 50% */
-    html {font-size: 85%;}  
+    html {font-size: 80%;}  
     
     main {
         margin-top: 4.8rem;
@@ -659,10 +675,26 @@ Media Queries are declared in em:
 
 /* Big desktop from 1800px */ 
 @media only screen and (min-width: 112.5em) {
-    html {font-size: 95%;} 
+    html {font-size: 85%;}  
 
     main {
         margin-top: 4.4rem;
+    }
+
+    .container-recipes {
+        width: 90%;
+    }
+
+    .card .card-title {
+        font-size: 1.4rem;
+    }
+
+    .icon-recipe-card {
+        font-size: 1.3rem;
+    }
+
+    .card-bottom-info {
+        font-size: 1rem;
     }
 }
 
