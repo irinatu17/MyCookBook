@@ -20,15 +20,13 @@
   </div>
 </div>
 
-<div class="row container-85">
-  <h3 class="sub-heading center-align">
-    Featured recipes
- </h3>
+<div class="container-subheading">
+  <h2 class="sub-heading center-align"> Featured recipes </h2>
   <div class="divider"></div>
 </div>
-<div class="container-recipes">
 
 <!--Display 4 random recipes from the database-->
+<div class="container-recipes">
   <div class="row">
     {% for recipe in featured_recipes %} 
         {% include "partials/recipecards.html" %} 
