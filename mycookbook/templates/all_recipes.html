@@ -1,18 +1,20 @@
 {% extends 'base.html' %} {% block content %}
-<section class="container margin-top-large">
+<div class="margin-top-large">
   <h1 class="secondary-heading uppercase center-align margin-bottom-large"><span class="text-black">All </span>Recipes ({{ number_of_all_rec }})</h1>
-    <div class="margin-top-med hide-on-small-only">
-    <hr class="center-align divider-yellow" />
-    </div>
-</section>
-<div class="container container-recipes margin-top-med">
+</div>
+
+<div class="divider-container hide-on-small-only">
+      <hr class="divider-yellow" />
+</div>
+
+<div class="container-recipes">
   <div class="row">
     {% for recipe in recipes %} 
         {% include "partials/recipecards.html" %} 
     {% endfor %}
   </div>
     <!--Pagination-->
-  <ul class="pagination center-align">
+  <ul class="pagination center-align margin-bottom-large">
     {% for page_num in pages %} 
         {% if page_num == current_page %}
         <li class="active"><a>{{ page_num }}</a></li>

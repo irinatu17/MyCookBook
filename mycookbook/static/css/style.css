@@ -82,13 +82,13 @@ main {
     margin-bottom: 2rem; 
 }
 
-.container-95 {
+/* .container-95 {
     width: 95%;
 }
 
 .container-85 {
     width: 85%;  
-}
+} */
 
 .text-red {
     color: var(--red);
@@ -143,7 +143,7 @@ main {
 }
 
 .secondary-heading {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     letter-spacing: 0.2rem; 
     color: var(--coral);
     font-weight: 600;
@@ -319,6 +319,16 @@ nav ul a {
     color: var(--black);
 }
 
+/*/////////////////////////////////////////
+/////////////ALL RECIPES PAGE ///////////*/
+.container-recipes{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.pagination li {
+    height: auto !important;
+}
 
 
 
@@ -372,6 +382,12 @@ nav ul a {
 
 /*/////////////////////////////////////////
 //////////////// RECIPE DETAILS PAGE ///////////*/
+.divider-container {
+    display: flex;
+    justify-content: center;
+    margin: 3.5rem auto;
+}
+
 .divider-yellow {
     background-color: var(--darkyellow);
     margin-top: -20px;
@@ -559,10 +575,6 @@ nav ul a {
     font-size: 2rem;
 }
 
-.container-recipes{
-    width: 90%;
-    margin: 0 auto;
-}
 
 /*/////////////////////////////////////////
 //////////////// MEDIA QUERIES ///////////*/
@@ -609,7 +621,11 @@ Media Queries are declared in em:
     }
 
     .card .card-image img {
-        height: 35vh;
+        height: 40vh;
+    }
+
+    .container-recipes{
+        width: 90%;
     }
 }
 
@@ -671,6 +687,10 @@ Media Queries are declared in em:
         font-size: 2rem;
         text-align: left;
     }
+
+    .container-recipes{
+        width: 90%;
+    }
 }
 
 /* Big desktop from 1800px */ 
@@ -679,10 +699,6 @@ Media Queries are declared in em:
 
     main {
         margin-top: 4.4rem;
-    }
-
-    .container-recipes {
-        width: 90%;
     }
 
     .card .card-title {
@@ -696,14 +712,26 @@ Media Queries are declared in em:
     .card-bottom-info {
         font-size: 1rem;
     }
+
+    .container-recipes{
+        width: 85%;
+    }
+
+    .card .card-image img {
+        height: 35vh;
+    }
 }
 
 
 /*  iPad Pro  and iPad landscape size Media queries */
-@media only screen and (min-width: 992px) and (max-width: 1366px)
+@media only screen and (min-width: 992px) and (max-width: 1025px)
          and (-webkit-min-device-pixel-ratio: 1.5) {
             .card .card-image img {
                 height: 25vh;
+            }
+
+            .container-recipes{
+                width: 98%;
             }
        }
 
