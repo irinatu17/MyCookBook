@@ -330,6 +330,11 @@ nav ul a {
     height: auto !important;
 }
 
+/*/////////////////////////////////////////
+//////////////// MY RECIPIES PAGE ///////////*/
+.paragraph-count {
+    font-family: var(--secondaryfont);
+}
 
 
 /*/////////////////////////////////////////
@@ -430,12 +435,6 @@ nav ul a {
     margin-right:10px;
 }
 
-/*/////////////////////////////////////////
-//////////////// MY RECIPIES PAGE ///////////*/
-.paragraph-count {
-    font-size: 1.5rem;
-    font-family: var(--secondaryfont);
-}
 
 
 /*/////////////////////////////////////////
@@ -536,7 +535,7 @@ nav ul a {
 
 .button-coral {
     background-color: var(--coral);
-    text-shadow: 1px 1px 1px var(--lightblack);
+    text-shadow: 0 1px 3px var(--lightblack);
 }
 
 .button-coral:hover,
