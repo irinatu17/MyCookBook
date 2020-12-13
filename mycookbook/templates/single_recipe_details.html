@@ -17,39 +17,41 @@
     <h1 class="secondary-heading heading-black uppercase center-align">
         {{ selected_recipe.recipe_name }}
     </h1>
-    <div class="hide-on-small-only">
-        <hr class="center-align divider-yellow" />
-    </div>
+    <div class="divider-container hide-on-small-only">
+        <hr class="divider-yellow" />
+  </div>
     <!--Recipe image-->
     <div class="row">
-        <div class="col s12 m6">
-            {% if selected_recipe.image %}
-            <img class="recipe-image responsive-img z-depth-2" src="{{ selected_recipe.image }}" 
-            alt="Recipe Image" />
-            {% else %}
-            <img src="{{ url_for('static', filename='img/recipe_placeholder.jpg') }}"
-            class="recipe-image responsive-img z-depth-2" alt="Image placeholder" />
-            {% endif %}
-            <p class="center-align"><span class="recipe-lead-text">Author:</span>{{ author }}</p>
+        <div class="col s12 m6 image-and-buttons-container">
+            <div class="image-container">
+                {% if selected_recipe.image %}
+                <img class="recipe-image responsive-img z-depth-2" src="{{ selected_recipe.image }}" 
+                alt="Recipe Image" />
+                {% else %}
+                <img src="{{ url_for('static', filename='img/recipe_placeholder.jpg') }}"
+                class="recipe-image responsive-img z-depth-2" alt="Image placeholder" />
+                {% endif %}
+            </div>
+            <div class="margin-top-med">
+                <p class="center-align">
+                    <span class="recipe-lead-text">Author:</span> {{ author }}
+                </p>
+            </div>
             {% if session.username == author %}
-            <div class="row">
-                <div class="col s6 center-align">
-                    <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}"
-                        class="btn z-depth-2 btn-edit-del btn-green waves-effect waves-orange 
-                        uppercase" name="action">
-                        <i class="fas fa-edit right"></i>
-                        Edit
-                    </a>
-                </div>
-                <div class="col s6 center-align">
-                    <a href="#delete-modal"
-                        class="modal-trigger btn z-depth-2 btn-edit-del btn-red waves-effect
-                         waves-orange uppercase"
-                        name="action">
-                        <i class="fas fa-trash-alt right"></i>
-                        Delete
-                    </a>
-                </div>
+            <div class="buttons-container margin-top-small">
+                <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}"
+                    class="btn z-depth-2 btn-edit-del btn-green waves-effect waves-orange 
+                    uppercase" name="action">
+                    <i class="fas fa-edit right"></i>
+                    Edit
+                </a>
+                <a href="#delete-modal"
+                    class="modal-trigger btn z-depth-2 btn-edit-del btn-red waves-effect
+                        waves-orange uppercase"
+                    name="action">
+                    <i class="fas fa-trash-alt right"></i>
+                    Delete
+                </a>
             </div>
             {% endif %}
         </div>
@@ -57,7 +59,7 @@
             <p class="recipe-description-paragraph">
                 {{ selected_recipe.description }}
             </p>
-            <div class="row center-align">
+            <div class="row center-align margin-top-med">
                 <!--Cuisine-->
                 <div class="col s6">
                     <i class="fas fa-globe-europe recipe_icon"></i>
@@ -113,8 +115,8 @@
             <h3 class="tertiary-heading uppercase center-align">Ingredients</h3>
             <ul class="unordered-list list-items">
                 {% for ingredient in selected_recipe.ingredients %}
-                <li>
-                    <i class="fas fa-circle bullet-point-icon"></i>
+                <li class="ingredients-list">
+                    <i class="fas fa-chevron-right ingredient-icon"></i>
                     {{ ingredient }}
                 </li>
                 {% endfor %}
