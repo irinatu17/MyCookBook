@@ -29,7 +29,7 @@
 
   <div class="row center-align margin-bottom-large">
     <!--Change Username -->
-    <div class="col s12 m4">
+    <div class="col s12 offset-m3 m6 offset-xl4 xl4">
         <a href="{{ url_for('change_username', username = session.username) }}"
            class="waves-effect waves-light text-shadow-small btn btn-golden
            uppercase z-depth-3 btn-main btn-form bold">
@@ -38,7 +38,7 @@
     </div>
 
     <!--Change password -->
-    <div class="col s12 m4">
+    <div class="col s12 offset-m3 m6 offset-xl4 xl4">
         <a href="{{ url_for('change_password', username = session.username) }}"
            class="waves-effect waves-yellow text-shadow-small btn btn-green
            uppercase z-depth-3 btn-main btn-form bold">
@@ -47,7 +47,7 @@
     </div>
 
     <!--Delete account -->
-    <div class="col s12 m4">
+    <div class="col s12 offset-m3 m6 offset-xl4 xl4">
         <a href="#delete-modal-account"
           class="modal-trigger waves-effect waves-light text-shadow-small btn
           btn-red uppercase z-depth-3 btn-main btn-form bold">

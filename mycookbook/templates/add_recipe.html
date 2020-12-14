@@ -108,19 +108,19 @@
         </div>
         <!--Button-->
         <div class="row">
-        <div class="col s6 right-align">
-        <a
-            href="{{ url_for('home') }}"
-            class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase"
-            name="action"
-        >
-            Cancel
-        </a>
-        </div>
-        <div class="col s6">
-        {{ form.submit(class="btn z-depth-3 btn-form btn-main uppercase") }}
-        </div>
-        </div>
+            <div class="col s6 right-align">
+            <a
+                href="{{ url_for('home') }}"
+                class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase"
+                name="action"
+            >
+                Cancel
+            </a>
+            </div>
+                <div class="col s6">
+                {{ form.submit(class="btn btn-coral z-depth-3 btn-form btn-main uppercase") }}
+                </div>
+            </div>
         </div>
     </form>
 </section>

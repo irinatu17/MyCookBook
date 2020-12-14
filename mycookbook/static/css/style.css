@@ -413,11 +413,16 @@ nav ul a {
 
 /*/////////////////////////////////////////
 //////////////// LOGIN - REGISTER PAGES ///////////*/
+.log-reg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .login-reg-section {
-    max-width: 30rem;
-    min-width: 250px;
-    margin: auto;
-    margin-top: 4rem;
+    width: 30rem;
+
 }
 
 .logo-login-register {
@@ -428,14 +433,14 @@ nav ul a {
 /*/////////////////////////////////////////
 //////////////// ADD/EDIT PAGE ///////////*/
 .container-addrecipe {
-    padding:1px;
-    border-radius: 20px;
-    margin-bottom: 2rem;
-    width:100%;
+    padding: 1px;
+    border-radius: 2rem;
+    margin-bottom: 2.2rem;
+    width: 99%;
 }
 
 .add-edit-form {
-    padding:0;
+    padding: 0;
 }
 
 .asterisk {
@@ -464,17 +469,20 @@ nav ul a {
 .btn-main,
 .btn-main:link,
 .btn-main:visited{
-    background-color: var(--coral);
-    color: var(--white);
     border-radius: 10rem;
     font-family: var(--secondaryfont);
     padding: .3rem 1.4rem;
     height: auto;
 }
 
-.btn-main:hover,
-.btn-main:active,
-.btn-main:focus {
+.btn-coral {
+    background-color: var(--coral);
+    color: var(--white);
+}
+
+.btn-coral:hover,
+.btn-coral:active,
+.btn-coral:focus {
     background-color: var(--lightcoral);
 }
 
@@ -517,14 +525,14 @@ nav ul a {
     background-color: var(--lighgreen);
 }
 
-.button-coral {
+.btn-coral-2 {
     background-color: var(--coral);
     text-shadow: 0 1px 3px var(--lightblack);
 }
 
-.button-coral:hover,
-.button-coral:active,
-.button-coral:focus {
+.btn-coral-2:hover,
+.btn-coral-2:active,
+.btn-coral-2:focus {
     background-color: var(--lightcoral);
 }
 
@@ -642,6 +650,10 @@ Media Queries are declared in em:
     .container-recipes{
         width: 90%;
     }
+
+    .add-edit-form {
+        padding: 2rem;
+    }
 }
 
 /* Tablet landscape devices from 900px */ 
@@ -706,6 +718,11 @@ Media Queries are declared in em:
     .container-recipes{
         width: 90%;
     }
+
+    .login-reg-section {
+        width: 35rem;
+    }
+
 }
 
 /* Big desktop from 1800px */ 
@@ -747,5 +764,9 @@ Media Queries are declared in em:
 
             .container-recipes{
                 width: 98%;
+            }
+
+            .login-reg-section {
+                width: 40rem;
             }
        }
