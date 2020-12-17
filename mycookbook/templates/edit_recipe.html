@@ -99,9 +99,9 @@
             class="validate materialize-textarea"
             required
         >
-        {% for ingredient in selected_recipe.ingredients -%}
-        {{ ingredient }}
-        {% endfor -%}
+        {%- for ingredient in selected_recipe.ingredients -%}
+        {{ ingredient + "\n" }} 
+        {%- endfor -%}
         </textarea>
         <label for="ingredients">Ingredients (each on a new line) 
         <i class="fas fa-asterisk asterisk"></i></label>
@@ -119,9 +119,9 @@
             class="validate materialize-textarea"
             required
         >
-        {% for direction in selected_recipe.directions -%}
-        {{ direction }}
-        {% endfor -%}
+        {%- for direction in selected_recipe.directions -%}
+        {{ direction + "\n" }} 
+        {%- endfor -%}
         </textarea>
         <label for="directions">Directions (each on a new line) <i class="fas fa-asterisk asterisk"></i></label>
         </div>

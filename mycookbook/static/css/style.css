@@ -599,18 +599,11 @@ nav ul a {
 
 /* 
 Media Queries are declared in em:
-25em = 400px
-31.25em = 500px
 37.5em = 600px
 56.25em = 900px
 75em = 1200px
 112.5em = 1800px
 */ 
-
-/* Mobile devices from 500px */ 
-@media only screen and (min-width: 31.25em) {
-    
-}
 
 /* Tablet portrait devices from 600px */ 
 @media only screen and (min-width: 37.5em) {
@@ -671,6 +664,10 @@ Media Queries are declared in em:
 
     .card-bottom-info {
         font-size: .9rem;
+    }
+
+    .recipe-image {
+        padding: .7rem;
     }
 
 }
