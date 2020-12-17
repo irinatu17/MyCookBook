@@ -38,7 +38,7 @@
                 </p>
             </div>
             {% if session.username == author %}
-            <div class="buttons-container margin-top-small">
+            <div class="buttons-container margin-top-med">
                 <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}"
                     class="btn z-depth-2 btn-edit-del btn-green waves-effect waves-orange 
                     uppercase" name="action">
@@ -55,7 +55,7 @@
             </div>
             {% endif %}
         </div>
-        <div class="col s12 m6 center-align">
+        <div class="col s12 m6 center-align margin-top-small">
             <p class="recipe-description-paragraph">
                 {{ selected_recipe.description }}
             </p>

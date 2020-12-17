@@ -135,7 +135,7 @@ main {
 }
 
 .secondary-heading {
-    font-size: 2.3rem;
+    font-size: 2.4rem;
     letter-spacing: 0.2rem; 
     color: var(--coral);
     font-weight: 600;
@@ -181,7 +181,7 @@ nav img {
 
 nav ul a {
     color: var(--lightblack);
-    padding: 0 20px;
+    padding: 0 2rem;
     font-family: var(--secondaryfont);
     margin-right: 5px;
     font-weight: 400;
@@ -357,6 +357,11 @@ nav ul a {
 
 .paragraph-recipe {
     margin: 0;
+}
+
+.recipe-description-paragraph {
+    font-size: 1.5rem;
+    padding: 1rem;
 }
 
 .recipe_icon {
