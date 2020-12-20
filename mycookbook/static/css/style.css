@@ -323,6 +323,69 @@ nav ul a {
     height: auto !important;
 }
 
+
+/*/////////////////////////////////////////
+//////////////// SEARCH ///////////*/
+.search-container {
+    width: 90%;
+    margin: 2rem auto;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=text]:not(.browser-default),
+.search-input {
+    font-family: inherit;
+    font-size: 1.3rem;
+    color: inherit;
+    background-color: #f7f7f7;
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 10rem;
+    width: 85%;
+    transition: all .2s;
+    margin-right: -3.25rem;
+
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+.search-input:focus{
+    outline: none;
+    width: 87%;
+    background-color: #f7f7f7;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.search-input::-webkit-input-placeholder{
+    font-weight: 100;
+    color: var(--lightgrey);
+}
+
+.search-button {
+    border: none;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+
+.search-button:focus{
+    outline: none; 
+    background-color: #f7f7f7 !important;
+}
+
+.search-button:active{
+    transform: translateY(2px); 
+}
+
+.search-icon {
+    height: 2rem;
+    width: 2rem;
+}
+
 /*/////////////////////////////////////////
 //////////////// MY RECIPIES PAGE ///////////*/
 .paragraph-count {
@@ -668,6 +731,16 @@ Media Queries are declared in em:
 
     .recipe-image {
         padding: .7rem;
+    }
+
+    input[type=text]:not(.browser-default),
+    .search-input {
+        width: 50%;
+    } 
+
+    input[type=text]:not(.browser-default):focus:not([readonly]),
+    .search-input:focus {
+        width: 53%;
     }
 
 }
