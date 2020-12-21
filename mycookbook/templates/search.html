@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<!--Banner Image And Text-->
+<div class="search-img-container">
+    <img src="{{ url_for('static', filename='img/search.jpg') }}" class="img-search" alt="Spices picture">
+    <div>
+        <h1 class="search-img-title uppercasetext-white">Search Recipes</h1>   
+    </div>
+</div>
+
+<!-- <div class="margin-top-large">
+  <h1 class="secondary-heading uppercase center-align margin-bottom-large">
+      <span class="text-black">Search </span>Recipes 
+</h1>
+</div> -->
+
+
+<!--Search-->
+<div class="search-container">
+    <form action="#" class="search">
+      <input type="text" class="search-input" placeholder="Search resipes...">
+      <button class="search-button">
+        <i class="fas fa-search search-icon"></i>
+      </button>
+  </form>
+</div>
+
+<div class="container-recipes">
+  <div class="row">
+    {% for recipe in recipes %} 
+        {% include "partials/recipecards.html" %} 
+    {% endfor %}
+  </div>
+    <!--Pagination-->
+  <ul class="pagination center-align margin-bottom-large">
+    {% for page_num in pages %} 
+        {% if page_num == current_page %}
+        <li class="active"><a>{{ page_num }}</a></li>
+        {% else %}
+        <li class="waves-effect">
+        <a href="{{ url_for('all_recipes', current_page=page_num) }}">{{ page_num }}</a>
+        </li>
+        {% endif %} 
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

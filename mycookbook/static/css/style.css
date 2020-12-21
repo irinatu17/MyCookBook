@@ -386,6 +386,26 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
     width: 2rem;
 }
 
+.search-img-container {
+    position: relative;
+}
+
+.img-search {
+    width: 100%;
+    object-fit: cover;
+}
+
+.search-img-title {
+    background-color: rgba(94, 94, 94, 0.411);
+    color: var(--white);
+    border-radius: .5rem;
+    font-size: 3.3rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: .5rem;
+    left: 1.5rem;
+}
+
 /*/////////////////////////////////////////
 //////////////// MY RECIPIES PAGE ///////////*/
 .paragraph-count {
@@ -695,6 +715,11 @@ Media Queries are declared in em:
     .add-edit-form {
         padding: 2rem;
     }
+
+    .img-search {
+        height: 60vh;
+    }
+    
 }
 
 /* Tablet landscape devices from 900px */ 
