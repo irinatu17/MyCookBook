@@ -23,23 +23,32 @@
 <div class="search-results">
      <!-- Search Results Count -->
      {% if query %}
-     <!-- 0 Results -->
+         <!-- 0 Results -->
          {% if number_of_recipes_found == 0 %}
             <h2 class="sub-heading">Sorry, no results found for <span class="text-red">{{ query }}</span></h2>
             <p>Please, try a more general term, check the spelling or look up a specific ingredient</p>
 
-     <!-- 1 result -->
+          <!-- 1 result -->
          {% elif number_of_recipes_found==1 %}
-     <h2 class="sub-heading">Your search for "<span class="text-red">{{ query }}</span>" produced 
-         <span class="text-red">1</span> search result
-     </h2>
+            <h2 class="sub-heading">Your search for "<span class="text-red">{{ query }}</span>" produced 
+                <span class="text-red">1</span> search result
+            </h2>
 
-     <!-- more than 1 result-->
+           <!-- more than 1 result-->
          {% else %}
-     <h2 class="sub-heading">Your search for "<span class="text-red">{{ query }}</span>" produced 
-         <span class="text-red">{{ number_of_recipes_found }}</span> search results
-     </h2>
+            <h2 class="sub-heading">Your search for "<span class="text-red">{{ query }}</span>" produced 
+                <span class="text-red">{{ number_of_recipes_found }}</span> search results
+            </h2>
          {% endif %} 
+     {% else %}
+     <h2 class="sub-heading">You didn't enter any search key words. Please, try again.</h2>
+     <div class="margin-top-med">
+      <a href="{{ url_for('all_recipes')}}"
+      class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
+      id="btn-home">
+      View all recipes
+    </a>
+     </div>
      {% endif %}
 
 </div>
