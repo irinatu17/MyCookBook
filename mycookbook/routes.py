@@ -524,3 +524,44 @@ def error_500(error):
     '''
     return render_template('errors/500.html', error=True,
                            title="Internal Server Error"), 500
+
+
+@app.route("/search")
+def search():
+    """
+    A function that finds recipes on query
+    The query is the user's input
+    Recipes are a list of user queries
+    Render user's list recipes on search.html
+    """
+
+    limit_per_page = 8
+    current_page = int(request.args.get('current_page', 1))
+
+    query = request.args.get('query')
+
+    #  create the index
+    recipes_coll.create_index( [("$**", 'text')] )
+
+    #  Search results
+    results = \
+        recipes_coll.find({'$text': {'$search': str(query)}},
+                          {'score': {'$meta': 'textScore'}}).sort('_id'
+            , pymongo.ASCENDING).skip((current_page - 1)
+            * limit_per_page).limit(limit_per_page)
+
+    # Pagination
+    number_of_recipes_found = recipes_coll.find({'$text': {'$search': str(query)}}).count()
+    
+    results_pages = range(1, int(math.ceil(number_of_recipes_found / limit_per_page)) + 1)
+    total_pages = int(math.ceil(number_of_recipes_found / limit_per_page))
+
+    return render_template("search.html",
+                            title='Search',
+                            limit_per_page=limit_per_page,
+                            number_of_recipes_found = number_of_recipes_found,
+                            current_page=current_page,
+                            query=query,
+                            results=results,
+                            results_pages=results_pages,
+                            total_pages=total_pages)

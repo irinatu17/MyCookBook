@@ -9,8 +9,8 @@
 
 <!--Search-->
 <div class="search-container">
-    <form action="#" class="search">
-      <input type="text" class="search-input" placeholder="Search resipes...">
+    <form action="{{ url_for('search', query=query, current_page=current_page) }}" class="search">
+      <input type="text" class="search-input" id="query" name="query" placeholder="Search resipes...">
       <button class="search-button">
         <i class="fas fa-search search-icon"></i>
       </button>

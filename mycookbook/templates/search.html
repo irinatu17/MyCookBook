@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 
-<!--Banner Image And Text-->
+<!--Banner Image-->
 <div class="search-img-container">
     <img src="{{ url_for('static', filename='img/search.jpg') }}" class="img-search" alt="Spices picture">
     <div>
@@ -9,37 +9,55 @@
     </div>
 </div>
 
-<!-- <div class="margin-top-large">
-  <h1 class="secondary-heading uppercase center-align margin-bottom-large">
-      <span class="text-black">Search </span>Recipes 
-</h1>
-</div> -->
-
-
-<!--Search-->
+<!--Search form-->
 <div class="search-container">
-    <form action="#" class="search">
-      <input type="text" class="search-input" placeholder="Search resipes...">
+    <form action="{{ url_for('search', query=query, current_page=current_page) }}" class="search">
+      <input type="text" class="search-input" id="query" name="query" placeholder="Search resipes...">
       <button class="search-button">
         <i class="fas fa-search search-icon"></i>
       </button>
   </form>
 </div>
 
+<!--Search results-->
+<div class="search-results">
+     <!-- Search Results Count -->
+     {% if query %}
+     <!-- 0 Results -->
+         {% if number_of_recipes_found == 0 %}
+            <h2 class="sub-heading">Sorry, no results found for <span class="text-red">{{ query }}</span></h2>
+            <p>Please, try a more general term, check the spelling or look up a specific ingredient</p>
+
+     <!-- 1 result -->
+         {% elif number_of_recipes_found==1 %}
+     <h2 class="sub-heading">Your search for "<span class="text-red">{{ query }}</span>" produced 
+         <span class="text-red">1</span> search result
+     </h2>
+
+     <!-- more than 1 result-->
+         {% else %}
+     <h2 class="sub-heading">Your search for "<span class="text-red">{{ query }}</span>" produced 
+         <span class="text-red">{{ number_of_recipes_found }}</span> search results
+     </h2>
+         {% endif %} 
+     {% endif %}
+
+</div>
+
 <div class="container-recipes">
-  <div class="row">
-    {% for recipe in recipes %} 
+  <div class="row margin-top-med">
+    {% for recipe in results %} 
         {% include "partials/recipecards.html" %} 
     {% endfor %}
   </div>
     <!--Pagination-->
   <ul class="pagination center-align margin-bottom-large">
-    {% for page_num in pages %} 
+    {% for page_num in results_pages %} 
         {% if page_num == current_page %}
         <li class="active"><a>{{ page_num }}</a></li>
         {% else %}
         <li class="waves-effect">
-        <a href="{{ url_for('all_recipes', current_page=page_num) }}">{{ page_num }}</a>
+        <a href="{{ url_for('search', query=query, current_page=page_num) }}">{{ page_num }}</a>
         </li>
         {% endif %} 
     {% endfor %}
