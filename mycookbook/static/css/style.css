@@ -337,33 +337,35 @@ nav ul a {
     justify-content: center;
 }
 
-input[type=text]:not(.browser-default),
+/* Overriding the Materialize default styling:
+input[type=text]:not(.browser-default), */
 .search-input {
-    font-family: inherit;
-    font-size: 1.3rem;
-    color: inherit;
-    background-color: #f7f7f7;
-    border: none;
-    padding: .7rem 2rem;
-    border-radius: 10rem;
-    width: 85%;
-    transition: all .2s;
-    margin-right: -3.25rem;
+    font-family: inherit !important;
+    font-size: 1.3rem !important;
+    color: inherit !important;
+    background-color: #f7f7f7 !important;
+    border: none !important;
+    padding: .7rem 2rem !important;
+    border-radius: 10rem !important;
+    width: 85% !important;
+    transition: all .2s !important;
+    margin-right: -3.25rem !important;
 
 }
 
-input[type=text]:not(.browser-default):focus:not([readonly]),
+/* Overriding the Materialize default styling:
+input[type=text]:not(.browser-default):focus:not([readonly]), */
 .search-input:focus{
-    outline: none;
-    width: 87%;
-    background-color: #f7f7f7;
-    border-bottom: none;
-    box-shadow: none;
+    outline: none !important;
+    width: 87% !important;
+    background-color: #f7f7f7 !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
 .search-input::-webkit-input-placeholder{
-    font-weight: 100;
-    color: var(--lightgrey);
+    font-weight: 100 !important;
+    color: var(--lightgrey) !important;
 }
 
 .search-button {
@@ -767,14 +769,12 @@ Media Queries are declared in em:
         padding: .7rem;
     }
 
-    input[type=text]:not(.browser-default),
     .search-input {
-        width: 50%;
+        width: 50% !important;
     } 
 
-    input[type=text]:not(.browser-default):focus:not([readonly]),
     .search-input:focus {
-        width: 53%;
+        width: 53% !important;
     }
 
 }
