@@ -669,7 +669,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]), */
 /*/////////////////////////////////////////
 //////////////// 404 and 500 ERROR PAGES ///////////*/
 .error-heading {
-    font-size: 3.2rem;
     font-weight: 500;
     letter-spacing: 0.3rem; 
     font-family: var(--secondaryfont);
@@ -681,16 +680,17 @@ input[type=text]:not(.browser-default):focus:not([readonly]), */
     font-size: 2rem;
 }
 
-
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 100%;
+    text-align: center;
+}
 
 /*/////////////////////////////////////////
 //////////////// MEDIA QUERIES ///////////*/
-/* 0-600px: Phone
-600-900px: Tablet portrait
-900-1200px: Tablet landscape
-1200-1800px: Desktop
-1800px + : Big desktop */
-
 /* 
 Media Queries are declared in em:
 37.5em = 600px

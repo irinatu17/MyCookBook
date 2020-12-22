@@ -28,6 +28,14 @@
             <h2 class="sub-heading">Sorry, no results found for <span class="text-red">{{ query }}</span></h2>
             <p>Please, try a more general term, check the spelling or look up a specific ingredient</p>
 
+            <div class="margin-top-med">
+                <a href="{{ url_for('all_recipes')}}"
+                    class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
+                    id="btn-home">
+                    Back to all recipes
+                </a>
+            </div>
+
           <!-- 1 result -->
          {% elif number_of_recipes_found==1 %}
             <h2 class="sub-heading">Your search for "<span class="text-red">{{ query }}</span>" produced 
@@ -43,11 +51,11 @@
      {% else %}
      <h2 class="sub-heading">You didn't enter any search key words. Please, try again.</h2>
      <div class="margin-top-med">
-      <a href="{{ url_for('all_recipes')}}"
-      class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
-      id="btn-home">
-      Back to all recipes
-    </a>
+          <a href="{{ url_for('all_recipes')}}"
+          class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
+          id="btn-home">
+          Back to all recipes
+        </a>
      </div>
      {% endif %}
 

@@ -507,7 +507,6 @@ def delete_account(username):
 ERROR HANDLERS
 '''
 
-
 @app.errorhandler(404)
 def error_404(error):
     '''
