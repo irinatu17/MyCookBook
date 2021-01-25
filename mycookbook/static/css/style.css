@@ -507,6 +507,8 @@ input[type=text]:not(.browser-default):focus:not([readonly]), */
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding-bottom: 5rem;
+    padding-top: 4rem;
 }
 
 .login-reg-section {
