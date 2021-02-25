@@ -667,6 +667,17 @@ input[type=text]:not(.browser-default):focus:not([readonly]), */
     font-size: 1rem;
 }
 
+.author-link:link,
+.author-link:visited {
+    color: var(--white);
+    transition: all .2s;
+}
+
+.author-link:hover {
+    color: var(--coral);
+    text-decoration: none;
+}
+
 
 /*/////////////////////////////////////////
 //////////////// 404 and 500 ERROR PAGES ///////////*/
