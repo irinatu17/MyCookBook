@@ -669,12 +669,12 @@ input[type=text]:not(.browser-default):focus:not([readonly]), */
 
 .author-link:link,
 .author-link:visited {
-    color: var(--white);
+    color: var(--lightblack);
     transition: all .2s;
 }
 
 .author-link:hover {
-    color: var(--coral);
+    color: var(--yellow);
     text-decoration: none;
 }
 
